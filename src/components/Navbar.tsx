@@ -16,7 +16,7 @@ const Navbar = () => {
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
 
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className="font-spaceGrotesk">
       <nav className="flex justify-between py-4 items-center relative">
         <Link href="/">
           <Image
