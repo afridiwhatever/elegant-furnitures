@@ -12,11 +12,12 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { Cross } from "lucide-react";
 
 const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -40,14 +41,12 @@ const Navbar = () => {
             />
           </Link>
         </div>
-
         {/* mobile items */}
-
         {isMenuOpen && (
           <div
-            className={`bg-blue-400 h-96 w-48 absolute top-full transition duration-500  ${
-              isMenuOpen ? "translate-x-0 transition duration-500" : ""
-            }`}
+            className={cn(
+              "bg-blue-400 h-screen w-[50%] absolute -top-[5%] transition-all duration-300 animate-in -left-[12%] slide-in-from-left-[100%]"
+            )}
           >
             <ul className="flex flex-col gap-10">
               <li>
@@ -84,13 +83,18 @@ const Navbar = () => {
                   })}
                 />
                 {isProductDropdownOpen && (
-                  <div className="absolute animate-in duration-300 slide-in-from-top-5   w-[80%] h-[400px] bg-green-300 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
+                  <div className="absolute animate-in duration-300 slide-in-from-top-5  w-[80%] h-[400px] bg-green-300 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
                 )}
               </li>
               <li>
                 <Link href="/contact">Contact Us</Link>
               </li>
             </ul>
+
+            <Cross
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-5 right-5 h-7 w-7 border border-zinc-900 rounded-full"
+            />
           </div>
         )}
 
@@ -137,7 +141,6 @@ const Navbar = () => {
             <Link href="/">Contact Us</Link>
           </li>
         </ul>
-
         {/* right side items */}
         <div className="flex gap-4">
           <SearchIcon className="hidden lg:block" />
