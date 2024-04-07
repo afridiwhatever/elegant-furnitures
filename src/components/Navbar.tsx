@@ -6,26 +6,93 @@ import {
   SearchIcon,
   UserIcon,
   ChevronDown,
+  BurgerIcon,
 } from "../../public/icons/Icons";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <MaxWidthWrapper className="font-spaceGrotesk">
       <nav className="flex justify-between py-4 items-center relative">
-        <Link href="/">
-          <Image
-            src="/glaciergear_logo.png"
-            height={40}
-            width={180}
-            alt="logo"
+        <div className="flex items-center">
+          <BurgerIcon
+            className="lg:hidden cursor-pointer"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           />
-        </Link>
+          <Link href="/">
+            <Image
+              src="/glaciergear_logo.png"
+              height={40}
+              width={180}
+              alt="logo"
+            />
+          </Link>
+        </div>
+
+        {/* mobile items */}
+
+        {isMenuOpen && (
+          <div
+            className={`bg-blue-400 h-96 w-48 absolute top-full transition duration-500  ${
+              isMenuOpen ? "translate-x-0 transition duration-500" : ""
+            }`}
+          >
+            <ul className="flex flex-col gap-10">
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li
+                className="flex items-center"
+                onClick={() => {
+                  setIsShopDropdownOpen(!isShopDropdownOpen);
+                  setIsProductDropdownOpen(false);
+                }}
+              >
+                <span>Shop</span>
+                <ChevronDown
+                  className={cn("transition-all duration-300", {
+                    "rotate-180 ": isShopDropdownOpen,
+                  })}
+                />
+                {isShopDropdownOpen && (
+                  <div className="absolute animate-in duration-300 slide-in-from-top-5  w-[80%] h-[400px] bg-blue-300 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
+                )}
+              </li>
+              <li
+                className="flex items-center"
+                onClick={() => {
+                  setIsProductDropdownOpen(!isProductDropdownOpen);
+                  setIsShopDropdownOpen(false);
+                }}
+              >
+                <span>Product</span>
+                <ChevronDown
+                  className={cn("transition-all duration-300", {
+                    "rotate-180 ": isProductDropdownOpen,
+                  })}
+                />
+                {isProductDropdownOpen && (
+                  <div className="absolute animate-in duration-300 slide-in-from-top-5   w-[80%] h-[400px] bg-green-300 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
+                )}
+              </li>
+              <li>
+                <Link href="/contact">Contact Us</Link>
+              </li>
+            </ul>
+          </div>
+        )}
 
         {/* desktop items */}
         <ul className="hidden lg:flex gap-10">
