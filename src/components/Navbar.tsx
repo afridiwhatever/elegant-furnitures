@@ -12,7 +12,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { Cross } from "lucide-react";
+import { X } from "lucide-react";
 
 const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
@@ -65,15 +65,15 @@ const Navbar = () => {
                 </li>
               </ul>
 
-              <Cross
+              <X
                 onClick={() => setIsMenuOpen(false)}
-                className="absolute top-5 right-5 h-7 w-7 border border-zinc-900 rounded-full"
+                className="absolute top-5 right-5 h-6 w-6 border border-zinc-900 rounded-full"
               />
             </div>
           )}
 
           {/* desktop items */}
-          <ul className="hidden lg:flex gap-10">
+          <ul className="hidden lg:flex gap-10 pt-3">
             <li>
               <Link href="/">Home</Link>
             </li>
@@ -117,7 +117,7 @@ const Navbar = () => {
           </ul>
 
           {/* right side items */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 pt-2">
             <SearchIcon className="hidden lg:block" />
             <UserIcon className="hidden lg:block" />
             <ShoppingBagIcon />
