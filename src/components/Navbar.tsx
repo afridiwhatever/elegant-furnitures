@@ -7,6 +7,8 @@ import {
   UserIcon,
   ChevronDown,
   BurgerIcon,
+  TicketIcon,
+  ArrowRight,
 } from "../../public/icons/Icons";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { useEffect, useState } from "react";
@@ -18,6 +20,7 @@ const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDiscountPanelShowing, setIsDiscountPanelShowing] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -25,7 +28,24 @@ const Navbar = () => {
   }, [pathname]);
 
   return (
-    <header className="w-full relative">
+    <header className="w-full relative z-10">
+      {isDiscountPanelShowing && (
+        <div className="w-full h-10 bg-blue-600 flex gap-3 items-center justify-center text-white text-sm">
+          <TicketIcon />
+          <span>30% off storewide — Limited time! </span>
+          <Link className="flex items-center border-b gap-1" href="/shop">
+            Shop now
+            <ArrowRight />
+          </Link>
+          <div className="absolute top-2.5 right-10">
+            <X
+              onClick={() => setIsDiscountPanelShowing(false)}
+              className="h-5 w-5"
+            />
+          </div>
+        </div>
+      )}
+
       <MaxWidthWrapper className="font-spaceGrotesk">
         <nav className="flex justify-between py-4 items-center">
           <div className="flex items-center">
