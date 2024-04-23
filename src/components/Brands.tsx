@@ -1,9 +1,11 @@
 "use client";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Brands = () => {
   const [isOnDesktop, setIsOnDesktop] = useState(false);
+
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
     setIsOnDesktop(mediaQuery.matches);
@@ -23,7 +25,14 @@ const Brands = () => {
   if (isOnDesktop) {
     return (
       <MaxWidthWrapper>
-        <h2 className="text-7xl bg-red-500">Desktop</h2>
+        <h2 className="text-xl">Trending Brands</h2>
+
+        <Image
+          src="/trending_logos/logo 01.png"
+          height={64}
+          width={167}
+          alt="trending_logo"
+        />
       </MaxWidthWrapper>
     );
   } else {
