@@ -6,15 +6,17 @@ const Brands = () => {
   const [isOnDesktop, setIsOnDesktop] = useState(false);
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
-    setIsOnDesktop(true);
+    setIsOnDesktop(mediaQuery.matches);
 
     const handleResize = () => {
+      console.log(mediaQuery.matches);
       setIsOnDesktop(mediaQuery.matches);
     };
 
-    mediaQuery.addListener(handleResize);
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      mediaQuery.removeListener(handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
