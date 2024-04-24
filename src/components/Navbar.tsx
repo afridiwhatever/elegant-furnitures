@@ -11,10 +11,11 @@ import {
   ArrowRight,
 } from "../../public/icons/Icons";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
+import { useOnClickOutside } from "@/hooks/use-on-click-outside";
 
 const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
@@ -23,10 +24,16 @@ const Navbar = () => {
   const [isDiscountPanelShowing, setIsDiscountPanelShowing] = useState(true);
   const pathname = usePathname();
 
+  const navRef = useRef(null);
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
 
+  useOnClickOutside(navRef, () => {
+    setIsProductDropdownOpen(false);
+    setIsShopDropdownOpen(false);
+  });
   return (
     <header className="w-full relative z-10">
       {isDiscountPanelShowing && (
@@ -50,7 +57,7 @@ const Navbar = () => {
       )}
 
       <MaxWidthWrapper className="font-spaceGrotesk">
-        <nav className="flex justify-between py-4 items-center">
+        <nav className="flex justify-between py-4 items-center" ref={navRef}>
           <div className="flex items-center gap-3">
             <BurgerIcon
               className="lg:hidden cursor-pointer -mt-1"
