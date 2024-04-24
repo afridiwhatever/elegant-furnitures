@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const Brands = () => {
-  const [isOnDesktop, setIsOnDesktop] = useState(false);
+  const [isOnDesktop, setIsOnDesktop] = useState<Boolean | null>(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -72,7 +72,7 @@ const Brands = () => {
   } else {
     return (
       <MaxWidthWrapper>
-        <h2 className="text-7xl bg-blue-500">Mobile</h2>
+        <h2 className="text-7xl bg-blue-500 lg:hidden">Mobile</h2>
       </MaxWidthWrapper>
     );
   }

@@ -30,10 +30,13 @@ const Navbar = () => {
   return (
     <header className="w-full relative z-10">
       {isDiscountPanelShowing && (
-        <div className="w-full h-10 bg-blue-600 flex gap-3 items-center justify-center text-white text-sm">
+        <div className="w-full h-10 bg-neutralGray flex gap-3 items-center justify-center  text-sm">
           <TicketIcon />
           <span>30% off storewide — Limited time! </span>
-          <Link className="flex items-center border-b gap-1" href="/shop">
+          <Link
+            className="flex items-center border-b border-customBlue gap-1 text-customBlue"
+            href="/shop"
+          >
             Shop now
             <ArrowRight />
           </Link>
@@ -54,12 +57,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             />
             <Link href="/">
-              <Image
-                src="/glaciergear_logo.png"
-                height={40}
-                width={180}
-                alt="logo"
-              />
+              <Image src="/3legant..png" height={24} width={105} alt="logo" />
             </Link>
           </div>
 
