@@ -51,9 +51,9 @@ const Navbar = () => {
 
       <MaxWidthWrapper className="font-spaceGrotesk">
         <nav className="flex justify-between py-4 items-center">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
             <BurgerIcon
-              className="lg:hidden cursor-pointer"
+              className="lg:hidden cursor-pointer -mt-1"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             />
             <Link href="/">
@@ -61,34 +61,35 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* mobile items */}
-          {isMenuOpen && (
-            <div
-              className={cn(
-                "bg-blue-100 h-screen w-[50%] lg:hidden absolute inset-0 pt-24"
-              )}
-            >
-              <ul className="flex flex-col gap-10 max-w-max mx-auto">
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/">Shop</Link>
-                </li>
-                <li>
-                  <Link href="/">Product</Link>
-                </li>
-                <li>
-                  <Link href="/contact">Contact Us</Link>
-                </li>
-              </ul>
+          {/* mobile menu */}
+          <div
+            className={cn(
+              "bg-zinc-100 h-screen w-[45%] lg:hidden absolute inset-0 pt-24 transition-transform transform duration-300 -translate-x-full",
+              {
+                "translate-x-0": isMenuOpen,
+              }
+            )}
+          >
+            <ul className="flex flex-col gap-10 max-w-max mx-auto">
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/">Shop</Link>
+              </li>
+              <li>
+                <Link href="/">Product</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact Us</Link>
+              </li>
+            </ul>
 
-              <X
-                onClick={() => setIsMenuOpen(false)}
-                className="absolute top-5 right-5 h-6 w-6 border border-zinc-900 rounded-full"
-              />
-            </div>
-          )}
+            <X
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-5 right-5 h-6 w-6 border border-zinc-900 rounded-full"
+            />
+          </div>
 
           {/* desktop items */}
           <ul className="hidden lg:flex gap-10 pt-3">
@@ -109,7 +110,7 @@ const Navbar = () => {
                 })}
               />
               {isShopDropdownOpen && (
-                <div className="absolute animate-in duration-300 slide-in-from-top-5  w-[80%] h-[400px] bg-blue-300 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
+                <div className="absolute animate-in duration-300 slide-in-from-top-5  w-[80%] h-[400px] bg-zinc-100 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
               )}
             </li>
             <li
@@ -126,7 +127,7 @@ const Navbar = () => {
                 })}
               />
               {isProductDropdownOpen && (
-                <div className="absolute animate-in duration-300 slide-in-from-top-5   w-[80%] h-[400px] bg-green-300 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
+                <div className="absolute animate-in duration-300 slide-in-from-top-5   w-[80%] h-[400px] bg-zinc-100 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
               )}
             </li>
             <li>

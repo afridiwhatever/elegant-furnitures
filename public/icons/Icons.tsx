@@ -112,20 +112,32 @@ export const TicketIcon = (props: any) => (
   </svg>
 );
 
-export const ArrowRight = (props: any) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={18}
-    height={18}
-    fill="none"
-    {...props}
-  >
-    <path
-      stroke="#377DFF"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.125}
-      d="M3.75 9h10.5M9.75 13.5l4.5-4.5M9.75 4.5l4.5 4.5"
-    />
-  </svg>
-);
+export const ArrowRight = ({
+  height = 18,
+  width = 18,
+  color,
+  ...props
+}: {
+  height?: number;
+  width?: number;
+  color?: string;
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
+      fill="none"
+      viewBox="0 0 18 18"
+      {...props}
+    >
+      <path
+        stroke={color || "#377DFF"}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.125}
+        d="M3.75 9h10.5M9.75 13.5l4.5-4.5M9.75 4.5l4.5 4.5"
+      />
+    </svg>
+  );
+};
