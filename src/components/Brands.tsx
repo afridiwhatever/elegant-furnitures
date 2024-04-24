@@ -24,15 +24,49 @@ const Brands = () => {
 
   if (isOnDesktop) {
     return (
-      <MaxWidthWrapper>
-        <h2 className="text-xl">Trending Brands</h2>
+      <MaxWidthWrapper className="mt-10">
+        <h2 className="text-xl max-w-max mx-auto mb-4 leading-8 font-semibold">
+          Trending Brands
+        </h2>
 
-        <Image
-          src="/trending_logos/logo 01.png"
-          height={64}
-          width={167}
-          alt="trending_logo"
-        />
+        <div className="flex gap-6">
+          <Image
+            src="/trending_logos/logo 01.png"
+            height={64}
+            width={167}
+            alt="trending_logo"
+          />
+          <Image
+            src="/trending_logos/logo 04.png"
+            height={64}
+            width={167}
+            alt="trending_logo"
+          />
+          <Image
+            src="/trending_logos/logo 01.png"
+            height={64}
+            width={167}
+            alt="trending_logo"
+          />
+          <Image
+            src="/trending_logos/logo 04.png"
+            height={64}
+            width={167}
+            alt="trending_logo"
+          />
+          <Image
+            src="/trending_logos/logo 01.png"
+            height={64}
+            width={167}
+            alt="trending_logo"
+          />
+          <Image
+            src="/trending_logos/logo 04.png"
+            height={64}
+            width={167}
+            alt="trending_logo"
+          />
+        </div>
       </MaxWidthWrapper>
     );
   } else {
