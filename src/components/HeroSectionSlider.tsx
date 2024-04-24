@@ -38,7 +38,7 @@ const HeroSectionSlider = () => {
         <SwiperSlide>
           <div className="relative h-[700px] w-full ">
             <Image
-              src="/slideshow-1.jpg"
+              src="/slideshow-2.jpg"
               alt="slideshow-1"
               fill
               className="object-center lg:object-left-top"
@@ -48,7 +48,7 @@ const HeroSectionSlider = () => {
         <SwiperSlide>
           <div className="relative h-[700px] w-full ">
             <Image
-              src="/slideshow-2.jpg"
+              src="/slideshow-1.jpg"
               alt="slideshow-1"
               fill
               className="object-center lg:object-left-top"

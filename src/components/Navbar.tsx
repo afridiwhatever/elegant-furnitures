@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { useOnClickOutside } from "@/hooks/use-on-click-outside";
+import DiscountPanel from "./DiscountPanel";
 
 const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
@@ -37,23 +38,7 @@ const Navbar = () => {
   return (
     <header className="w-full relative z-10">
       {isDiscountPanelShowing && (
-        <div className="w-full h-10 bg-neutralGray flex gap-3 items-center justify-center  text-sm">
-          <TicketIcon />
-          <span>30% off storewide — Limited time! </span>
-          <Link
-            className="flex items-center border-b border-customBlue gap-1 text-customBlue"
-            href="/shop"
-          >
-            Shop now
-            <ArrowRight />
-          </Link>
-          <div className="absolute top-2.5 right-10">
-            <X
-              onClick={() => setIsDiscountPanelShowing(false)}
-              className="h-5 w-5"
-            />
-          </div>
-        </div>
+        <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
 
       <MaxWidthWrapper className="font-spaceGrotesk">
