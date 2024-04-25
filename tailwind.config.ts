@@ -76,6 +76,7 @@ const config = {
       },
       fontFamily: {
         spaceGrotesk: ["Space Grotesk", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

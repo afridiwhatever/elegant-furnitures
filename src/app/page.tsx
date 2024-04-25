@@ -1,13 +1,14 @@
 import React from "react";
-import Image from "next/image";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import HeroSectionSlider from "@/components/HeroSectionSlider";
+import About from "@/components/About";
 
 const HomePage = () => {
   return (
     <>
       <MaxWidthWrapper>
         <HeroSectionSlider />
+        <About />
       </MaxWidthWrapper>
     </>
   );

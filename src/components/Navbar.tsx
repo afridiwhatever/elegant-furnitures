@@ -42,7 +42,10 @@ const Navbar = () => {
       )}
 
       <MaxWidthWrapper className="font-spaceGrotesk">
-        <nav className="flex justify-between py-4 items-center" ref={navRef}>
+        <nav
+          className="flex justify-between py-4 items-center relative"
+          ref={navRef}
+        >
           <div className="flex items-center gap-3">
             <BurgerIcon
               className="lg:hidden cursor-pointer -mt-1"
@@ -119,7 +122,7 @@ const Navbar = () => {
                 })}
               />
               {isProductDropdownOpen && (
-                <div className="absolute animate-in duration-300 slide-in-from-top-5   w-[80%] h-[400px] bg-zinc-100 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
+                <div className="absolute animate-in duration-300 slide-in-from-top-5  w-[80%] h-[400px] bg-zinc-100 left-[10%] right-[10%] top-[100%] rounded-lg"></div>
               )}
             </li>
             <li>
