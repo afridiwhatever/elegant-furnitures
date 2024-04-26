@@ -61,15 +61,18 @@
   }
 }
 
-.swiper-pagination-bullet-active {
-  background-color: #fff !important;
+@layer components {
+  .livingroom-bg {
+    background-image: url("/categories/livingroom.png");
+  }
+  .bedroom-bg {
+    background-image: url("/categories/bedroom.png");
+  }
+  .kitchen-bg {
+    background-image: url("/categories/kitchen.png");
+  }
 }
 
-@layer components {
-  .custom-bg {
-    /* background-image: url("/categories/bedroom.png"); */
-    background-position: top right;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-  }
+.swiper-pagination-bullet-active {
+  background-color: #fff !important;
 }

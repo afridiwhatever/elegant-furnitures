@@ -1,12 +1,24 @@
-import React from "react";
-import Category from "./Category";
+import CategoryCard from "./CategoryCard";
 
 const Categories = () => {
   return (
-    <div className="bg-blue-300 grid lg:grid-cols-2 lg:grid-rows-2 gap-6 lg:h-[700px]">
-      <Category className="row-span-2" />
-      <Category />
-      <Category />
+    <div className="grid lg:grid-cols-2 lg:grid-rows-2 gap-6 lg:h-[700px] mt-10">
+      <CategoryCard
+        bgImageUrl={"/categories/livingroom.png"}
+        isTall={true}
+        category="Living Room"
+        link="/shop/livingroom"
+      />
+      <CategoryCard
+        bgImageUrl={"/categories/bedroom.png"}
+        category="Bedroom"
+        link="/shop/bedroom"
+      />
+      <CategoryCard
+        bgImageUrl={"/categories/kitchen.png"}
+        category="Kitchen"
+        link="/shop/kitchen"
+      />
     </div>
   );
 };

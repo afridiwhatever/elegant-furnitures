@@ -36,14 +36,14 @@ const Navbar = () => {
     setIsShopDropdownOpen(false);
   });
   return (
-    <header className="w-full relative z-10">
+    <header className="w-full z-10 ">
       {isDiscountPanelShowing && (
         <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
 
       <MaxWidthWrapper className="font-spaceGrotesk">
         <nav
-          className="flex justify-between py-4 items-center relative"
+          className="flex justify-between py-4 items-center relative bg-white"
           ref={navRef}
         >
           <div className="flex items-center gap-3">
