@@ -28,7 +28,7 @@ const CategoryCard = ({
   return (
     <div
       className={cn(
-        "font-poppins p-12 bg-neutralGray bg-no-repeat bg-right",
+        "font-poppins p-12 bg-neutralGray bg-no-repeat bg-right min-h-[290px] lg:min-h-0",
         bgImageClass,
         {
           "row-span-2 bg-center": isTall,
