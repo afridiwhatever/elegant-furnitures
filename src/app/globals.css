@@ -64,3 +64,12 @@
 .swiper-pagination-bullet-active {
   background-color: #fff !important;
 }
+
+@layer components {
+  .custom-bg {
+    /* background-image: url("/categories/bedroom.png"); */
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+  }
+}
