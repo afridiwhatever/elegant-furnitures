@@ -76,3 +76,7 @@
 .swiper-pagination-bullet-active {
   background-color: #fff !important;
 }
+
+body {
+  padding-top: 120px;
+}

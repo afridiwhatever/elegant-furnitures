@@ -34,7 +34,7 @@ const Navbar = () => {
     setIsShopDropdownOpen(false);
   });
   return (
-    <header className="w-full fixed z-10">
+    <header className="w-full fixed top-0 z-10">
       {isDiscountPanelShowing && (
         <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
