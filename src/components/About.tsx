@@ -7,7 +7,7 @@ const About = () => {
         Simply Unique<span className="text-[#6C7275]">/</span>
         <br /> Simply Better.
       </span>
-      <span className="block text-xl lg:max-w-[420px]">
+      <span className="block text-xl lg:max-w-[420px] mt-4 lg:mt-0">
         <b>3legant</b> is a gift & decorations store based in HCMC, Vietnam. Est
         since 2019.
       </span>
