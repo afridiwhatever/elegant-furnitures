@@ -16,7 +16,7 @@ const ShopNowButton = ({
       className={cn(
         `flex items-center border-b gap-1 max-w-max ${
           color
-            ? `border-${color} text-${color}`
+            ? `border-black text-${color}`
             : "border-customBlue text-customBlue"
         }`,
         className

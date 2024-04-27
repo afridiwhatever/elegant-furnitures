@@ -7,8 +7,6 @@ import {
   UserIcon,
   ChevronDown,
   BurgerIcon,
-  TicketIcon,
-  ArrowRight,
 } from "../../public/icons/Icons";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { useEffect, useState, useRef } from "react";
@@ -36,14 +34,14 @@ const Navbar = () => {
     setIsShopDropdownOpen(false);
   });
   return (
-    <header className="w-full z-10 ">
+    <header className="w-full fixed z-10">
       {isDiscountPanelShowing && (
         <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
 
       <MaxWidthWrapper className="font-spaceGrotesk">
         <nav
-          className="flex justify-between py-4 items-center relative bg-white"
+          className="flex justify-between py-4 items-center bg-white"
           ref={navRef}
         >
           <div className="flex items-center gap-3">

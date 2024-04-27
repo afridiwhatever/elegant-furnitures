@@ -36,8 +36,8 @@ const CategoryCard = ({
         }
       )}
     >
-      <h2 className="text-2xl lg:text-4xl font-thin">{category}</h2>
-      <ShopNowButton color="black" to={link} />
+      <h2 className="text-2xl lg:text-4xl font-thin mb-1">{category}</h2>
+      <ShopNowButton color="#000" to={link} />
     </div>
   );
 };
