@@ -1,20 +1,20 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
-import {
-  ShoppingBagIcon,
-  SearchIcon,
-  UserIcon,
-  ChevronDown,
-  BurgerIcon,
-} from "../../public/icons/Icons";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import { useEffect, useState, useRef } from "react";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
-import { X } from "lucide-react";
 import { useOnClickOutside } from "@/hooks/use-on-click-outside";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import {
+  BurgerIcon,
+  ChevronDown,
+  SearchIcon,
+  ShoppingBagIcon,
+  UserIcon,
+} from "../../public/icons/Icons";
 import DiscountPanel from "./DiscountPanel";
+import MaxWidthWrapper from "./MaxWidthWrapper";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
@@ -54,37 +54,8 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* mobile menu */}
-          <div
-            className={cn(
-              "bg-zinc-100 h-screen w-[45%] lg:hidden absolute inset-0 pt-24 transition-transform transform duration-300 -translate-x-full",
-              {
-                "translate-x-0": isMenuOpen,
-              }
-            )}
-          >
-            <ul className="flex flex-col gap-10 max-w-max mx-auto">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/">Shop</Link>
-              </li>
-              <li>
-                <Link href="/">Product</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact Us</Link>
-              </li>
-            </ul>
+          <MobileNav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
-            <X
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-5 right-5 h-6 w-6 border border-zinc-900 rounded-full"
-            />
-          </div>
-
-          {/* desktop items */}
           <ul className="hidden lg:flex gap-10 pt-3">
             <li>
               <Link href="/">Home</Link>
