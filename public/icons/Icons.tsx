@@ -158,3 +158,102 @@ export const HeartIconFilled = (props: any) => (
     <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
   </svg>
 );
+
+export const DeliveryIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={48}
+    height={48}
+    fill="none"
+    {...props}
+  >
+    <path
+      stroke="#141718"
+      strokeWidth={2.5}
+      d="M28 38V14m0 24h4m-4 0H18m10-24a8 8 0 0 0-8-8h-8a8 8 0 0 0-8 8v16a8.003 8.003 0 0 0 6.008 7.75M28 14h6.418a4 4 0 0 1 2.736 1.082l5.582 5.233A4 4 0 0 1 44 23.233V34a4 4 0 0 1-4 4m0 0a4 4 0 0 1-8 0m8 0a4 4 0 0 0-8 0m-14 0a4 4 0 1 1-7.992-.25M18 38a4 4 0 0 0-7.992-.25"
+    />
+    <path
+      stroke="#141718"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2.5}
+      d="M20 16h-4M20 24h-8"
+    />
+  </svg>
+);
+
+export const MoneyIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={48}
+    height={48}
+    fill="none"
+    {...props}
+  >
+    <rect
+      width={40}
+      height={32}
+      x={4}
+      y={8}
+      stroke="#141718"
+      strokeWidth={2.5}
+      rx={4}
+    />
+    <circle
+      cx={4}
+      cy={4}
+      r={4}
+      stroke="#141718"
+      strokeWidth={2.5}
+      transform="matrix(1 0 0 -1 20 28)"
+    />
+    <circle
+      cx={2}
+      cy={2}
+      r={2}
+      fill="#141718"
+      transform="matrix(1 0 0 -1 34 26)"
+    />
+    <circle
+      cx={2}
+      cy={2}
+      r={2}
+      fill="#141718"
+      transform="matrix(1 0 0 -1 10 26)"
+    />
+  </svg>
+);
+
+export const LockIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={48}
+    height={48}
+    fill="none"
+    {...props}
+  >
+    <path
+      stroke="#141718"
+      strokeLinecap="round"
+      strokeWidth={2.5}
+      d="M32 16H16m16 0a8 8 0 0 1 8 8v12a8 8 0 0 1-8 8H16a8 8 0 0 1-8-8V24a8 8 0 0 1 8-8m16 0v-4a8 8 0 1 0-16 0v4m8 16v-4"
+    />
+  </svg>
+);
+
+export const PhoneSupportIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={48}
+    height={48}
+    fill="none"
+    {...props}
+  >
+    <path
+      stroke="#141718"
+      strokeLinejoin="round"
+      strokeWidth={2.5}
+      d="M42 38v-3.292a4 4 0 0 0-2.514-3.714l-4.069-1.627a4 4 0 0 0-5.063 1.925L30 32s-5-1-9-5-5-9-5-9l.708-.354a4 4 0 0 0 1.925-5.063l-1.627-4.069A4 4 0 0 0 13.292 6H10a4 4 0 0 0-4 4c0 17.673 14.327 32 32 32a4 4 0 0 0 4-4Z"
+    />
+  </svg>
+);

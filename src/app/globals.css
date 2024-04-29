@@ -83,7 +83,7 @@ body {
 
 /* Target the container with horizontal scrollbar */
 .overflow-x-auto::-webkit-scrollbar {
-  height: 8px;
+  height: 4px;
 }
 
 /* Track */
