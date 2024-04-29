@@ -12,9 +12,7 @@ const HomePage = () => {
         <HeroSectionSlider />
         <About />
         <Categories />
-        <div className="overflow-x-auto pb-5">
-          <NewArrivals />
-        </div>
+        <NewArrivals />
       </MaxWidthWrapper>
     </>
   );

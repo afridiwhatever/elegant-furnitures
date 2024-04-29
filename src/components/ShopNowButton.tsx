@@ -6,10 +6,12 @@ const ShopNowButton = ({
   color,
   to,
   className,
+  buttonText = "Shop Now",
 }: {
   color?: string;
   to: string;
   className?: string;
+  buttonText?: string;
 }) => {
   return (
     <Link
@@ -23,7 +25,7 @@ const ShopNowButton = ({
       )}
       href={to}
     >
-      Shop now
+      {buttonText}
       <ArrowRight color={color} />
     </Link>
   );
