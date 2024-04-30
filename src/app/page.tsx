@@ -18,8 +18,8 @@ const HomePage = () => {
         <NewArrivals />
         <Features />
       </MaxWidthWrapper>
-      <div className="flex">
-        <div className="h-[530px] w-[50%] relative">
+      <div className="flex  mt-10">
+        <div className="h-[640px] w-[50%] relative">
           <Image src="/sale.jpg" fill alt="sale" />
         </div>
         <div>
