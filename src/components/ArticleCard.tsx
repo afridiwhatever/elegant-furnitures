@@ -12,8 +12,8 @@ const ArticleCard = ({
   imageUrl: string;
 }) => {
   return (
-    <div className="flex-grow bg-red-200">
-      <div className=" relative aspect-square  bg-blue-300">
+    <div className="flex-grow">
+      <div className="relative aspect-square bg-blue-300">
         <Image
           src={imageUrl}
           layout="fill"
@@ -21,7 +21,7 @@ const ArticleCard = ({
           alt="featured-image"
         />
       </div>
-      <div>
+      <div className="w-[300px]">
         <p className="mt-4 mb-2">{title}</p>
         <ShopNowButton
           to={link}

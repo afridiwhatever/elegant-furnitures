@@ -21,11 +21,17 @@ const articles = [
     link: "/blog/decor-your-bedroom",
     imageUrl: "/articles/bedroom-featured-image.jpg",
   },
+  {
+    id: 4,
+    title: "7 ways to decor your home",
+    link: "/blog/ways-to-decor",
+    imageUrl: "/articles/decor-article-featured-image.jpg",
+  },
 ];
 
 const Articles = () => {
   return (
-    <div className="mt-10 lg:mt-20">
+    <div className="mt-10 lg:mt-20 ">
       <div className="flex justify-between items-end">
         <h2 className="font-poppins text-3xl lg:text-5xl">Articles</h2>
         <div className="hidden md:block">
