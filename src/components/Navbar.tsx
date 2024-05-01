@@ -34,16 +34,13 @@ const Navbar = () => {
     setIsShopDropdownOpen(false);
   });
   return (
-    <header className="w-full fixed top-0 z-10">
+    <header className="w-full fixed top-0 z-10 bg-white">
       {isDiscountPanelShowing && (
         <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
 
       <MaxWidthWrapper className="font-spaceGrotesk">
-        <nav
-          className="flex justify-between py-4 items-center bg-white"
-          ref={navRef}
-        >
+        <nav className="flex justify-between py-4 items-center " ref={navRef}>
           <div className="flex items-center gap-3">
             <BurgerIcon
               className="lg:hidden cursor-pointer -mt-1"

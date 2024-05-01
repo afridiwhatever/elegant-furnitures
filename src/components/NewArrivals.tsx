@@ -87,7 +87,7 @@ const NewArrivals = () => {
   ];
 
   return (
-    <div className="mt-12 ">
+    <div className="mt-12">
       <div className="flex justify-between items-end">
         <h2 className="font-poppins text-3xl lg:text-5xl">
           New <br /> Arrivals
