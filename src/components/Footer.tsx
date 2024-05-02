@@ -32,13 +32,19 @@ const Footer = () => {
   return (
     <div className="bg-[#232627] text-[#FEFEFE] font-[200] w-full py-8">
       <MaxWidthWrapper>
-        <div className="border-b border-b-[#6C7275]">
-          <div className="flex flex-col gap-4 items-center">
-            <Image src="/logo-white.png" height={24} width={105} alt="logo" />
-            <div aria-hidden className="w-[24px] h-[2px] bg-[#6C7275]"></div>
-            <p>Gift & Decoration Store</p>
+        <div className="border-b border-b-[#6C7275] lg:flex lg:justify-between lg:py-16">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-center">
+            <Link href={"/"}>
+              <Image src="/logo-white.png" height={24} width={105} alt="logo" />
+            </Link>
+
+            <div
+              aria-hidden
+              className="w-[24px] h-[2px] lg:w-[1px] lg:h-[28px] bg-[#6C7275] "
+            ></div>
+            <p className="lg:-mt-1">Gift & Decoration Store</p>
           </div>
-          <ul className="flex flex-col gap-8 py-10 lg:py-0 items-center">
+          <ul className="flex flex-col lg:flex-row gap-8 py-10 lg:py-0 items-center lg:-mt-1">
             {footerLinks.map(({ page, to }) => {
               return (
                 <li key={to}>
@@ -48,19 +54,27 @@ const Footer = () => {
             })}
           </ul>
         </div>
-        <div className="flex flex-col items-center py-6 gap-8">
-          <div className="flex gap-6">
-            <Instagram className="h-6 w-6" />
-            <Facebook className="h-6 w-6" />
-            <Youtube className="h-6 w-6" />
+        <div className="flex flex-col lg:flex-row items-center py-6 gap-8">
+          <div className="flex gap-6 lg:order-3 lg:ml-auto">
+            <Link href={"https://www.instagram.com"}>
+              <Instagram className="h-6 w-6 " />
+            </Link>
+            <Link href={"https://www.facebook.com"}>
+              <Facebook className="h-6 w-6 " />
+            </Link>
+            <Link href={"https://www.youtube.com"}>
+              <Youtube className="h-6 w-6 " />
+            </Link>
           </div>
-          <div className="font-semibold text-sm">
+          <div className="font-semibold text-sm lg:order-2">
             <Link className="mr-7" href={"/privacy-policy"}>
               Privacy Policy
             </Link>
             <Link href={"/terms-of-use"}>Terms of Use</Link>
           </div>
-          <p>Copyright © 2024 3legant. All rights reserved</p>
+          <p className="lg:order-1">
+            Copyright © 2024 3legant. All rights reserved
+          </p>
         </div>
       </MaxWidthWrapper>
     </div>
