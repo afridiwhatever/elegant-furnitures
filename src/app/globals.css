@@ -71,6 +71,14 @@
   .kitchen-bg {
     background-image: url("/categories/kitchen.png");
   }
+  .newsletter-bg {
+    background: #f3f5f7;
+    background-image: url("/bg/left-bg.png"), url("/bg/right-bg.png");
+    background-repeat: no-repeat;
+    /* background-position: calc(-10vw), calc(90vw); */
+    background-position: left, right;
+    background-size: 30%;
+  }
 }
 
 .swiper-pagination-bullet-active {
