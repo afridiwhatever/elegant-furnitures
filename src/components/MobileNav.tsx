@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { X, Search } from "lucide-react";
@@ -6,6 +6,7 @@ import Image from "next/image";
 import { HeartIcon, ShoppingBagIcon } from "../../public/icons/Icons";
 import { Button } from "./ui/button";
 import { Instagram, Facebook, Youtube } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const MobileNav = ({
   isMenuOpen,
@@ -14,6 +15,7 @@ const MobileNav = ({
   isMenuOpen: boolean;
   setIsMenuOpen: React.Dispatch<boolean>;
 }) => {
+  const [isOpen, setisOpen] = useState(false);
   return (
     <div
       className={cn(
@@ -45,7 +47,39 @@ const MobileNav = ({
             <Link href="/">Home</Link>
           </li>
           <li className="border-b py-4 border-b-[#E8ECEF]">
-            <Link href="/">Shop</Link>
+            <div className="flex justify-between">
+              <Link href={"/shop"}>Shop</Link>
+              <ChevronDown
+                onClick={() => setisOpen(!isOpen)}
+                className={cn("transition-all duration-300", {
+                  "rotate-180 ": false,
+                })}
+              />
+            </div>
+
+            {/* <div
+              className={cn(
+                "w-full h-60 bg-blue-300 transition-all duration-300 opacity-0 invisible  hidden",
+                {
+                  "translate-y-0 visible opacity-100 block": isOpen,
+                },
+                {
+                  "translate-y-[40%]": !isOpen,
+                }
+              )}
+            ></div> */}
+            <div
+              className={cn(
+                "w-full h-60 bg-blue-300 transition-opacity transition-transform duration-400 hidden",
+
+                {
+                  "opacity-100 block translate-y-0": isOpen,
+                  "opacity-0 hidden -translate-y-[2%]": !isOpen,
+                }
+              )}
+            >
+              {/* Dropdown content goes here */}
+            </div>
           </li>
           <li className="border-b py-4 border-b-[#E8ECEF]">
             <Link href="/">Product</Link>
