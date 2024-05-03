@@ -53,7 +53,7 @@ const Navbar = () => {
 
           <MobileNav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
-          <ul className="hidden lg:flex gap-10 pt-3">
+          <ul className="hidden lg:flex gap-10 pt-3 font-bold">
             <li>
               <Link href="/">Home</Link>
             </li>

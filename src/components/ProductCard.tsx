@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart } from "lucide-react";
+import { HeartIcon } from "../../public/icons/Icons";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
@@ -85,11 +85,7 @@ const ProductCard = ({
         onClick={handleAddedToFavorites}
         className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-xl transition-all duration-200 hover:cursor-pointer hover:scale-110 opacity-0 -translate-y-[60%] group-hover:opacity-100 group-hover:translate-y-0"
       >
-        {isFavorite ? (
-          <HeartIconFilled className="h-6 w-6 " />
-        ) : (
-          <Heart className="h-6 w-6 " />
-        )}
+        {isFavorite ? <HeartIconFilled className="h-6 w-6 " /> : <HeartIcon />}
       </div>
     </div>
   );

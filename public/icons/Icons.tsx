@@ -142,6 +142,23 @@ export const ArrowRight = ({
   );
 };
 
+export const HeartIcon = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={25}
+    fill="none"
+    {...props}
+  >
+    <path
+      fill="#141718"
+      fillRule="evenodd"
+      d="M12.692 7.584a1 1 0 0 1-1.384 0l-.693-.665A4.5 4.5 0 0 0 3 10.166c0 2.383 1.29 4.35 3.152 5.967 1.863 1.618 4.091 2.691 5.423 3.239.278.114.572.114.85 0 1.332-.548 3.56-1.62 5.423-3.239C19.71 14.517 21 12.55 21 10.167a4.5 4.5 0 0 0-7.615-3.248l-.693.665ZM12 5.476a6.5 6.5 0 0 0-11 4.69c0 6.369 6.97 9.886 9.814 11.055a3.096 3.096 0 0 0 2.372 0C16.03 20.051 23 16.535 23 10.167a6.5 6.5 0 0 0-11-4.69Z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+
 export const HeartIconFilled = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
