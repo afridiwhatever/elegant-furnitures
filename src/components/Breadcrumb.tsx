@@ -2,18 +2,21 @@ import React from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-const BREADCRUMBS = [
-  { id: 1, name: "Home", href: "/" },
-  { id: 2, name: "Shop", href: "/shop" },
-  { id: 3, name: "Living Room", href: "/shop/living-room" },
-  { id: 4, name: "Product", href: "/product/1117-black-table" },
-];
+interface BreadcrumbElement {
+  name: string;
+  href: string;
+}
 
-const Breadcrumb = () => {
+const Breadcrumb = ({
+  BreadcrumbElements,
+}: {
+  BreadcrumbElements: BreadcrumbElement[];
+}) => {
   return (
     <ol className="flex gap-4 py-4">
-      {BREADCRUMBS.map((item, index) => {
-        const isLastItem = index !== BREADCRUMBS.length - 1 ? false : true;
+      {BreadcrumbElements.map((item, index) => {
+        const isLastItem =
+          index !== BreadcrumbElements.length - 1 ? false : true;
         return (
           <li
             key={item.href}
