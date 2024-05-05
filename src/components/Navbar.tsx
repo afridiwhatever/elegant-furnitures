@@ -57,6 +57,7 @@ const Navbar = () => {
             setIsShopDropdownOpen={setIsShopDropdownOpen}
             isProductDropdownOpen={isProductDropdownOpen}
             setIsProductDropdownOpen={setIsProductDropdownOpen}
+            pathname={pathname}
           />
           <ul className="hidden lg:flex gap-10 pt-3 font-medium">
             <li>
