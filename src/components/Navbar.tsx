@@ -39,7 +39,7 @@ const Navbar = () => {
         <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
 
-      <MaxWidthWrapper className="font-spaceGrotesk">
+      <MaxWidthWrapper className="font-spaceGrotesk ">
         <nav className="flex justify-between py-4 items-center " ref={navRef}>
           <div className="flex items-center gap-3">
             <BurgerIcon
@@ -50,10 +50,15 @@ const Navbar = () => {
               <Image src="/3legant..png" height={24} width={105} alt="logo" />
             </Link>
           </div>
-
-          <MobileNav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-
-          <ul className="hidden lg:flex gap-10 pt-3 font-bold">
+          <MobileNav
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            isShopDropdownOpen={isShopDropdownOpen}
+            setIsShopDropdownOpen={setIsShopDropdownOpen}
+            isProductDropdownOpen={isProductDropdownOpen}
+            setIsProductDropdownOpen={setIsProductDropdownOpen}
+          />
+          <ul className="hidden lg:flex gap-10 pt-3 font-medium">
             <li>
               <Link href="/">Home</Link>
             </li>

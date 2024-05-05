@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -8,18 +10,27 @@ import { Button } from "./ui/button";
 import { Instagram, Facebook, Youtube } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 
+interface MobileNavProps {
+  isMenuOpen: boolean;
+  setIsMenuOpen: React.Dispatch<boolean>;
+  isShopDropdownOpen: boolean;
+  setIsShopDropdownOpen: React.Dispatch<boolean>;
+  isProductDropdownOpen: boolean;
+  setIsProductDropdownOpen: React.Dispatch<boolean>;
+}
+
 const MobileNav = ({
   isMenuOpen,
   setIsMenuOpen,
-}: {
-  isMenuOpen: boolean;
-  setIsMenuOpen: React.Dispatch<boolean>;
-}) => {
-  const [isOpen, setisOpen] = useState(false);
+  isShopDropdownOpen,
+  setIsShopDropdownOpen,
+  isProductDropdownOpen,
+  setIsProductDropdownOpen,
+}: MobileNavProps) => {
   return (
     <div
       className={cn(
-        "bg-white h-screen w-[95%] lg:hidden absolute inset-0 p-8 transition-transform transform duration-300 -translate-x-full flex flex-col justify-between",
+        "bg-white fixed overflow-y-scroll inset-0 min-h-screen w-[90%] lg:hidden top-0 left-0 p-8 transition-transform transform duration-300 -translate-x-full flex flex-col justify-between",
         {
           "translate-x-0": isMenuOpen,
         }
@@ -29,6 +40,7 @@ const MobileNav = ({
       <div className="space-y-6">
         <div className="flex justify-between">
           <Image src={"/3legant..png"} height={24} width={90} alt="logo" />
+          {/* @ts-ignore */}
           <X onClick={() => setIsMenuOpen(false)} className="h-6 w-6 " />
         </div>
         <div className="relative">
@@ -46,43 +58,49 @@ const MobileNav = ({
           <li className="border-b py-4 border-b-[#E8ECEF]">
             <Link href="/">Home</Link>
           </li>
-          <li className="border-b py-4 border-b-[#E8ECEF]">
+          <li className="relative border-b py-4 border-b-[#E8ECEF]">
             <div className="flex justify-between">
               <Link href={"/shop"}>Shop</Link>
               <ChevronDown
-                onClick={() => setisOpen(!isOpen)}
+                onClick={() => setIsShopDropdownOpen(!isShopDropdownOpen)}
                 className={cn("transition-all duration-300", {
-                  "rotate-180 ": false,
+                  "rotate-180 ": isShopDropdownOpen,
                 })}
               />
             </div>
 
-            {/* <div
-              className={cn(
-                "w-full h-60 bg-blue-300 transition-all duration-300 opacity-0 invisible  hidden",
-                {
-                  "translate-y-0 visible opacity-100 block": isOpen,
-                },
-                {
-                  "translate-y-[40%]": !isOpen,
-                }
-              )}
-            ></div> */}
             <div
               className={cn(
-                "w-full h-60 bg-blue-300 transition-opacity transition-transform duration-400 hidden",
-
+                "w-full h-60 transition-all duration-300 max-h-0 overflow-hidden",
                 {
-                  "opacity-100 block translate-y-0": isOpen,
-                  "opacity-0 hidden -translate-y-[2%]": !isOpen,
+                  "max-h-[250px]": isShopDropdownOpen,
                 }
               )}
             >
-              {/* Dropdown content goes here */}
+              <div className="h-full w-full border border-black"></div>
             </div>
           </li>
-          <li className="border-b py-4 border-b-[#E8ECEF]">
-            <Link href="/">Product</Link>
+          <li className="relative border-b py-4 border-b-[#E8ECEF]">
+            <div className="flex justify-between">
+              <Link href={"/products"}>Product</Link>
+              <ChevronDown
+                onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
+                className={cn("transition-all duration-300", {
+                  "rotate-180 ": isProductDropdownOpen,
+                })}
+              />
+            </div>
+
+            <div
+              className={cn(
+                "w-full h-60 transition-all duration-300 max-h-0 overflow-hidden",
+                {
+                  "max-h-[280px]": isProductDropdownOpen,
+                }
+              )}
+            >
+              <div className="h-full w-full border border-black"></div>
+            </div>
           </li>
           <li className="border-b py-4 border-b-[#E8ECEF]">
             <Link href="/contact">Contact Us</Link>

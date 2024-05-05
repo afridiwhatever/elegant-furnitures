@@ -10,6 +10,7 @@ import ShopNowButton from "@/components/ShopNowButton";
 import Image from "next/image";
 import { MailIcon } from "../../public/icons/Icons";
 import Footer from "@/components/Footer";
+import MobileNav from "@/components/MobileNav";
 
 const HomePage = () => {
   return (
@@ -69,7 +70,6 @@ const HomePage = () => {
         <div className="hidden lg:block absolute -left-[12%] -top-5 bottom-0 bg-[url('/bg/left-bg.png')] w-[25%] bg-center scale-110"></div>
         <div className="hidden lg:block absolute -right-[12%] -top-5 bottom-0 bg-[url('/bg/right-bg.png')] w-[25%] bg-left bg-cover scale-125"></div>
       </div>
-
       <Footer />
     </>
   );
