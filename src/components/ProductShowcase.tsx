@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Navigation, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProductShowcase = ({
   productImages,
@@ -17,7 +17,18 @@ const ProductShowcase = ({
     image4: string;
   };
 }) => {
+  const swiperRef = useRef<any>(null);
+
   const [activeImage, setActiveImage] = useState(productImages.image1);
+
+  const handleImageClick = (imageUrl: string) => {
+    const index = Object.values(productImages).indexOf(imageUrl);
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideTo(index);
+    }
+    setActiveImage(imageUrl);
+  };
+
   return (
     <div className="flex gap-12 h-[680px]">
       {/* left side - images */}
@@ -29,7 +40,7 @@ const ProductShowcase = ({
               <div
                 key={imageName}
                 className="h-[155px] w-[155px] relative"
-                onClick={() => setActiveImage(imageUrl)}
+                onClick={() => handleImageClick(imageUrl)}
               >
                 <Image
                   src={imageUrl}
@@ -45,18 +56,31 @@ const ProductShowcase = ({
         </div>
         <div className="w-[80%]">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={50}
             slidesPerView={1}
-            onSlideChange={() => console.log("slide change")}
+            onSlideChange={(swiper) => {
+              const imageUrl = Object.values(productImages)[swiper.activeIndex];
+              setActiveImage(imageUrl);
+            }}
             onSwiper={(swiper) => console.log(swiper)}
             navigation
+            autoplay={{
+              delay: 5000,
+              pauseOnMouseEnter: true,
+            }}
             className="h-full w-full"
+            ref={swiperRef}
           >
             {Object.entries(productImages).map(([imageName, imageUrl]) => {
               return (
                 <SwiperSlide key={imageUrl} className="h-full w-full relative">
-                  <Image src={imageUrl} fill alt={imageName} />
+                  <Image
+                    src={imageUrl}
+                    fill
+                    alt={imageName}
+                    className="bg-neutralGray"
+                  />
                 </SwiperSlide>
               );
             })}
