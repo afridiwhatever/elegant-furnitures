@@ -39,10 +39,10 @@ const ProductPage = () => {
       <MaxWidthWrapper>
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
         <div className="flex gap-12 h-[675px]">
-          <div className="w-[55%] flex">
+          <div className="w-[50%] flex">
             <ProductShowcase productImages={productImages} />
           </div>
-          <div className="w-[45%]">
+          <div className="w-[50%]">
             <div className="space-y-4">
               <div className="flex gap-3 items-center">
                 <ProductRating />

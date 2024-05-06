@@ -44,7 +44,7 @@ const ProductShowcase = ({
 
   return (
     <>
-      <div className="h-full w-[20%] flex flex-col gap-4">
+      <div className="h-full w-[20%] flex flex-col gap-4 mr-auto ">
         {Object.entries(productImages).map(([imageName, imageUrl]) => {
           const isActive = activeImage === imageUrl;
           return (
@@ -65,7 +65,7 @@ const ProductShowcase = ({
           );
         })}
       </div>
-      <div className="w-[80%]">
+      <div className="w-[78%]">
         <Swiper
           modules={[Navigation]}
           spaceBetween={50}
