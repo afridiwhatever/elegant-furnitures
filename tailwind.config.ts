@@ -55,6 +55,7 @@ const config = {
         },
         neutralGray: "#F3F5F7",
         customBlue: "#377DFF",
+        blackishGray: "#6C7275",
       },
       borderRadius: {
         lg: "var(--radius)",

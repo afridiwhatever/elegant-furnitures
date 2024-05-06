@@ -15,6 +15,7 @@
     "lucide-react": "^0.364.0",
     "next": "14.1.4",
     "react": "^18",
+    "react-countdown": "^2.3.5",
     "react-dom": "^18",
     "react-rating-stars-component": "^2.2.0",
     "react-stars": "^2.2.5",
