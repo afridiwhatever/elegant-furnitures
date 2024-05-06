@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 const ProductShowcase = ({
   productImages,
@@ -18,6 +18,7 @@ const ProductShowcase = ({
   };
 }) => {
   const swiperRef = useRef<any>(null);
+  const swiper = useSwiper();
 
   const [activeImage, setActiveImage] = useState(productImages.image1);
 
@@ -27,6 +28,18 @@ const ProductShowcase = ({
       swiperRef.current.swiper.slideTo(index);
     }
     setActiveImage(imageUrl);
+  };
+
+  const handlePrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
   };
 
   return (
@@ -56,7 +69,7 @@ const ProductShowcase = ({
         </div>
         <div className="w-[80%]">
           <Swiper
-            modules={[Navigation, Autoplay]}
+            modules={[Navigation]}
             spaceBetween={50}
             slidesPerView={1}
             onSlideChange={(swiper) => {
@@ -68,8 +81,9 @@ const ProductShowcase = ({
             autoplay={{
               delay: 5000,
               pauseOnMouseEnter: true,
+              disableOnInteraction: true,
             }}
-            className="h-full w-full"
+            className="h-full w-full relative"
             ref={swiperRef}
           >
             {Object.entries(productImages).map(([imageName, imageUrl]) => {
@@ -84,6 +98,15 @@ const ProductShowcase = ({
                 </SwiperSlide>
               );
             })}
+            <button
+              onClick={handleNext}
+              className="absolute top-0 z-10 right-0"
+            >
+              Next
+            </button>
+            <button onClick={handlePrev} className="absolute top-0 z-10 left-0">
+              Back
+            </button>
           </Swiper>
         </div>
       </div>
