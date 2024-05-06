@@ -1,8 +1,9 @@
-import React from "react";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Breadcrumb from "@/components/Breadcrumb";
-import { convertToSlug } from "@/lib/utils";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import ProductRating from "@/components/ProductRating";
 import ProductShowcase from "@/components/ProductShowcase";
+import SaleCountdown from "@/components/SaleCountdown";
+import { convertToSlug } from "@/lib/utils";
 
 const product = {
   id: 1117,
@@ -37,7 +38,35 @@ const ProductPage = () => {
       ></div>
       <MaxWidthWrapper>
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
-        <ProductShowcase productImages={productImages} />
+        <div className="flex gap-12 h-[675px]">
+          <div className="w-[55%] flex">
+            <ProductShowcase productImages={productImages} />
+          </div>
+          <div className="w-[45%]">
+            <div className="space-y-4">
+              <div className="flex gap-3 items-center">
+                <ProductRating />
+                <p>11 Reviews</p>
+              </div>
+              <h1 className="font-poppins text-5xl">Tray Table</h1>
+              <p className="text-lg text-blackishGray font-[400]">
+                Buy one or buy a few and make every space where you sit more
+                convenient. Light and easy to move around with removable tray
+                top, handy for serving snacks.
+              </p>
+              <p className="font-poppins text-3xl">
+                $199.00{" "}
+                <span className="text-xl line-through text-blackishGray">
+                  $400.00
+                </span>
+              </p>
+            </div>
+            <div className="border-y border-[#E8ECEF] py-6 my-6">
+              <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
+              <SaleCountdown />
+            </div>
+          </div>
+        </div>
       </MaxWidthWrapper>
     </>
   );
