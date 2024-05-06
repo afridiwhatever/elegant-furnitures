@@ -12,9 +12,9 @@ const ProductShowcase = ({
 }: {
   productImages: {
     image1: string;
-    image2: string;
-    image3: string;
-    image4: string;
+    image2?: string;
+    image3?: string;
+    image4?: string;
   };
 }) => {
   const swiperRef = useRef<any>(null);
@@ -43,10 +43,10 @@ const ProductShowcase = ({
   };
 
   return (
-    <div className="flex gap-12 h-[680px]">
+    <div className="flex gap-12 h-[670px]">
       {/* left side - images */}
       <div className="w-[55%] flex">
-        <div className="h-full w-[20%] flex flex-col justify-between">
+        <div className="h-full w-[20%] flex flex-col gap-4">
           {Object.entries(productImages).map(([imageName, imageUrl]) => {
             const isActive = activeImage === imageUrl;
             return (

@@ -13,12 +13,12 @@ const ArticleCard = ({
 }) => {
   return (
     <div className="flex-grow">
-      <div className="relative aspect-square bg-blue-300">
+      <div className="relative aspect-square ">
         <Image
           src={imageUrl}
-          layout="fill"
-          objectFit="cover"
+          fill
           alt="featured-image"
+          className="object-cover"
         />
       </div>
       <div className="w-[300px]">
