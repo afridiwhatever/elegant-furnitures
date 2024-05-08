@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SaleCountdown from "./SaleCountdown";
 // @ts-ignore
 
 const ProductShowcase = ({

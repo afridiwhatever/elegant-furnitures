@@ -7,9 +7,16 @@ import { convertToSlug } from "@/lib/utils";
 
 const product = {
   id: 1117,
-  name: "Black table",
+  name: "Tray Table",
   category: "Living Room",
   price: 400,
+  stock: [
+    {
+      color: "Black",
+      unitAvailable: 5,
+      previewImageUrl: "",
+    },
+  ],
 };
 
 const productImages = {
@@ -48,7 +55,7 @@ const ProductPage = () => {
                 <ProductRating />
                 <p>11 Reviews</p>
               </div>
-              <h1 className="font-poppins text-5xl">Tray Table</h1>
+              <h1 className="font-poppins text-5xl">{product.name}</h1>
               <p className="text-lg text-blackishGray font-[400]">
                 Buy one or buy a few and make every space where you sit more
                 convenient. Light and easy to move around with removable tray
@@ -64,6 +71,12 @@ const ProductPage = () => {
             <div className="border-y border-[#E8ECEF] py-6 my-6">
               <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
               <SaleCountdown />
+            </div>
+            <div className="space-y-2">
+              <h4 className="font-semibold text-lg text-blackishGray">
+                Measurements
+              </h4>
+              <p className="text-xl font-[400]">17 1/2x20 5/8 &apos;&apos;</p>
             </div>
           </div>
         </div>

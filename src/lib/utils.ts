@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function convertToSlug(text: string) {
   return text.toLowerCase().replace(/\s+/g, "-");
 }
+
+const saleEndDate = new Date();
+saleEndDate.setDate(new Date().getDate() + 9);
+export const finalDate = saleEndDate.toISOString();

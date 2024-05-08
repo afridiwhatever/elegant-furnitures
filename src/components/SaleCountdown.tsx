@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
+import { finalDate } from "@/lib/utils";
 
 const renderer = ({ days, hours, minutes, seconds }: any) => {
   return (
@@ -28,11 +29,9 @@ const renderer = ({ days, hours, minutes, seconds }: any) => {
 };
 
 const SaleCountdown = () => {
-  const saleEndDate = new Date();
-  saleEndDate.setDate(new Date().getDate() + 9);
   return (
     <>
-      <Countdown date={saleEndDate} renderer={renderer} />
+      <Countdown date={new Date(finalDate)} renderer={renderer} />
     </>
   );
 };
