@@ -14,16 +14,25 @@ const product = {
     {
       color: "Black",
       unitAvailable: 5,
-      previewImageUrl: "",
+      previewImageUrl: "/products/black-tray-table/colors/black.jpg",
+    },
+    {
+      color: "Beige",
+      unitAvailable: 5,
+      previewImageUrl: "/products/black-tray-table/colors/beige.jpg",
+    },
+    {
+      color: "Red",
+      unitAvailable: 5,
+      previewImageUrl: "/products/black-tray-table/colors/red.jpg",
     },
   ],
-};
-
-const productImages = {
-  image1: "/products/black-tray-table/black-tray-table.png",
-  image2: "/products/black-tray-table/black-tray-table-2.jpg",
-  image3: "/products/black-tray-table/black-tray-table-3.jpg",
-  image4: "/products/black-tray-table/black-tray-table-4.jpg",
+  showcaseImages: {
+    image1: "/products/black-tray-table/black-tray-table.png",
+    image2: "/products/black-tray-table/black-tray-table-2.jpg",
+    image3: "/products/black-tray-table/black-tray-table-3.jpg",
+    image4: "/products/black-tray-table/black-tray-table-4.jpg",
+  },
 };
 
 const BreadcrumbElements = [
@@ -45,44 +54,24 @@ const ProductPage = () => {
       ></div>
       <MaxWidthWrapper>
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
-        <div className="flex gap-12 h-[675px]">
-          <div className="w-[50%] flex">
-            <ProductShowcase productImages={productImages} />
-          </div>
-          <div className="w-[50%]">
-            <div className="space-y-4">
-              <div className="flex gap-3 items-center">
-                <ProductRating />
-                <p>11 Reviews</p>
-              </div>
-              <h1 className="font-poppins text-5xl">{product.name}</h1>
-              <p className="text-lg text-blackishGray font-[400]">
-                Buy one or buy a few and make every space where you sit more
-                convenient. Light and easy to move around with removable tray
-                top, handy for serving snacks.
-              </p>
-              <p className="font-poppins text-3xl">
-                $199.00{" "}
-                <span className="text-xl line-through text-blackishGray">
-                  $400.00
-                </span>
-              </p>
-            </div>
-            <div className="border-y border-[#E8ECEF] py-6 my-6">
-              <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
-              <SaleCountdown />
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-semibold text-lg text-blackishGray">
-                Measurements
-              </h4>
-              <p className="text-xl font-[400]">17 1/2x20 5/8 &apos;&apos;</p>
-            </div>
-          </div>
-        </div>
+        <ProductShowcase
+          productImages={product.showcaseImages}
+          stock={product.stock}
+        />
       </MaxWidthWrapper>
     </>
   );
 };
 
 export default ProductPage;
+
+{
+  /* <div className="flex gap-12 h-[675px]">
+          <div className="w-[50%] flex">
+    
+          </div>
+          <div className="w-[50%]">
+
+          </div>
+        </div> */
+}

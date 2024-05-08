@@ -98,7 +98,7 @@ const Navbar = () => {
               )}
             </li>
             <li>
-              <Link href="/">Contact Us</Link>
+              <Link href="/product/1117-tray-top-table">Contact Us</Link>
             </li>
           </ul>
 

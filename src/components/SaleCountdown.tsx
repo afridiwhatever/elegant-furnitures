@@ -29,9 +29,11 @@ const renderer = ({ days, hours, minutes, seconds }: any) => {
 };
 
 const SaleCountdown = () => {
+  // const saleEndDate = new Date();
+  // saleEndDate.setDate(new Date().getDate() + 1);
   return (
     <>
-      <Countdown date={new Date(finalDate)} renderer={renderer} />
+      <Countdown date={finalDate} renderer={renderer} />
     </>
   );
 };
