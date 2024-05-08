@@ -55,7 +55,7 @@ const ProductPage = () => {
       <MaxWidthWrapper>
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
         <ProductShowcase
-          productImages={product.showcaseImages}
+          productImg={product.showcaseImages}
           stock={product.stock}
         />
       </MaxWidthWrapper>

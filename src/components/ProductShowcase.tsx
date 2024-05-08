@@ -11,10 +11,10 @@ import ProductRating from "./ProductRating";
 import { ChevronRight } from "lucide-react";
 
 const ProductShowcase = ({
-  productImages,
+  productImg,
   stock,
 }: {
-  productImages: {
+  productImg: {
     image1: string;
     image2?: string;
     image3?: string;
@@ -24,14 +24,36 @@ const ProductShowcase = ({
 }) => {
   const swiperRef = useRef<any>(null);
 
-  const [activeImage, setActiveImage] = useState(productImages.image1);
+  const [selectedColor, setSelectedColor] = useState("Black");
+  const [productImages, setProductImage] = useState(productImg);
+  const [activeImage, setActiveImage] = useState(productImg.image1);
 
   const handleImageClick = (imageUrl: string) => {
     const index = Object.values(productImages).indexOf(imageUrl);
+    console.log(index);
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(index);
     }
     setActiveImage(imageUrl);
+  };
+
+  const productImagesForPreview = { ...productImg };
+
+  const handleColorImageClick = (color, previewImageUrl) => {
+    setSelectedColor(color);
+    setProductImage((prev) => {
+      return {
+        ...prev,
+        image5: previewImageUrl,
+      };
+    });
+    setTimeout(() => {
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slideTo(
+          swiperRef.current.swiper.slides.length - 1
+        );
+      }
+    }, 20);
   };
 
   const handlePrev = () => {
@@ -50,25 +72,27 @@ const ProductShowcase = ({
     <div className="flex gap-12 h-[675px]">
       <div className="w-[50%] flex">
         <div className="h-full w-[20%] flex flex-col gap-4 mr-auto ">
-          {Object.entries(productImages).map(([imageName, imageUrl]) => {
-            const isActive = activeImage === imageUrl;
-            return (
-              <div
-                key={imageName}
-                className="h-[155px] w-[155px] relative"
-                onClick={() => handleImageClick(imageUrl)}
-              >
-                <Image
-                  src={imageUrl}
-                  fill
-                  alt="product image 1"
-                  className={`bg-neutralGray hover:cursor-pointer ${
-                    isActive ? "border border-black" : null
-                  }`}
-                />
-              </div>
-            );
-          })}
+          {Object.entries(productImagesForPreview).map(
+            ([imageName, imageUrl]) => {
+              const isActive = activeImage === imageUrl;
+              return (
+                <div
+                  key={imageName}
+                  className="h-[155px] w-[155px] relative"
+                  onClick={() => handleImageClick(imageUrl)}
+                >
+                  <Image
+                    src={imageUrl}
+                    fill
+                    alt="product image 1"
+                    className={`bg-neutralGray hover:cursor-pointer ${
+                      isActive ? "border border-black" : null
+                    }`}
+                  />
+                </div>
+              );
+            }
+          )}
         </div>
         <div className="w-[78%]">
           <Swiper
@@ -150,19 +174,29 @@ const ProductShowcase = ({
             {
               // @ts-ignore
               stock.map(({ color, unitAvailable, previewImageUrl }) => {
+                const isSelected = selectedColor === color;
                 return (
                   <div className="max-w-max space-y-4" key={color}>
-                    <p className="text-xl font-[400] max-w-max mx-auto">
+                    <p
+                      className={`text-xl font-[400] max-w-max mx-auto ${
+                        isSelected ? "" : "invisible"
+                      }`}
+                    >
                       {color}
                     </p>
                     <div className="h-[96px] w-[96px] relative">
                       <Image
+                        onClick={() => {
+                          handleColorImageClick(color, previewImageUrl);
+                        }}
                         src={previewImageUrl}
                         fill
                         alt="color-black"
-                        className={`object-contain border ${
+                        className={`object-contain border  hover:cursor-pointer ${
                           unitAvailable > 0 ? "" : "opacity-30"
-                        }`}
+                        }
+                        ${isSelected ? "border-black" : ""}
+                        `}
                       />
                     </div>
                   </div>
