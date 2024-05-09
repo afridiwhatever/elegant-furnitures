@@ -10,42 +10,42 @@ import SaleCountdown from "./SaleCountdown";
 import ProductRating from "./ProductRating";
 import { ChevronRight } from "lucide-react";
 
-const ProductShowcase = ({
-  productImg,
-  stock,
-}: {
-  productImg: {
-    image1: string;
-    image2?: string;
-    image3?: string;
-    image4?: string;
-  };
-  stock: any;
-}) => {
+interface ProductShowcaseProps {
+  images: string[];
+  colorVariants: {
+    color: string;
+    unitAvailable: number;
+    previewImageUrl: string;
+  }[];
+}
+
+const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
   const swiperRef = useRef<any>(null);
+  const [selectedColor, setSelectedColor] = useState(colorVariants[0].color);
+  const [productImages, setProductImages] = useState(images);
 
-  const [selectedColor, setSelectedColor] = useState("Black");
-  const [productImages, setProductImage] = useState(productImg);
-  const [activeImage, setActiveImage] = useState(productImg.image1);
+  // dont want this to change because the side preview of images should be the same (4 images) and not include the preview of color varints
+  const productImagesForPreview = [...images];
+  const [activeImage, setActiveImage] = useState(images[0]);
 
-  const handleImageClick = (imageUrl: string) => {
-    const index = Object.values(productImages).indexOf(imageUrl);
-    console.log(index);
+  const handlePreviewImageClick = (imageUrl: string) => {
+    const index = productImages.indexOf(imageUrl);
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(index);
     }
     setActiveImage(imageUrl);
   };
 
-  const productImagesForPreview = { ...productImg };
-
-  const handleColorImageClick = (color, previewImageUrl) => {
+  const handleColorPickerImageClick = (
+    color: string,
+    previewImageUrl: string
+  ) => {
     setSelectedColor(color);
-    setProductImage((prev) => {
-      return {
-        ...prev,
-        image5: previewImageUrl,
-      };
+    setProductImages((prev) => {
+      if (prev.length > productImagesForPreview.length) {
+        prev.splice(-1, 1);
+      }
+      return [...prev, previewImageUrl];
     });
     setTimeout(() => {
       if (swiperRef.current && swiperRef.current.swiper) {
@@ -72,27 +72,25 @@ const ProductShowcase = ({
     <div className="flex gap-12 h-[675px]">
       <div className="w-[50%] flex">
         <div className="h-full w-[20%] flex flex-col gap-4 mr-auto ">
-          {Object.entries(productImagesForPreview).map(
-            ([imageName, imageUrl]) => {
-              const isActive = activeImage === imageUrl;
-              return (
-                <div
-                  key={imageName}
-                  className="h-[155px] w-[155px] relative"
-                  onClick={() => handleImageClick(imageUrl)}
-                >
-                  <Image
-                    src={imageUrl}
-                    fill
-                    alt="product image 1"
-                    className={`bg-neutralGray hover:cursor-pointer ${
-                      isActive ? "border border-black" : null
-                    }`}
-                  />
-                </div>
-              );
-            }
-          )}
+          {productImagesForPreview.map((imageUrl) => {
+            const isActive = activeImage === imageUrl;
+            return (
+              <div
+                key={imageUrl}
+                className="h-[155px] w-[155px] relative"
+                onClick={() => handlePreviewImageClick(imageUrl)}
+              >
+                <Image
+                  src={imageUrl}
+                  fill
+                  alt="product image 1"
+                  className={`bg-neutralGray hover:cursor-pointer ${
+                    isActive ? "border border-black" : null
+                  }`}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="w-[78%]">
           <Swiper
@@ -100,10 +98,9 @@ const ProductShowcase = ({
             spaceBetween={50}
             slidesPerView={1}
             onSlideChange={(swiper) => {
-              const imageUrl = Object.values(productImages)[swiper.activeIndex];
+              const imageUrl = productImages[swiper.activeIndex];
               setActiveImage(imageUrl);
             }}
-            onSwiper={(swiper) => console.log(swiper)}
             navigation
             autoplay={{
               delay: 5000,
@@ -113,13 +110,13 @@ const ProductShowcase = ({
             className="h-full w-full relative"
             ref={swiperRef}
           >
-            {Object.entries(productImages).map(([imageName, imageUrl]) => {
+            {productImages.map((imageUrl) => {
               return (
                 <SwiperSlide key={imageUrl} className="h-full w-full relative">
                   <Image
                     src={imageUrl}
                     fill
-                    alt={imageName}
+                    alt="preview-image"
                     className="bg-neutralGray"
                   />
                 </SwiperSlide>
@@ -171,38 +168,35 @@ const ProductShowcase = ({
             <ChevronRight className="h-5 w-5" />
           </div>
           <div className="flex gap-4">
-            {
-              // @ts-ignore
-              stock.map(({ color, unitAvailable, previewImageUrl }) => {
-                const isSelected = selectedColor === color;
-                return (
-                  <div className="max-w-max space-y-4" key={color}>
-                    <p
-                      className={`text-xl font-[400] max-w-max mx-auto ${
-                        isSelected ? "" : "invisible"
-                      }`}
-                    >
-                      {color}
-                    </p>
-                    <div className="h-[96px] w-[96px] relative">
-                      <Image
-                        onClick={() => {
-                          handleColorImageClick(color, previewImageUrl);
-                        }}
-                        src={previewImageUrl}
-                        fill
-                        alt="color-black"
-                        className={`object-contain border  hover:cursor-pointer ${
-                          unitAvailable > 0 ? "" : "opacity-30"
-                        }
+            {colorVariants.map(({ color, unitAvailable, previewImageUrl }) => {
+              const isSelected = selectedColor === color;
+              return (
+                <div className="max-w-max space-y-4" key={color}>
+                  <p
+                    className={`text-xl font-[400] max-w-max mx-auto ${
+                      isSelected ? "" : "invisible"
+                    }`}
+                  >
+                    {color}
+                  </p>
+                  <div className="h-[96px] w-[96px] relative">
+                    <Image
+                      onClick={() => {
+                        handleColorPickerImageClick(color, previewImageUrl);
+                      }}
+                      src={previewImageUrl}
+                      fill
+                      alt="color-black"
+                      className={`object-contain border  hover:cursor-pointer ${
+                        unitAvailable > 0 ? "" : "opacity-30"
+                      }
                         ${isSelected ? "border-black" : ""}
                         `}
-                      />
-                    </div>
+                    />
                   </div>
-                );
-              })
-            }
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

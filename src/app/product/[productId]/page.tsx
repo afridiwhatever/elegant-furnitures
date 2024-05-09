@@ -9,8 +9,9 @@ const product = {
   id: 1117,
   name: "Tray Table",
   category: "Living Room",
-  price: 400,
-  stock: [
+  originalPrice: 400,
+  discountedPrice: 199,
+  colorVariants: [
     {
       color: "Black",
       unitAvailable: 5,
@@ -27,12 +28,12 @@ const product = {
       previewImageUrl: "/products/black-tray-table/colors/red.jpg",
     },
   ],
-  showcaseImages: {
-    image1: "/products/black-tray-table/black-tray-table.png",
-    image2: "/products/black-tray-table/black-tray-table-2.jpg",
-    image3: "/products/black-tray-table/black-tray-table-3.jpg",
-    image4: "/products/black-tray-table/black-tray-table-4.jpg",
-  },
+  productImages: [
+    "/products/black-tray-table/black-tray-table.png",
+    "/products/black-tray-table/black-tray-table-2.jpg",
+    "/products/black-tray-table/black-tray-table-3.jpg",
+    "/products/black-tray-table/black-tray-table-4.jpg",
+  ],
 };
 
 const BreadcrumbElements = [
@@ -55,8 +56,8 @@ const ProductPage = () => {
       <MaxWidthWrapper>
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
         <ProductShowcase
-          productImg={product.showcaseImages}
-          stock={product.stock}
+          images={product.productImages}
+          colorVariants={product.colorVariants}
         />
       </MaxWidthWrapper>
     </>
