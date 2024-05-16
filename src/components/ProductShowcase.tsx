@@ -8,7 +8,9 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SaleCountdown from "./SaleCountdown";
 import ProductRating from "./ProductRating";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Plus, Minus } from "lucide-react";
+import { Button } from "./ui/button";
+import { HeartIcon, HeartIconFilled } from "../../public/icons/Icons";
 
 interface ProductShowcaseProps {
   images: string[];
@@ -23,10 +25,14 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
   const swiperRef = useRef<any>(null);
   const [selectedColor, setSelectedColor] = useState(colorVariants[0].color);
   const [productImages, setProductImages] = useState(images);
-
+  const [isFavorite, setIsFavorite] = useState(false);
   // dont want this to change because the side preview of images should be the same (4 images) and not include the preview of color varints
   const productImagesForPreview = [...images];
   const [activeImage, setActiveImage] = useState(images[0]);
+
+  const handleAddedToFavorites = () => {
+    setIsFavorite(!isFavorite);
+  };
 
   const handlePreviewImageClick = (imageUrl: string) => {
     const index = productImages.indexOf(imageUrl);
@@ -70,6 +76,7 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
 
   return (
     <div className="flex gap-12 h-[675px]">
+      {/* left section - image */}
       <div className="w-[50%] flex">
         <div className="h-full w-[20%] flex flex-col gap-4 mr-auto ">
           {productImagesForPreview.map((imageUrl) => {
@@ -134,11 +141,14 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
           </Swiper>
         </div>
       </div>
+      {/* right section - details */}
       <div className="w-[50%] space-y-4">
+        {/* reviews */}
         <div className="flex gap-3 items-center">
           <ProductRating />
           <p>11 Reviews</p>
         </div>
+        {/* details */}
         <h1 className="font-poppins text-5xl">Tray Table</h1>
         <p className="text-lg text-blackishGray font-[400]">
           Buy one or buy a few and make every space where you sit more
@@ -151,11 +161,13 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
             $400.00
           </span>
         </p>
+        {/* countdown */}
         <div className="border-y border-[#E8ECEF] py-6 my-6">
           <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
           <SaleCountdown />
         </div>
-        <div className="space-y-2">
+        {/* measurements */}
+        <div className="space-y-2 py-4">
           <h4 className="font-semibold text-lg text-blackishGray">
             Measurements
           </h4>
@@ -197,6 +209,47 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
                 </div>
               );
             })}
+          </div>
+        </div>
+        {/* quantity, wishlist adding to cart */}
+        <div className="py-8 space-y-4 w-full border-b border-neutralGray">
+          <div className="flex gap-6">
+            <div className="bg-neutralGray rounded-lg max-w-max flex items-center gap-6 px-4 py-3">
+              <Minus
+                className="h-4 w-4 hover:cursor-pointer"
+                onClick={() => {}}
+              />
+              <p>1</p>
+              <Plus
+                className="h-4 w-4 hover:cursor-pointer"
+                onClick={() => {}}
+              />
+            </div>
+            <Button
+              onClick={handleAddedToFavorites}
+              className="flex-grow py-6 border border-black"
+              variant="ghost"
+            >
+              {!isFavorite ? <HeartIcon /> : <HeartIconFilled />}
+
+              <span className="text-lg ml-2">Wishlist</span>
+            </Button>
+          </div>
+          <Button className="w-full py-6 text-lg font-[400]">
+            Add to Cart
+          </Button>
+        </div>
+        {/* SKU and category */}
+        <div className="py-2 space-y-2 font-[400]">
+          <div className="flex">
+            <p className="min-w-[140px] uppercase text-muted-foreground">SKU</p>
+            <p>1117</p>
+          </div>
+          <div className="flex">
+            <p className="min-w-[140px] uppercase text-muted-foreground">
+              Category
+            </p>
+            <p>Living Room, Bedroom</p>
           </div>
         </div>
       </div>
