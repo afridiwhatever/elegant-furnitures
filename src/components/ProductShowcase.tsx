@@ -1,16 +1,16 @@
 "use client";
 
+import { ChevronRight, Minus, Plus } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SaleCountdown from "./SaleCountdown";
-import ProductRating from "./ProductRating";
-import { ChevronRight, Plus, Minus } from "lucide-react";
-import { Button } from "./ui/button";
 import { HeartIcon, HeartIconFilled } from "../../public/icons/Icons";
+import ProductRating from "./ProductRating";
+import SaleCountdown from "./SaleCountdown";
+import { Button } from "./ui/button";
 
 interface ProductShowcaseProps {
   images: string[];
@@ -77,7 +77,7 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
   return (
     <div className="flex gap-12 ">
       {/* left section - image */}
-      <div className="w-[45%] h-auto space-y-4">
+      <div className="w-[45%] h-[80vh] space-y-4">
         <div className="h-[85%] w-full ">
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -120,7 +120,7 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
           </Swiper>
         </div>
         <div className="w-full">
-          <div className="h-full w-full flex justify-between">
+          <div className="h-full w-full flex gap-6">
             {productImages.map((imageUrl) => {
               const isActive = activeImage === imageUrl;
               return (
@@ -146,6 +146,11 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
       {/* right section - details */}
       <div className="w-[55%] space-y-4 relative">
         {/* reviews */}
+
+        <div className="flex gap-3 items-center">
+          <ProductRating />
+          <p>11 Reviews</p>
+        </div>
 
         {/* details */}
         <h1 className="font-poppins text-5xl">Tray Table</h1>
@@ -211,7 +216,7 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
           </div>
         </div>
         {/* quantity, wishlist adding to cart */}
-        <div className="py-8 space-y-4 w-full border-b border-neutralGray">
+        <div className="py-8 space-y-4 border-b border-neutralGray">
           <div className="flex gap-6">
             <div className="bg-neutralGray rounded-lg max-w-max flex items-center gap-6 px-4 py-3">
               <Minus
@@ -258,78 +263,3 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
 };
 
 export default ProductShowcase;
-
-{
-  /* <div className="h-full w-[20%] flex flex-col gap-4 mr-auto ">
-{productImagesForPreview.map((imageUrl) => {
-  const isActive = activeImage === imageUrl;
-  return (
-    <div
-      key={imageUrl}
-      className="h-[155px] w-[155px] relative"
-      onClick={() => handlePreviewImageClick(imageUrl)}
-    >
-      <Image
-        src={imageUrl}
-        fill
-        alt="product image 1"
-        className={`bg-neutralGray hover:cursor-pointer ${
-          isActive ? "border border-black" : null
-        }`}
-      />
-    </div>
-  );
-})}
-</div> */
-}
-
-{
-  /* <div className="w-full">
-<Swiper
-  modules={[Navigation, Autoplay]}
-  spaceBetween={50}
-  slidesPerView={1}
-  onSlideChange={(swiper) => {
-    const imageUrl = productImages[swiper.activeIndex];
-    setActiveImage(imageUrl);
-  }}
-  navigation
-  autoplay={{
-    delay: 3500,
-    pauseOnMouseEnter: true,
-    disableOnInteraction: false,
-  }}
-  className="h-full w-full relative"
-  ref={swiperRef}
->
-  {productImages.map((imageUrl) => {
-    return (
-      <SwiperSlide key={imageUrl} className="h-full w-full relative">
-        <Image
-          src={imageUrl}
-          fill
-          alt="preview-image"
-          className="bg-neutralGray"
-        />
-      </SwiperSlide>
-    );
-  })}
-  <button
-    onClick={handleNext}
-    className="absolute top-0 z-10 right-0"
-  >
-    Next
-  </button>
-  <button onClick={handlePrev} className="absolute top-0 z-10 left-0">
-    Back
-  </button>
-</Swiper>
-</div> */
-}
-
-{
-  /* <div className="flex gap-3 items-center">
-<ProductRating />
-<p>11 Reviews</p>
-</div> */
-}
