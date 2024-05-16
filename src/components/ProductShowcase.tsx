@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SaleCountdown from "./SaleCountdown";
 import ProductRating from "./ProductRating";
@@ -94,7 +94,7 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
         </div>
         <div className="w-[78%]">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={50}
             slidesPerView={1}
             onSlideChange={(swiper) => {
@@ -103,9 +103,9 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
             }}
             navigation
             autoplay={{
-              delay: 5000,
+              delay: 3500,
               pauseOnMouseEnter: true,
-              disableOnInteraction: true,
+              disableOnInteraction: false,
             }}
             className="h-full w-full relative"
             ref={swiperRef}
