@@ -75,31 +75,10 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
   };
 
   return (
-    <div className="flex gap-12 h-[675px]">
+    <div className="flex gap-12 ">
       {/* left section - image */}
-      <div className="w-[50%] flex">
-        <div className="h-full w-[20%] flex flex-col gap-4 mr-auto ">
-          {productImagesForPreview.map((imageUrl) => {
-            const isActive = activeImage === imageUrl;
-            return (
-              <div
-                key={imageUrl}
-                className="h-[155px] w-[155px] relative"
-                onClick={() => handlePreviewImageClick(imageUrl)}
-              >
-                <Image
-                  src={imageUrl}
-                  fill
-                  alt="product image 1"
-                  className={`bg-neutralGray hover:cursor-pointer ${
-                    isActive ? "border border-black" : null
-                  }`}
-                />
-              </div>
-            );
-          })}
-        </div>
-        <div className="w-[78%]">
+      <div className="w-[45%] h-auto space-y-4">
+        <div className="h-[85%] w-full ">
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={50}
@@ -140,14 +119,34 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
             </button> */}
           </Swiper>
         </div>
+        <div className="w-full">
+          <div className="h-full w-full flex justify-between">
+            {productImages.map((imageUrl) => {
+              const isActive = activeImage === imageUrl;
+              return (
+                <div
+                  key={imageUrl}
+                  className="h-[120px] w-[120px] relative"
+                  onClick={() => handlePreviewImageClick(imageUrl)}
+                >
+                  <Image
+                    src={imageUrl}
+                    fill
+                    alt="product image 1"
+                    className={`bg-neutralGray hover:cursor-pointer ${
+                      isActive ? "border border-black" : null
+                    }`}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
       {/* right section - details */}
-      <div className="w-[50%] space-y-4">
+      <div className="w-[55%] space-y-4 relative">
         {/* reviews */}
-        <div className="flex gap-3 items-center">
-          <ProductRating />
-          <p>11 Reviews</p>
-        </div>
+
         {/* details */}
         <h1 className="font-poppins text-5xl">Tray Table</h1>
         <p className="text-lg text-blackishGray font-[400]">
@@ -162,7 +161,7 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
           </span>
         </p>
         {/* countdown */}
-        <div className="border-y border-[#E8ECEF] py-6 my-6">
+        <div className=" border-[#E8ECEF] py-6 my-6 absolute md:block left-[65%] top-[35%] -translate-y-[50%]">
           <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
           <SaleCountdown />
         </div>
@@ -225,18 +224,19 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
                 onClick={() => {}}
               />
             </div>
-            <Button
-              onClick={handleAddedToFavorites}
-              className="flex-grow py-6 border border-black"
-              variant="ghost"
-            >
-              {!isFavorite ? <HeartIcon /> : <HeartIconFilled />}
-
-              <span className="text-lg ml-2">Wishlist</span>
+            <Button className="w-full py-6 text-lg font-[400]">
+              Add to Cart
             </Button>
           </div>
-          <Button className="w-full py-6 text-lg font-[400]">
-            Add to Cart
+
+          <Button
+            onClick={handleAddedToFavorites}
+            className="flex-grow w-full py-4 border border-black"
+            variant="ghost"
+          >
+            {!isFavorite ? <HeartIcon /> : <HeartIconFilled />}
+
+            <span className="text-lg ml-2">Wishlist</span>
           </Button>
         </div>
         {/* SKU and category */}
@@ -258,3 +258,78 @@ const ProductShowcase = ({ images, colorVariants }: ProductShowcaseProps) => {
 };
 
 export default ProductShowcase;
+
+{
+  /* <div className="h-full w-[20%] flex flex-col gap-4 mr-auto ">
+{productImagesForPreview.map((imageUrl) => {
+  const isActive = activeImage === imageUrl;
+  return (
+    <div
+      key={imageUrl}
+      className="h-[155px] w-[155px] relative"
+      onClick={() => handlePreviewImageClick(imageUrl)}
+    >
+      <Image
+        src={imageUrl}
+        fill
+        alt="product image 1"
+        className={`bg-neutralGray hover:cursor-pointer ${
+          isActive ? "border border-black" : null
+        }`}
+      />
+    </div>
+  );
+})}
+</div> */
+}
+
+{
+  /* <div className="w-full">
+<Swiper
+  modules={[Navigation, Autoplay]}
+  spaceBetween={50}
+  slidesPerView={1}
+  onSlideChange={(swiper) => {
+    const imageUrl = productImages[swiper.activeIndex];
+    setActiveImage(imageUrl);
+  }}
+  navigation
+  autoplay={{
+    delay: 3500,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+  }}
+  className="h-full w-full relative"
+  ref={swiperRef}
+>
+  {productImages.map((imageUrl) => {
+    return (
+      <SwiperSlide key={imageUrl} className="h-full w-full relative">
+        <Image
+          src={imageUrl}
+          fill
+          alt="preview-image"
+          className="bg-neutralGray"
+        />
+      </SwiperSlide>
+    );
+  })}
+  <button
+    onClick={handleNext}
+    className="absolute top-0 z-10 right-0"
+  >
+    Next
+  </button>
+  <button onClick={handlePrev} className="absolute top-0 z-10 left-0">
+    Back
+  </button>
+</Swiper>
+</div> */
+}
+
+{
+  /* <div className="flex gap-3 items-center">
+<ProductRating />
+<p>11 Reviews</p>
+</div> */
+}
