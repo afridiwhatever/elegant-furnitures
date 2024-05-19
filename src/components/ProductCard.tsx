@@ -8,6 +8,7 @@ import Link from "next/link";
 import ReactStars from "react-rating-stars-component";
 import { HeartIconFilled } from "../../public/icons/Icons";
 import { Button } from "./ui/button";
+import AddToWishlistButton from "./AddToWishlistButton";
 
 interface ProductCardProps {
   name: string;

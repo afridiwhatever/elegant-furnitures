@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Countdown from "react-countdown";
 import { finalDate } from "@/lib/utils";
+import Countdown from "react-countdown";
 
 const renderer = ({ days, hours, minutes, seconds }: any) => {
   return (
