@@ -1,26 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import useStore from "@/store/store";
 
 interface ProductShowcaseProps {
   images: string[];
-  getSwiperRef: any;
 }
 
-const ProductShowcase = ({ images, getSwiperRef }: ProductShowcaseProps) => {
+const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   const swiperRef = useRef<any>(null);
-  getSwiperRef(swiperRef);
-  // const [productImages, setProductImages] = useState(images);
-  const productImages = [...images];
-  const [activeImage, setActiveImage] = useState(images[0]);
+  // @ts-expect-error
+  const { productDisplayImages, updateProductDisplayImages, setSwiper } =
+    useStore();
+
+  useEffect(() => {
+    setSwiper(swiperRef);
+    updateProductDisplayImages(images);
+  }, []);
+
+  const [activeImage, setActiveImage] = useState(productDisplayImages[0]);
 
   const handlePreviewImageClick = (imageUrl: string) => {
-    const index = productImages.indexOf(imageUrl);
+    const index = productDisplayImages.indexOf(imageUrl);
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(index);
     }
@@ -47,7 +53,7 @@ const ProductShowcase = ({ images, getSwiperRef }: ProductShowcaseProps) => {
           spaceBetween={50}
           slidesPerView={1}
           onSlideChange={(swiper) => {
-            const imageUrl = productImages[swiper.activeIndex];
+            const imageUrl = productDisplayImages[swiper.activeIndex];
             setActiveImage(imageUrl);
           }}
           navigation
@@ -59,7 +65,7 @@ const ProductShowcase = ({ images, getSwiperRef }: ProductShowcaseProps) => {
           className="h-full w-full relative"
           ref={swiperRef}
         >
-          {productImages.map((imageUrl) => {
+          {productDisplayImages.map((imageUrl: any) => {
             return (
               <SwiperSlide key={imageUrl} className="h-full w-full relative">
                 <Image
@@ -84,7 +90,7 @@ const ProductShowcase = ({ images, getSwiperRef }: ProductShowcaseProps) => {
       </div>
       <div className="w-full">
         <div className="h-full w-full flex gap-6">
-          {productImages.map((imageUrl) => {
+          {productDisplayImages.map((imageUrl: any) => {
             const isActive = activeImage === imageUrl;
             return (
               <div

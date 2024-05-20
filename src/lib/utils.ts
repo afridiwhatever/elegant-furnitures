@@ -10,5 +10,5 @@ export function convertToSlug(text: string) {
 }
 
 const saleEndDate = new Date();
-saleEndDate.setDate(new Date().getDate() + 0);
+saleEndDate.setDate(new Date().getDate() + 1);
 export const finalDate = saleEndDate.toISOString();

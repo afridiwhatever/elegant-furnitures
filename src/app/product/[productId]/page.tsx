@@ -1,11 +1,8 @@
-"use client";
-
 import Breadcrumb from "@/components/Breadcrumb";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ProductDetails from "@/components/ProductDetails";
 import ProductShowcase from "@/components/ProductShowcase";
 import { convertToSlug } from "@/lib/utils";
-import { useState } from "react";
 
 const product = {
   id: 1117,
@@ -49,15 +46,6 @@ const BreadcrumbElements = [
 ];
 
 const ProductPage = () => {
-  const [imagesForSlideshow, setImagesForSlideshow] = useState(
-    product.productImages
-  );
-  const [swiperRef, setSwiperRef] = useState(null);
-
-  const getSwiperRef = (swiper: any) => {
-    setSwiperRef(swiper);
-  };
-
   return (
     <>
       <div
@@ -67,10 +55,7 @@ const ProductPage = () => {
       <MaxWidthWrapper>
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
         <div className="flex gap-12">
-          <ProductShowcase
-            images={imagesForSlideshow}
-            getSwiperRef={getSwiperRef}
-          />
+          <ProductShowcase images={product.productImages} />
           <ProductDetails colorVariants={product.colorVariants} />
         </div>
       </MaxWidthWrapper>

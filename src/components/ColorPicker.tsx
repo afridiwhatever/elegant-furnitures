@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Plus, Minus, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import useStore from "@/store/store";
 
 const ColorPicker = ({
   colorVariants,
@@ -13,24 +14,24 @@ const ColorPicker = ({
   }[];
 }) => {
   const [selectedColor, setSelectedColor] = useState(colorVariants[0].color);
+  // @ts-expect-error
+  const { swiperRef, productDisplayImages, updateProductDisplayImages } =
+    useStore();
+
   const handleColorPickerImageClick = (
     color: string,
     previewImageUrl: string
   ) => {
     setSelectedColor(color);
-    // setProductImages((prev) => {
-    //   if (prev.length > productImagesForPreview.length) {
-    //     prev.splice(-1, 1);
-    //   }
-    //   return [...prev, previewImageUrl];
-    // });
-    // setTimeout(() => {
-    //   if (swiperRef.current && swiperRef.current.swiper) {
-    //     swiperRef.current.swiper.slideTo(
-    //       swiperRef.current.swiper.slides.length - 1
-    //     );
-    //   }
-    // }, 20);
+    updateProductDisplayImages([...productDisplayImages, previewImageUrl]);
+
+    setTimeout(() => {
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slideTo(
+          swiperRef.current.swiper.slides.length - 1
+        );
+      }
+    }, 20);
   };
   return (
     <div className="space-y-2">

@@ -19,7 +19,6 @@ const ProductDetails = ({
   return (
     <div className="w-[55%] space-y-4 relative">
       {/* reviews */}
-
       <div className="flex gap-3 items-center">
         <ProductRating />
         <p>11 Reviews</p>
@@ -36,11 +35,13 @@ const ProductDetails = ({
         $199.00{" "}
         <span className="text-xl line-through text-blackishGray">$400.00</span>
       </p>
+
       {/* countdown */}
       <div className=" border-[#E8ECEF] py-6 my-6 absolute md:block left-[65%] top-[35%] -translate-y-[50%]">
         <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
         <SaleCountdown />
       </div>
+
       {/* measurements */}
       <div className="space-y-2 py-4">
         <h4 className="font-semibold text-lg text-blackishGray">
@@ -48,8 +49,10 @@ const ProductDetails = ({
         </h4>
         <p className="text-xl font-[400]">17 1/2x20 5/8 &apos;&apos;</p>
       </div>
+
       {/* color picker */}
       <ColorPicker colorVariants={colorVariants} />
+
       {/* quantity, wishlist adding to cart */}
       <div className="py-8 space-y-4 border-b border-neutralGray">
         <div className="flex gap-6">
@@ -77,6 +80,7 @@ const ProductDetails = ({
       </Button> */}
         <AddToWishlistButton />
       </div>
+
       {/* SKU and category */}
       <div className="py-2 space-y-2 font-[400]">
         <div className="flex">
