@@ -1,5 +1,3 @@
-"use client";
-
 import { Minus, Plus } from "lucide-react";
 import AddToWishlistButton from "./AddToWishlistButton";
 import ColorPicker from "./ColorPicker";
@@ -57,27 +55,14 @@ const ProductDetails = ({
       <div className="py-8 space-y-4 border-b border-neutralGray">
         <div className="flex gap-6">
           <div className="bg-neutralGray rounded-lg max-w-max flex items-center gap-6 px-4 py-3">
-            <Minus
-              className="h-4 w-4 hover:cursor-pointer"
-              onClick={() => {}}
-            />
+            <Minus className="h-4 w-4 hover:cursor-pointer" />
             <p>1</p>
-            <Plus className="h-4 w-4 hover:cursor-pointer" onClick={() => {}} />
+            <Plus className="h-4 w-4 hover:cursor-pointer" />
           </div>
           <Button className="w-full py-6 text-lg font-[400]">
             Add to Cart
           </Button>
         </div>
-
-        {/* <Button
-        onClick={handleAddedToFavorites}
-        className="flex-grow w-full py-4 border border-black"
-        variant="ghost"
-      >
-        {!isFavorite ? <HeartIcon /> : <HeartIconFilled />}
-
-        <span className="text-lg ml-2">Wishlist</span>
-      </Button> */}
         <AddToWishlistButton />
       </div>
 

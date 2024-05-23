@@ -39,11 +39,3 @@ const Breadcrumb = ({
 };
 
 export default Breadcrumb;
-
-// Home - Shop - Living - Product
-// Home - Shop - Kitchen - Product
-// Home - Shop - Bedroom - Product
-
-// Home - Shop
-
-// Home - blog - how to do something

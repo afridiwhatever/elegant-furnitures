@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
-import { Plus, Minus, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import useStore from "@/store/store";
+import { ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 const ColorPicker = ({
   colorVariants,
