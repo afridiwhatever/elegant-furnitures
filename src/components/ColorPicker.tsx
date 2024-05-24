@@ -15,8 +15,12 @@ const ColorPicker = ({
 }) => {
   const [selectedColor, setSelectedColor] = useState(colorVariants[0].color);
 
-  const { swiperRef, productDisplayImages, updateProductDisplayImages } =
-    useStore();
+  const productDisplayImages = useStore((state) => state.productDisplayImages);
+
+  const updateProductDisplayImages = useStore(
+    (state) => state.updateProductDisplayImages
+  );
+  const swiperRef = useStore((state) => state.swiperRef);
 
   const handleColorPickerImageClick = (
     color: string,

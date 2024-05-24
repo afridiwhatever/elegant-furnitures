@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface ProductShowcaseProps {
   images: string[];
@@ -15,7 +15,9 @@ interface ProductShowcaseProps {
 const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   const swiperRef = useRef<any>(null);
 
+  const [activeImage, setActiveImage] = useState(null);
   const productDisplayImages = useStore((state) => state.productDisplayImages);
+
   const updateProductDisplayImages = useStore(
     (state) => state.updateProductDisplayImages
   );
@@ -25,8 +27,6 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
     setSwiperRef(swiperRef);
     updateProductDisplayImages(images);
   }, []);
-
-  const [activeImage, setActiveImage] = useState(productDisplayImages[0]);
 
   const handlePreviewImageClick = (imageUrl: string) => {
     const index = productDisplayImages.indexOf(imageUrl);
@@ -94,6 +94,9 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
       <div className="w-full">
         <div className="h-full w-full flex gap-6">
           {productDisplayImages.map((imageUrl: string) => {
+            console.log(activeImage);
+            console.log(imageUrl);
+
             const isActive = activeImage === imageUrl;
             return (
               <div

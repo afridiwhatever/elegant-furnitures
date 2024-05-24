@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { SwiperRef } from "swiper/react";
 
 interface Store {
   productDisplayImages: string[];
