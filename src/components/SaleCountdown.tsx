@@ -2,7 +2,19 @@
 import { finalDate } from "@/lib/utils";
 import Countdown from "react-countdown";
 
-const renderer = ({ days, hours, minutes, seconds }: any) => {
+interface SaleCountdownRendererProps {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+const renderer = ({
+  days,
+  hours,
+  minutes,
+  seconds,
+}: SaleCountdownRendererProps) => {
   return (
     <div className="font-poppins text-3xl flex gap-4">
       <div>

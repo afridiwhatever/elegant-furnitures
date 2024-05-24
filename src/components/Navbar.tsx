@@ -20,7 +20,8 @@ const Navbar = () => {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDiscountPanelShowing, setIsDiscountPanelShowing] = useState(true);
+  const [isDiscountPanelShowing, setIsDiscountPanelShowing] =
+    useState<boolean>(true);
   const pathname = usePathname();
 
   const navRef = useRef(null);

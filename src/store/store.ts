@@ -1,21 +1,29 @@
 import { create } from "zustand";
+import { SwiperRef } from "swiper/react";
 
-const useStore = create((set) => ({
+interface Store {
+  productDisplayImages: string[];
+  swiperRef: null | SwiperRef;
+  updateProductDisplayImages: (newProductDisplayImages: string[]) => void;
+  setSwiperRef: (swiperRef: null | SwiperRef) => void;
+}
+
+const useStore = create<Store>((set) => ({
   productDisplayImages: [],
   swiperRef: null,
-  setSwiper: (swiperRef: any) =>
+  updateProductDisplayImages: (newProductDisplayImages) =>
+    set(() => {
+      if (newProductDisplayImages.length > 5) {
+        newProductDisplayImages.splice(4, 1);
+      }
+      return {
+        productDisplayImages: newProductDisplayImages,
+      };
+    }),
+  setSwiperRef: (swiperRef) =>
     set(() => {
       return {
         swiperRef: swiperRef,
-      };
-    }),
-  updateProductDisplayImages: (newProductDisplayImaages: any) =>
-    set(() => {
-      if (newProductDisplayImaages.length > 5) {
-        newProductDisplayImaages.splice(4, 1);
-      }
-      return {
-        productDisplayImages: newProductDisplayImaages,
       };
     }),
 }));

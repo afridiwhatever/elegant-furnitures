@@ -1,25 +1,28 @@
 "use client";
 
+import useStore from "@/store/store";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import useStore from "@/store/store";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
 interface ProductShowcaseProps {
   images: string[];
 }
 
 const ProductShowcase = ({ images }: ProductShowcaseProps) => {
-  const swiperRef = useRef<any>(null);
-  // @ts-expect-error
-  const { productDisplayImages, updateProductDisplayImages, setSwiper } =
-    useStore();
+  const swiperRef = useRef<SwiperRef | null>(null);
+
+  const productDisplayImages = useStore((state) => state.productDisplayImages);
+  const updateProductDisplayImages = useStore(
+    (state) => state.updateProductDisplayImages
+  );
+  const setSwiperRef = useStore((state) => state.setSwiperRef);
 
   useEffect(() => {
-    setSwiper(swiperRef);
+    setSwiperRef(swiperRef.current);
     updateProductDisplayImages(images);
   }, []);
 
@@ -65,7 +68,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
           className="h-full w-full relative"
           ref={swiperRef}
         >
-          {productDisplayImages.map((imageUrl: any) => {
+          {productDisplayImages.map((imageUrl: string) => {
             return (
               <SwiperSlide key={imageUrl} className="h-full w-full relative">
                 <Image
@@ -90,7 +93,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
       </div>
       <div className="w-full">
         <div className="h-full w-full flex gap-6">
-          {productDisplayImages.map((imageUrl: any) => {
+          {productDisplayImages.map((imageUrl: string) => {
             const isActive = activeImage === imageUrl;
             return (
               <div

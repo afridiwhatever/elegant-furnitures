@@ -2,7 +2,11 @@ import React from "react";
 import { TicketIcon } from "../../public/icons/Icons";
 import ShopNowButton from "./ShopNowButton";
 import { X } from "lucide-react";
-const DiscountPanel = ({ setIsDiscountPanelShowing }: any) => {
+const DiscountPanel = ({
+  setIsDiscountPanelShowing,
+}: {
+  setIsDiscountPanelShowing: (value: boolean) => void;
+}) => {
   return (
     <div className="w-full h-10 bg-neutralGray flex gap-3 items-center justify-center  text-sm">
       <TicketIcon />
