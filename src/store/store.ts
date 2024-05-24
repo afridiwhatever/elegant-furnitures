@@ -3,9 +3,9 @@ import { SwiperRef } from "swiper/react";
 
 interface Store {
   productDisplayImages: string[];
-  swiperRef: null | SwiperRef;
+  swiperRef: any;
   updateProductDisplayImages: (newProductDisplayImages: string[]) => void;
-  setSwiperRef: (swiperRef: null | SwiperRef) => void;
+  setSwiperRef: (swiperRef: any) => void;
 }
 
 const useStore = create<Store>((set) => ({

@@ -13,7 +13,7 @@ interface ProductShowcaseProps {
 }
 
 const ProductShowcase = ({ images }: ProductShowcaseProps) => {
-  const swiperRef = useRef<SwiperRef | null>(null);
+  const swiperRef = useRef<any>(null);
 
   const productDisplayImages = useStore((state) => state.productDisplayImages);
   const updateProductDisplayImages = useStore(
@@ -22,7 +22,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   const setSwiperRef = useStore((state) => state.setSwiperRef);
 
   useEffect(() => {
-    setSwiperRef(swiperRef.current);
+    setSwiperRef(swiperRef);
     updateProductDisplayImages(images);
   }, []);
 

@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { HeartIcon, HeartIconFilled } from "../../public/icons/Icons";
 
 const AddToWishlistButton = () => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const handleAddedToFavorites = () => {
     setIsFavorite(!isFavorite);
   };

@@ -14,7 +14,7 @@ const ColorPicker = ({
   }[];
 }) => {
   const [selectedColor, setSelectedColor] = useState(colorVariants[0].color);
-  // @ts-expect-error
+
   const { swiperRef, productDisplayImages, updateProductDisplayImages } =
     useStore();
 
@@ -26,7 +26,7 @@ const ColorPicker = ({
     updateProductDisplayImages([...productDisplayImages, previewImageUrl]);
 
     setTimeout(() => {
-      if (swiperRef.current && swiperRef.current.swiper) {
+      if (swiperRef?.current && swiperRef.current.swiper) {
         swiperRef.current.swiper.slideTo(
           swiperRef.current.swiper.slides.length - 1
         );
