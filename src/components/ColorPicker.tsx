@@ -17,8 +17,6 @@ const ColorPicker = ({
 
   const productDisplayImages = useStore((state) => state.productDisplayImages);
 
-  console.log(productDisplayImages, "from color picker");
-
   const updateProductDisplayImages = useStore(
     (state) => state.updateProductDisplayImages
   );

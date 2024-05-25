@@ -28,6 +28,8 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsProductDropdownOpen(false);
+    setIsShopDropdownOpen(false);
   }, [pathname]);
 
   useOnClickOutside(navRef, () => {

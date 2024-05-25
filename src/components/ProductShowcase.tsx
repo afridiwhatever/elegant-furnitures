@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+import { Swiper as SwiperInstance } from "swiper";
 
 interface ProductShowcaseProps {
   images: string[];
@@ -17,6 +19,8 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
 
   const originialImageArrayLength: number = images.length;
 
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
   const [activeImage, setActiveImage] = useState<undefined | string>(undefined);
 
   const productDisplayImages = useStore((state) => state.productDisplayImages);
@@ -58,6 +62,13 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
     }
   };
 
+  const handleSwiperSlideChange = (swiper: SwiperInstance) => {
+    const imageUrl = productDisplayImages[swiper.activeIndex];
+    setActiveImage(imageUrl);
+    setIsBeginning(swiper.activeIndex === 0);
+    setIsEnd(swiper.activeIndex === productDisplayImages.length - 1);
+  };
+
   return (
     <div className="w-[45%] h-[80vh] space-y-4">
       <div className="h-[85%] w-full ">
@@ -65,11 +76,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
           modules={[Navigation]}
           spaceBetween={50}
           slidesPerView={1}
-          onSlideChange={(swiper) => {
-            const imageUrl = productDisplayImages[swiper.activeIndex];
-            setActiveImage(imageUrl);
-          }}
-          navigation
+          onSlideChange={handleSwiperSlideChange}
           autoplay={{
             delay: 3500,
             pauseOnMouseEnter: true,
@@ -90,15 +97,22 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
               </SwiperSlide>
             );
           })}
-          {/* <button
-              onClick={handleNext}
-              className="absolute top-0 z-10 right-0"
-            >
-              Next
-            </button>
-            <button onClick={handlePrev} className="absolute top-0 z-10 left-0">
-              Back
-            </button> */}
+          <button
+            onClick={handleNext}
+            className={`absolute top-[50%] -translate-y-[50%] z-10 right-5 bg-white rounded-full p-2 ${
+              isEnd ? "opacity-50" : ""
+            }`}
+          >
+            <ArrowRight className="h-7 w-7" />
+          </button>
+          <button
+            onClick={handlePrev}
+            className={`absolute top-[50%] -translate-y-[50%] z-10 left-5 bg-white rounded-full p-2 ${
+              isBeginning ? "opacity-50" : ""
+            }`}
+          >
+            <ArrowLeft className="h-7 w-7" />
+          </button>
         </Swiper>
       </div>
       <div className="w-full">
