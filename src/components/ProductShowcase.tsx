@@ -15,9 +15,11 @@ interface ProductShowcaseProps {
 const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   const swiperRef = useRef<any>(null);
 
-  const [activeImage, setActiveImage] = useState(null);
-  const productDisplayImages = useStore((state) => state.productDisplayImages);
+  const originialImageArrayLength: number = images.length;
 
+  const [activeImage, setActiveImage] = useState<undefined | string>(undefined);
+
+  const productDisplayImages = useStore((state) => state.productDisplayImages);
   const updateProductDisplayImages = useStore(
     (state) => state.updateProductDisplayImages
   );
@@ -27,6 +29,14 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
     setSwiperRef(swiperRef);
     updateProductDisplayImages(images);
   }, []);
+
+  useEffect(() => {
+    if (productDisplayImages.length > originialImageArrayLength) {
+      setActiveImage(productDisplayImages[productDisplayImages.length - 1]);
+    } else {
+      setActiveImage(productDisplayImages[0]);
+    }
+  }, [productDisplayImages, originialImageArrayLength]);
 
   const handlePreviewImageClick = (imageUrl: string) => {
     const index = productDisplayImages.indexOf(imageUrl);
@@ -94,9 +104,6 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
       <div className="w-full">
         <div className="h-full w-full flex gap-6">
           {productDisplayImages.map((imageUrl: string) => {
-            console.log(activeImage);
-            console.log(imageUrl);
-
             const isActive = activeImage === imageUrl;
             return (
               <div
