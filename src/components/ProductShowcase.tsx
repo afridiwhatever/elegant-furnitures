@@ -70,8 +70,8 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   };
 
   return (
-    <div className="w-[45%] h-[80vh] space-y-4">
-      <div className="h-[85%] w-full ">
+    <div className="w-full lg:w-[45%] h-[60vh] lg:h-[80vh] space-y-4 ">
+      <div className="h-full lg:h-[85%] w-full ">
         <Swiper
           modules={[Navigation]}
           spaceBetween={50}
@@ -92,7 +92,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
                   src={imageUrl}
                   fill
                   alt="preview-image"
-                  className="bg-neutralGray"
+                  className="bg-neutralGray object-contain lg:object-cover "
                 />
               </SwiperSlide>
             );
@@ -115,7 +115,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
           </button>
         </Swiper>
       </div>
-      <div className="w-full">
+      <div className="w-full hidden lg:block">
         <div className="h-full w-full flex gap-6">
           {productDisplayImages.map((imageUrl: string) => {
             const isActive = activeImage === imageUrl;

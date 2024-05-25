@@ -15,7 +15,7 @@ const ProductDetails = ({
   }[];
 }) => {
   return (
-    <div className="w-[55%] space-y-4 relative">
+    <div className="w-full lg:w-[55%] space-y-4 relative ">
       {/* reviews */}
       <div className="flex gap-3 items-center">
         <ProductRating />
@@ -23,19 +23,21 @@ const ProductDetails = ({
       </div>
 
       {/* details */}
-      <h1 className="font-poppins text-5xl">Tray Table</h1>
-      <p className="text-lg text-blackishGray font-[400]">
+      <h1 className="font-poppins text-4xl lg:text-5xl">Tray Table</h1>
+      <p className="text-base lg:text-lg text-blackishGray font-[400] ">
         Buy one or buy a few and make every space where you sit more convenient.
         Light and easy to move around with removable tray top, handy for serving
         snacks.
       </p>
-      <p className="font-poppins text-3xl">
+      <p className="font-poppins text-2xl lg:text-3xl">
         $199.00{" "}
-        <span className="text-xl line-through text-blackishGray">$400.00</span>
+        <span className="text-lg lg:text-xl line-through text-blackishGray">
+          $400.00
+        </span>
       </p>
 
       {/* countdown */}
-      <div className=" border-[#E8ECEF] py-6 my-6 absolute md:block left-[65%] top-[35%] -translate-y-[50%]">
+      <div className="border-y lg:border-none border-[#E8ECEF] py-6 my-6 lg:absolute right-1 top-[35%] lg:-translate-y-[50%] ">
         <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
         <SaleCountdown />
       </div>

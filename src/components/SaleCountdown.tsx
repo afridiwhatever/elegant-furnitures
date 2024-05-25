@@ -39,12 +39,12 @@ const renderer = ({
   );
 };
 
-const SaleCountdown = () => {
+const SaleCountdown = (props: { className?: string }) => {
   // const saleEndDate = new Date();
   // saleEndDate.setDate(new Date().getDate() + 1);
   return (
     <>
-      <Countdown date={finalDate} renderer={renderer} />
+      <Countdown date={finalDate} renderer={renderer} {...props} />
     </>
   );
 };
