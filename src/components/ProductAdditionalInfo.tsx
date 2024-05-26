@@ -15,6 +15,8 @@ const ProductAdditionalInfo = () => {
     const handleResize = () => {
       setIsOnMobile(mediaQuery.matches);
       if (!mediaQuery.matches) {
+        setIsInfoPanelOpen(false);
+        setIsQuestionsPanelOpen(false);
         setIsReviewsPanelOpen(true);
       }
     };
