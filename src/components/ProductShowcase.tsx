@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Swiper as SwiperInstance } from "swiper";
@@ -73,12 +73,12 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
     <div className="w-full lg:w-[45%] h-[60vh] lg:h-[80vh] space-y-4 ">
       <div className="h-full lg:h-[85%] w-full ">
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           spaceBetween={50}
           slidesPerView={1}
           onSlideChange={handleSwiperSlideChange}
           autoplay={{
-            delay: 3500,
+            delay: 2000,
             pauseOnMouseEnter: true,
             disableOnInteraction: false,
           }}

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -28,9 +28,10 @@ const HeroSectionSlider = () => {
       <Swiper
         ref={swiperRef}
         className="w-full"
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
+        autoplay
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
         pagination={{ clickable: true }}
