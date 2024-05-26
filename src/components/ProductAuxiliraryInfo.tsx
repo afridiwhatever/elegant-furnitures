@@ -6,7 +6,7 @@ import AdditionalInfo from "./ProductAdditionalInfo";
 import ProductReviews from "./ProductReviews";
 import ProductQuestions from "./ProductQuestions";
 
-const ProductAdditionalInfo = () => {
+const ProductAuxiliraryInfo = () => {
   const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
   const [isQuestionsPanelOpen, setIsQuestionsPanelOpen] = useState(false);
   const [isReviewsPanelOpen, setIsReviewsPanelOpen] = useState(true);
@@ -163,4 +163,4 @@ const ProductAdditionalInfo = () => {
   );
 };
 
-export default ProductAdditionalInfo;
+export default ProductAuxiliraryInfo;

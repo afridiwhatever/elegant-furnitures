@@ -2,7 +2,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ProductDetails from "@/components/ProductDetails";
 import ProductShowcase from "@/components/ProductShowcase";
-import ProductAdditionalInfo from "@/components/ProductAuxiliraryInfo";
+import ProductAuxiliraryInfo from "@/components/ProductAuxiliraryInfo";
 import { convertToSlug } from "@/lib/utils";
 
 const product = {
@@ -59,7 +59,7 @@ const ProductPage = () => {
           <ProductShowcase images={product.productImages} />
           <ProductDetails colorVariants={product.colorVariants} />
         </div>
-        <ProductAdditionalInfo />
+        <ProductAuxiliraryInfo />
       </MaxWidthWrapper>
     </>
   );
