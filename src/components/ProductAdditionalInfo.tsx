@@ -14,6 +14,9 @@ const ProductAdditionalInfo = () => {
     setIsOnMobile(mediaQuery.matches);
     const handleResize = () => {
       setIsOnMobile(mediaQuery.matches);
+      if (!mediaQuery.matches) {
+        setIsReviewsPanelOpen(true);
+      }
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -25,6 +28,7 @@ const ProductAdditionalInfo = () => {
     <div className="relative border-b  mb-20">
       <div className="mt-6 flex flex-col md:flex-row md:gap-8">
         {/* Additional Info */}
+
         <div>
           {/* Header */}
           <div
@@ -36,10 +40,12 @@ const ProductAdditionalInfo = () => {
                 : "text-muted-foreground"
             }`}
             onClick={() => {
-              setIsInfoPanelOpen(!isInfoPanelOpen);
               if (!isOnMobile) {
+                setIsInfoPanelOpen(true);
                 setIsQuestionsPanelOpen(false);
                 setIsReviewsPanelOpen(false);
+              } else {
+                setIsInfoPanelOpen(!isInfoPanelOpen);
               }
             }}
           >
@@ -52,29 +58,17 @@ const ProductAdditionalInfo = () => {
           </div>
 
           {/* content */}
+
           <div
             className={cn(
-              "w-full duration-300 transition-max-h max-h-0 overflow-hidden md:absolute inset-x-0 top-10",
+              `w-full duration-300 md:duration-0 transition-max-h md:transition-none max-h-0 md:absolute inset-x-0 top-10 overflow-hidden`,
               {
                 "max-h-[500px]": isInfoPanelOpen,
               }
             )}
           >
-            <div className="h-full w-full ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-              quaerat itaque totam aliquid velit porro dicta dolore cum maxime
-              expedita dignissimos molestias iure minus fugit quia, veritatis
-              sit enim est! Exercitationem possimus quis, voluptates unde
-              dolorum, inventore sapiente expedita molestiae nam voluptas aut
-              neque laborum et eius repellat. Nostrum illum, natus autem aliquam
-              sint nihil ipsum nam sunt impedit laboriosam? Maxime eum
-              laudantium modi vel esse illo magni perferendis quam cupiditate
-              quisquam excepturi voluptatum repellendus eligendi explicabo
-              animi, perspiciatis velit unde eveniet nihil quasi libero culpa.
-              Molestias voluptatem eum suscipit. Dolorum quas doloremque quo
-              nisi, iusto facilis modi inventore pariatur, molestiae nobis
-              itaque impedit iste aliquam? Suscipit architecto tempora sapiente.
-              Facilis enim iure error ad rem repudiandae, soluta possimus quae.
+            <div className="h-60 w-full flex items-center justify-center">
+              Info
             </div>
           </div>
         </div>
@@ -91,10 +85,12 @@ const ProductAdditionalInfo = () => {
                 : "text-muted-foreground"
             }`}
             onClick={() => {
-              setIsQuestionsPanelOpen(!isQuestionsPanelOpen);
               if (!isOnMobile) {
+                setIsQuestionsPanelOpen(true);
                 setIsInfoPanelOpen(false);
                 setIsReviewsPanelOpen(false);
+              } else {
+                setIsQuestionsPanelOpen(!isQuestionsPanelOpen);
               }
             }}
           >
@@ -109,27 +105,14 @@ const ProductAdditionalInfo = () => {
           {/* content */}
           <div
             className={cn(
-              "w-full duration-300 transition-max-h max-h-0 overflow-hidden md:absolute  inset-x-0 top-10",
+              `w-full duration-300 md:duration-0 transition-max-h md:transition-none max-h-0 md:absolute inset-x-0 top-10 overflow-hidden`,
               {
-                "max-h-[800px]": isQuestionsPanelOpen,
+                "max-h-[500px]": isQuestionsPanelOpen,
               }
             )}
           >
-            <div className="h-full w-full bg-green-300">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-              quaerat itaque totam aliquid velit porro dicta dolore cum maxime
-              expedita dignissimos molestias iure minus fugit quia, veritatis
-              sit enim est! Exercitationem possimus quis, voluptates unde
-              dolorum, inventore sapiente expedita molestiae nam voluptas aut
-              neque laborum et eius repellat. Nostrum illum, natus autem aliquam
-              sint nihil ipsum nam sunt impedit laboriosam? Maxime eum
-              laudantium modi vel esse illo magni perferendis quam cupiditate
-              quisquam excepturi voluptatum repellendus eligendi explicabo
-              animi, perspiciatis velit unde eveniet nihil quasi libero culpa.
-              Molestias voluptatem eum suscipit. Dolorum quas doloremque quo
-              nisi, iusto facilis modi inventore pariatur, molestiae nobis
-              itaque impedit iste aliquam? Suscipit architecto tempora sapiente.
-              Facilis enim iure error ad rem repudiandae, soluta possimus quae.
+            <div className="h-60 w-full flex items-center justify-center">
+              Questions
             </div>
           </div>
         </div>
@@ -146,10 +129,12 @@ const ProductAdditionalInfo = () => {
                 : "text-muted-foreground"
             }`}
             onClick={() => {
-              setIsReviewsPanelOpen(!isReviewsPanelOpen);
               if (!isOnMobile) {
+                setIsReviewsPanelOpen(true);
                 setIsQuestionsPanelOpen(false);
                 setIsInfoPanelOpen(false);
+              } else {
+                setIsReviewsPanelOpen(!isReviewsPanelOpen);
               }
             }}
           >
@@ -164,27 +149,14 @@ const ProductAdditionalInfo = () => {
           {/* content */}
           <div
             className={cn(
-              "w-full duration-300 transition-max-h max-h-0 overflow-hidden md:absolute inset-x-0 top-10",
+              `w-full duration-300 md:duration-0 transition-max-h md:transition-none max-h-0 md:absolute inset-x-0 top-10 overflow-hidden`,
               {
-                "max-h-[800px]": isReviewsPanelOpen,
+                "max-h-[500px]": isReviewsPanelOpen,
               }
             )}
           >
-            <div className="h-full w-full bg-yellow-300">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-              quaerat itaque totam aliquid velit porro dicta dolore cum maxime
-              expedita dignissimos molestias iure minus fugit quia, veritatis
-              sit enim est! Exercitationem possimus quis, voluptates unde
-              dolorum, inventore sapiente expedita molestiae nam voluptas aut
-              neque laborum et eius repellat. Nostrum illum, natus autem aliquam
-              sint nihil ipsum nam sunt impedit laboriosam? Maxime eum
-              laudantium modi vel esse illo magni perferendis quam cupiditate
-              quisquam excepturi voluptatum repellendus eligendi explicabo
-              animi, perspiciatis velit unde eveniet nihil quasi libero culpa.
-              Molestias voluptatem eum suscipit. Dolorum quas doloremque quo
-              nisi, iusto facilis modi inventore pariatur, molestiae nobis
-              itaque impedit iste aliquam? Suscipit architecto tempora sapiente.
-              Facilis enim iure error ad rem repudiandae, soluta possimus quae.
+            <div className="h-60 w-full flex items-center justify-center">
+              Reviews
             </div>
           </div>
         </div>
