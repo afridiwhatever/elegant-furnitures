@@ -1,10 +1,10 @@
 "use client";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import AdditionalInfo from "./ProductAdditionalInfo";
-import ProductQuestions from "./ProductQuestions";
 import ProductReviews from "./ProductReviews";
+import ProductQuestions from "./ProductQuestions";
 
 const ProductAuxiliraryInfo = () => {
   const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
@@ -29,7 +29,10 @@ const ProductAuxiliraryInfo = () => {
     };
   }, []);
 
-  const panelSelector = (tab: "info" | "questions" | "reviews") => {
+  const generateHeaderClassname = (
+    tab: "info" | "questions" | "reviews",
+    useCase?: "chevronIcon"
+  ) => {
     let isPanelOpen: boolean;
     switch (tab) {
       case "info":
@@ -44,14 +47,6 @@ const ProductAuxiliraryInfo = () => {
       default:
         isPanelOpen = false;
     }
-    return isPanelOpen;
-  };
-
-  const generatePanelHeaderClassname = (
-    tab: "info" | "questions" | "reviews",
-    useCase?: "chevronIcon"
-  ) => {
-    const isPanelOpen = panelSelector(tab);
 
     if (useCase === "chevronIcon") {
       return cn("transition-all duration-300 md:hidden", {
@@ -68,10 +63,23 @@ const ProductAuxiliraryInfo = () => {
     }`;
   };
 
-  const generatePanelContentClassname = (
+  const applyPanelContentClassname = (
     tab: "info" | "questions" | "reviews"
   ) => {
-    const isPanelOpen = panelSelector(tab);
+    let isPanelOpen: boolean;
+    switch (tab) {
+      case "info":
+        isPanelOpen = isInfoPanelOpen;
+        break;
+      case "questions":
+        isPanelOpen = isQuestionsPanelOpen;
+        break;
+      case "reviews":
+        isPanelOpen = isReviewsPanelOpen;
+        break;
+      default:
+        isPanelOpen = false;
+    }
 
     return cn(
       `w-full duration-300 md:duration-0 transition-max-h md:transition-none max-h-0 md:absolute inset-x-0 top-10 overflow-hidden`,
@@ -103,7 +111,6 @@ const ProductAuxiliraryInfo = () => {
     <div className="relative md:border-b mb-20">
       <div className="mt-6 flex flex-col md:flex-row md:gap-8">
         {["Additional Info", "Questions", "Reviews"].map((tab) => {
-          let content;
           let tabKey: "info" | "questions" | "reviews";
           switch (tab) {
             case "Additional Info":
@@ -118,29 +125,21 @@ const ProductAuxiliraryInfo = () => {
             default:
               tabKey = "info";
           }
-          if (tabKey === "info") {
-            content = <AdditionalInfo />;
-          } else if (tabKey === "questions") {
-            content = <ProductQuestions />;
-          } else if (tabKey === "reviews") {
-            content = <ProductReviews />;
-          }
           return (
             <div key={tab}>
               <div
-                className={generatePanelHeaderClassname(tabKey)}
+                className={generateHeaderClassname(tabKey)}
                 onClick={generateOnclickFunction(tabKey)}
               >
                 <h4 className="text-lg leading-8">{tab}</h4>
                 <ChevronDown
-                  className={generatePanelHeaderClassname(
-                    tabKey,
-                    "chevronIcon"
-                  )}
+                  className={generateHeaderClassname(tabKey, "chevronIcon")}
                 />
               </div>
-              <div className={generatePanelContentClassname(tabKey)}>
-                {content}
+
+              {/* content */}
+              <div className={applyPanelContentClassname(tabKey)}>
+                <AdditionalInfo />
               </div>
             </div>
           );
