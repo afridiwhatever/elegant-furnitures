@@ -40,8 +40,8 @@ const CollapsiblePanel = ({
       </div>
       <div
         className={cn(
-          `w-full duration-300 md:duration-0 transition-max-h md:transition-none max-h-0 md:absolute inset-x-0 top-10 overflow-hidden`,
-          { "max-h-[1200px]": isOpen }
+          `w-full duration-300 md:duration-0 transition-max-h md:transition-none max-h-0 md:absolute inset-x-0 top-10 overflow-y-auto`,
+          { "max-h-[2000px]": isOpen }
         )}
       >
         {children}

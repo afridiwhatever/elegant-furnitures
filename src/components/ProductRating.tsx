@@ -3,14 +3,14 @@
 // @ts-ignore
 import ReactStars from "react-rating-stars-component";
 
-const ProductRating = () => {
+const ProductRating = ({ rating }: { rating?: number }) => {
   return (
     <ReactStars
-      count={5}
+      count={rating || 5}
       size={13}
       value={5}
       isHalf={true}
-      color={"#fff"}
+      color="#ffd700"
       activeColor={"#000"}
       edit={false}
     />
