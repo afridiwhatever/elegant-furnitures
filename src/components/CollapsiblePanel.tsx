@@ -20,7 +20,7 @@ const CollapsiblePanel = ({
   isOnMobile,
 }: PanelProps) => {
   return (
-    <div>
+    <div className="min-h-screen">
       <div
         className={`flex justify-between items-center min-w-min ${
           isOnMobile ? "border-b border-black" : ""

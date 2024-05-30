@@ -61,7 +61,7 @@ const ProductReviews = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center md:flex-row gap-3 justify-between">
+      <div className="flex flex-col md:items-center md:flex-row gap-3 justify-between">
         <span className="text-xl font-[500] font-poppins block">
           11 Reviews
         </span>
@@ -69,7 +69,7 @@ const ProductReviews = () => {
           <select
             name="review-sort"
             id="review-sort"
-            className="border-2 border-gray-200 rounded-md focus:outline-zinc-500 py-2.5 px-4 font-[600] w-full lg:w-48"
+            className="border-2 border-gray-200 rounded-md focus:outline-zinc-500 py-2.5 px-4 font-[600] w-full md:w-48"
             style={{
               appearance: "none",
               WebkitAppearance: "none",

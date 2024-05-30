@@ -3,6 +3,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ProductDetails from "@/components/ProductDetails";
 import ProductShowcase from "@/components/ProductShowcase";
 import ProductAuxiliraryInfo from "@/components/ProductAuxiliraryInfo";
+import NewsLetter from "@/components/NewsLetter";
 import { convertToSlug } from "@/lib/utils";
 
 const product = {
@@ -61,6 +62,8 @@ const ProductPage = () => {
         </div>
         <ProductAuxiliraryInfo />
       </MaxWidthWrapper>
+      {/* <NewsLetter /> */}
+      <div className="h-40 w-full bg-blue-300"></div>
     </>
   );
 };
