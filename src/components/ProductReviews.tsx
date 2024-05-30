@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 
 export interface ProductReview {
   reviewByUser: string;
+  userPicture: string;
   rating: number;
   reviewSummary: string;
   reviewDesc: string;
@@ -14,6 +15,7 @@ export interface ProductReview {
 const productReviews: ProductReview[] = [
   {
     reviewByUser: "Sofia Harvetz",
+    userPicture: "/reviews/sofia.jpeg",
     rating: 4,
     reviewSummary: "It was decent",
     reviewDesc:
@@ -21,6 +23,7 @@ const productReviews: ProductReview[] = [
   },
   {
     reviewByUser: "Gary Nelson",
+    userPicture: "/reviews/gary.png",
     rating: 5,
     reviewSummary: "The perfect table!",
     reviewDesc:
@@ -28,7 +31,8 @@ const productReviews: ProductReview[] = [
   },
   {
     reviewByUser: "Neil Cavannaugh",
-    rating: 4,
+    userPicture: "/reviews/neil.png",
+    rating: 3.5,
     reviewSummary: "The material could be better!",
     reviewDesc:
       "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",

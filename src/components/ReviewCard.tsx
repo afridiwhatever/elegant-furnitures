@@ -7,7 +7,7 @@ const ReviewCard = ({ review }: { review: ProductReview }) => {
   return (
     <div className="flex gap-4 border-b pb-3 ">
       <div className="h-16 w-16 relative rounded-full overflow-hidden  min-w-16">
-        <Image src="/reviews/sofia.jpeg" fill alt="sofia" />
+        <Image src={review.userPicture} fill alt="sofia" />
       </div>
       <div className="h-full w-full space-y-2">
         <div className="space-y-2">
