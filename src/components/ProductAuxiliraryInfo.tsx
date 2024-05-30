@@ -1,15 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
+import CollapsiblePanel from "./CollapsiblePanel";
 import AdditionalInfo from "./ProductAdditionalInfo";
 import ProductQuestions from "./ProductQuestions";
 import ProductReviews from "./ProductReviews";
-import CollapsiblePanel from "./CollapsiblePanel";
 
 enum Tab {
   Info = "info",
   Questions = "questions",
   Reviews = "reviews",
 }
+
 const ProductAuxiliaryInfo = () => {
   const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
   const [isQuestionsPanelOpen, setIsQuestionsPanelOpen] = useState(false);
@@ -52,8 +53,8 @@ const ProductAuxiliaryInfo = () => {
   };
 
   return (
-    <div className="relative md:border-b mb-20">
-      <div className="mt-6 flex flex-col md:flex-row md:gap-8">
+    <div className="relative  mt-10 mb-10 ">
+      <div className="flex flex-col md:flex-row md:gap-8  relative">
         <CollapsiblePanel
           title="Additional Info"
           isOpen={isInfoPanelOpen}

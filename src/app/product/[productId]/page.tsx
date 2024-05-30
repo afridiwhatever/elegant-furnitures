@@ -62,7 +62,7 @@ const ProductPage = () => {
         </div>
         <ProductAuxiliraryInfo />
       </MaxWidthWrapper>
-      {/* <NewsLetter /> */}
+      <NewsLetter />
       <div className="h-40 w-full bg-blue-300"></div>
     </>
   );

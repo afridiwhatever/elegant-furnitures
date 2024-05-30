@@ -13,8 +13,11 @@ const ReviewCard = ({ review }: { review: ProductReview }) => {
         <div className="space-y-2">
           <h6 className="font-[500] text-lg">{review.reviewByUser}</h6>
           <div className="flex gap-2 items-center">
-            <ProductRating rating={review.rating} />
-            <div className="text-muted-foreground text-sm">|</div>
+            <div className="flex-shrink-0">
+              <ProductRating rating={review.rating} />
+            </div>
+
+            <div className="text-muted-foreground text-sm ">|</div>
             <p className="font-[500] ">{review.reviewSummary}</p>
           </div>
         </div>
