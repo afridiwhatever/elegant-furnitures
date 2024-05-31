@@ -1,17 +1,33 @@
+"use client";
+
 import React from "react";
 import ProductRating from "./ProductRating";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import ReviewCard from "./ReviewCard";
 import { Button } from "./ui/button";
 import { ProductReview } from "@/types";
+import RenderReviews from "./RenderReviews";
+import { useState } from "react";
+import Pagination from "./ui/pagination";
 
 const ProductReviews = ({
   productReviews,
 }: {
   productReviews: ProductReview[];
 }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reviewsPerPage, setReviewsPerPage] = useState(2);
+
+  const lastReviewIndex = currentPage * reviewsPerPage;
+  const firstReviewIndex = lastReviewIndex - reviewsPerPage;
+
+  const currentReviews = productReviews.slice(
+    firstReviewIndex,
+    lastReviewIndex
+  );
+
   return (
-    <div className="w-full pt-4 lg:pt-0 space-y-6 ">
+    <div className="w-full pt-4 lg:pt-0 space-y-6">
       <div className="space-y-2">
         <h2 className="text-2xl font-poppins">Customer Reviews</h2>
         <div className="flex gap-2 items-center pb-4">
@@ -58,19 +74,21 @@ const ProductReviews = ({
           <ChevronDown className="h-5 w-5 absolute right-2 top-[50%] transform -translate-y-[50%] " />
         </div>
       </div>
-      <div className="w-full space-y-6">
-        {productReviews.map((review) => {
-          return <ReviewCard key={review.reviewByUser} review={review} />;
-        })}
-      </div>
-      <div className="max-w-max mx-auto">
+      <RenderReviews productReviews={currentReviews} />
+      <Pagination
+        totalReviews={productReviews.length}
+        reviewsPerPage={reviewsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
+      {/* <div className="max-w-max mx-auto">
         <Button
           variant="ghost"
           className="px-6 border border-zinc-900 rounded-3xl"
         >
           Load more
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
