@@ -11,7 +11,7 @@ const PaginatedReviews = ({
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const reviewsPerPage = 4;
+  const reviewsPerPage = 3;
   const lastReviewIndex = currentPage * reviewsPerPage;
   const firstReviewIndex = lastReviewIndex - reviewsPerPage;
 
