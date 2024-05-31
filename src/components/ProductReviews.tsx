@@ -1,31 +1,13 @@
-"use client";
-
-import React from "react";
-import ProductRating from "./ProductRating";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import ReviewCard from "./ReviewCard";
-import { Button } from "./ui/button";
 import { ProductReview } from "@/types";
-import RenderReviews from "./RenderReviews";
-import { useState } from "react";
-import Pagination from "./ui/pagination";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import PaginatedReviews from "./PaginatedReviews";
+import ProductRating from "./ProductRating";
 
 const ProductReviews = ({
   productReviews,
 }: {
   productReviews: ProductReview[];
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const reviewsPerPage = 4;
-  const lastReviewIndex = currentPage * reviewsPerPage;
-  const firstReviewIndex = lastReviewIndex - reviewsPerPage;
-
-  const currentReviews = productReviews.slice(
-    firstReviewIndex,
-    lastReviewIndex
-  );
-
   return (
     <div className="w-full pt-4 lg:pt-0 space-y-6">
       <div className="space-y-2">
@@ -74,13 +56,7 @@ const ProductReviews = ({
           <ChevronDown className="h-5 w-5 absolute right-2 top-[50%] transform -translate-y-[50%] " />
         </div>
       </div>
-      <RenderReviews productReviews={currentReviews} />
-      <Pagination
-        totalReviews={productReviews.length}
-        reviewsPerPage={reviewsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
-      />
+      <PaginatedReviews productReviews={productReviews} />
     </div>
   );
 };

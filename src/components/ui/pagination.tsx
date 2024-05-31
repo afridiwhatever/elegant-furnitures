@@ -3,14 +3,14 @@ import React from "react";
 import "./Pagination.css";
 
 const Pagination = ({
-  totalReviews,
-  reviewsPerPage,
+  totalElements,
+  elementPerPage,
   setCurrentPage,
   currentPage,
 }: any) => {
   let pages = [];
 
-  for (let i = 1; i <= Math.ceil(totalReviews / reviewsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalElements / elementPerPage); i++) {
     pages.push(i);
   }
 
