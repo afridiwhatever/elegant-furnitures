@@ -19,37 +19,32 @@ const CollapsiblePanel = ({
   children,
   isOnMobile,
 }: PanelProps) => {
-  const auxiliaryInfoDiv = useRef<HTMLDivElement>(null);
-
   const [minHeight, setMinHeight] = useState(0);
-
-  const getAndSetHeight = (height: number) => {
-    setMinHeight(height + 50);
-  };
+  const contentDiv = useRef<HTMLDivElement>(null);
+  const headerDiv = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const communicateHeight = () => {
-      if (auxiliaryInfoDiv.current) {
-        console.log("from panel", auxiliaryInfoDiv.current.offsetHeight);
-        getAndSetHeight(auxiliaryInfoDiv.current.offsetHeight);
+    const setHeight = () => {
+      if (contentDiv.current && headerDiv.current) {
+        setMinHeight(
+          contentDiv.current.offsetHeight + headerDiv.current.offsetHeight
+        );
       }
     };
 
-    communicateHeight();
+    setHeight();
 
     const resizeObserver = new ResizeObserver(() => {
-      communicateHeight();
+      setHeight();
     });
 
-    if (auxiliaryInfoDiv.current) {
-      resizeObserver.observe(auxiliaryInfoDiv.current);
+    if (contentDiv.current) {
+      resizeObserver.observe(contentDiv.current);
     }
 
-    const a = auxiliaryInfoDiv.current;
-
     return () => {
-      if (a) {
-        resizeObserver.unobserve(a);
+      if (contentDiv.current) {
+        resizeObserver.unobserve(contentDiv.current);
       }
     };
   }, []);
@@ -61,7 +56,7 @@ const CollapsiblePanel = ({
       }}
     >
       <div
-        ref={auxiliaryInfoDiv}
+        ref={headerDiv}
         className={`flex justify-between items-center min-w-min  ${
           isOnMobile || isOpen ? "border-b border-black" : ""
         } ${isOpen ? "font-semibold" : "text-muted-foreground"}`}
@@ -75,10 +70,10 @@ const CollapsiblePanel = ({
         />
       </div>
       <div
-        ref={auxiliaryInfoDiv}
+        ref={contentDiv}
         className={cn(
-          `w-full duration-300 md:duration-0 transition-max-h md:transition-none max-h-0 md:absolute inset-x-0 top-16 overflow-y-auto`,
-          { "max-h-[3000px]": isOpen }
+          "w-full duration-800 md:duration-0 transition-max-h md:transition-none md:absolute inset-x-0 top-16 overflow-y-auto hidden",
+          { "block ": isOpen }
         )}
       >
         {children}
@@ -88,3 +83,6 @@ const CollapsiblePanel = ({
 };
 
 export default CollapsiblePanel;
+
+//
+//
