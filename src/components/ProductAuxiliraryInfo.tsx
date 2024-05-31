@@ -4,6 +4,7 @@ import CollapsiblePanel from "./CollapsiblePanel";
 import AdditionalInfo from "./ProductAdditionalInfo";
 import ProductQuestions from "./ProductQuestions";
 import ProductReviews from "./ProductReviews";
+import { ProductReview } from "@/types";
 
 enum Tab {
   Info = "info",
@@ -11,7 +12,15 @@ enum Tab {
   Reviews = "reviews",
 }
 
-const ProductAuxiliaryInfo = () => {
+const ProductAuxiliaryInfo = ({
+  productAdditionalInfo,
+  productQuestions,
+  productReviews,
+}: {
+  productAdditionalInfo: string[];
+  productQuestions: string[];
+  productReviews: ProductReview[];
+}) => {
   const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
   const [isQuestionsPanelOpen, setIsQuestionsPanelOpen] = useState(false);
   const [isReviewsPanelOpen, setIsReviewsPanelOpen] = useState(true);
@@ -77,7 +86,7 @@ const ProductAuxiliaryInfo = () => {
           onClick={generateOnClickFunction(Tab.Reviews)}
           isOnMobile={isOnMobile}
         >
-          <ProductReviews />
+          <ProductReviews productReviews={productReviews} />
         </CollapsiblePanel>
       </div>
     </div>

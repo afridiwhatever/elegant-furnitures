@@ -1,48 +1,15 @@
-"use client";
 import React from "react";
 import ProductRating from "./ProductRating";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import ReviewCard from "./ReviewCard";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { ProductReview } from "@/types";
 
-export interface ProductReview {
-  reviewByUser: string;
-  userPicture: string;
-  rating: number;
-  reviewSummary: string;
-  reviewDesc: string;
-}
-
-const productReview: ProductReview[] = [
-  {
-    reviewByUser: "Sofia Harvetz",
-    userPicture: "/reviews/sofia.jpeg",
-    rating: 4,
-    reviewSummary: "It was decent",
-    reviewDesc:
-      "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-  },
-  {
-    reviewByUser: "Gary Nelson",
-    userPicture: "/reviews/gary.png",
-    rating: 5,
-    reviewSummary: "The perfect table!",
-    reviewDesc:
-      "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-  },
-  {
-    reviewByUser: "Neil Cavannaugh",
-    userPicture: "/reviews/neil.png",
-    rating: 3.5,
-    reviewSummary: "The material could be better!",
-    reviewDesc:
-      "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-  },
-];
-
-const ProductReviews = () => {
-  const [productReviews, setProductReviews] = useState(productReview);
+const ProductReviews = ({
+  productReviews,
+}: {
+  productReviews: ProductReview[];
+}) => {
   return (
     <div className="w-full pt-4 lg:pt-0 space-y-6 ">
       <div className="space-y-2">
@@ -100,19 +67,6 @@ const ProductReviews = () => {
         <Button
           variant="ghost"
           className="px-6 border border-zinc-900 rounded-3xl"
-          onClick={() => {
-            setProductReviews((prev) => [
-              ...prev,
-              {
-                reviewByUser: "Sofia Harvetz",
-                userPicture: "/reviews/sofia.jpeg",
-                rating: 4,
-                reviewSummary: "It was decent",
-                reviewDesc:
-                  "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-              },
-            ]);
-          }}
         >
           Load more
         </Button>

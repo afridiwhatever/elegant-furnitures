@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ProductRating from "./ProductRating";
-import { ProductReview } from "./ProductReviews";
+import { ProductReview } from "@/types";
 
 const ReviewCard = ({ review }: { review: ProductReview }) => {
   return (
