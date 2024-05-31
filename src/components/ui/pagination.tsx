@@ -19,9 +19,9 @@ const Pagination = ({
       {pages.map((page, index) => {
         return (
           <button
-            key={index}
+            key={index + Math.random()}
             onClick={() => setCurrentPage(page)}
-            className={page == currentPage ? "active" : ""}
+            className={page === currentPage ? "active" : ""}
           >
             {page}
           </button>

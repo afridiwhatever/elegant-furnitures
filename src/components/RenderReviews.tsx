@@ -9,8 +9,8 @@ const RenderReviews = ({
 }) => {
   return (
     <div className="w-full space-y-6">
-      {productReviews.map((review) => {
-        return <ReviewCard key={review.reviewByUser} review={review} />;
+      {productReviews.map((review, index) => {
+        return <ReviewCard key={review.reviewByUser + index} review={review} />;
       })}
     </div>
   );

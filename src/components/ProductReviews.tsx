@@ -16,8 +16,8 @@ const ProductReviews = ({
   productReviews: ProductReview[];
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [reviewsPerPage, setReviewsPerPage] = useState(2);
 
+  const reviewsPerPage = 4;
   const lastReviewIndex = currentPage * reviewsPerPage;
   const firstReviewIndex = lastReviewIndex - reviewsPerPage;
 
@@ -81,14 +81,6 @@ const ProductReviews = ({
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
-      {/* <div className="max-w-max mx-auto">
-        <Button
-          variant="ghost"
-          className="px-6 border border-zinc-900 rounded-3xl"
-        >
-          Load more
-        </Button>
-      </div> */}
     </div>
   );
 };

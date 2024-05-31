@@ -61,10 +61,18 @@ const product = {
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
     {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
+      reviewByUser: "Sofia Harvetz",
+      userPicture: "/reviews/sofia.jpeg",
+      rating: 4,
+      reviewSummary: "It was decent",
+      reviewDesc:
+        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
+    },
+    {
+      reviewByUser: "Gary Nelson",
+      userPicture: "/reviews/gary.png",
+      rating: 5,
+      reviewSummary: "The perfect table!",
       reviewDesc:
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
@@ -77,10 +85,18 @@ const product = {
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
     {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
+      reviewByUser: "Sofia Harvetz",
+      userPicture: "/reviews/sofia.jpeg",
+      rating: 4,
+      reviewSummary: "It was decent",
+      reviewDesc:
+        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
+    },
+    {
+      reviewByUser: "Gary Nelson",
+      userPicture: "/reviews/gary.png",
+      rating: 5,
+      reviewSummary: "The perfect table!",
       reviewDesc:
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
@@ -93,10 +109,18 @@ const product = {
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
     {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
+      reviewByUser: "Sofia Harvetz",
+      userPicture: "/reviews/sofia.jpeg",
+      rating: 4,
+      reviewSummary: "It was decent",
+      reviewDesc:
+        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
+    },
+    {
+      reviewByUser: "Gary Nelson",
+      userPicture: "/reviews/gary.png",
+      rating: 5,
+      reviewSummary: "The perfect table!",
       reviewDesc:
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
@@ -109,10 +133,18 @@ const product = {
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
     {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
+      reviewByUser: "Sofia Harvetz",
+      userPicture: "/reviews/sofia.jpeg",
+      rating: 4,
+      reviewSummary: "It was decent",
+      reviewDesc:
+        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
+    },
+    {
+      reviewByUser: "Gary Nelson",
+      userPicture: "/reviews/gary.png",
+      rating: 5,
+      reviewSummary: "The perfect table!",
       reviewDesc:
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
@@ -125,114 +157,18 @@ const product = {
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
     {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
+      reviewByUser: "Sofia Harvetz",
+      userPicture: "/reviews/sofia.jpeg",
+      rating: 4,
+      reviewSummary: "It was decent",
       reviewDesc:
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
     {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
-      reviewDesc:
-        "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
-    },
-    {
-      reviewByUser: "Neil Cavannaugh",
-      userPicture: "/reviews/neil.png",
-      rating: 3.5,
-      reviewSummary: "The material could be better!",
+      reviewByUser: "Gary Nelson",
+      userPicture: "/reviews/gary.png",
+      rating: 5,
+      reviewSummary: "The perfect table!",
       reviewDesc:
         "I bought it 3 weeks ago and now come back just to say “Awesome Product”. I really enjoy it. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupt et quas molestias excepturi sint non provident.",
     },
