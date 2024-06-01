@@ -10,8 +10,12 @@ const ProductDetails = ({
 }: {
   colorVariants: {
     color: string;
-    unitAvailable: number;
-    previewImageUrl: string;
+    availability_status: string;
+    stock_quantity: number;
+    preview_image: {
+      url: string;
+      alt: string;
+    };
   }[];
 }) => {
   return (

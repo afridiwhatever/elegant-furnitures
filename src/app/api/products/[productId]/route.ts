@@ -1,16 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
+import products from "@/products";
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { productId: string } }
 ) {
-  const { productId } = params;
-
-  // Mock product data (replace with your actual data fetching logic)
-  const products = [
-    { id: "1", name: "Product 1", description: "Description of Product 1" },
-    { id: "2", name: "Product 2", description: "Description of Product 2" },
-  ];
+  const productId = parseInt(params.productId);
 
   const product = products.find((product) => product.id === productId);
 

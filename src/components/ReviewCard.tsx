@@ -3,25 +3,39 @@ import Image from "next/image";
 import ProductRating from "./ProductRating";
 import { ProductReview } from "@/types";
 
-const ReviewCard = ({ review }: { review: ProductReview }) => {
+const ReviewCard = ({
+  review,
+}: {
+  review: {
+    username: string;
+    profile_image: string | null;
+    rating: number;
+    comment: string;
+    review: string;
+  };
+}) => {
   return (
     <div className="flex gap-4 border-b pb-3 ">
       <div className="h-16 w-16 relative rounded-full overflow-hidden  min-w-16">
-        <Image src={review.userPicture} fill alt="sofia" />
+        <Image
+          src={review.profile_image ? review.profile_image : ""}
+          fill
+          alt="sofia"
+        />
       </div>
       <div className="h-full w-full space-y-2">
         <div className="space-y-2">
-          <h6 className="font-[500] text-lg">{review.reviewByUser}</h6>
+          <h6 className="font-[500] text-lg">{review.username}</h6>
           <div className="flex gap-2 items-center">
             <div className="flex-shrink-0">
               <ProductRating rating={review.rating} />
             </div>
 
             <div className="text-muted-foreground text-sm ">|</div>
-            <p className="font-[500] ">{review.reviewSummary}</p>
+            <p className="font-[500] ">{review.comment}</p>
           </div>
         </div>
-        <p>{review.reviewDesc}</p>
+        <p>{review.review}</p>
         <div className="flex flex-row items-center gap-4 text-sm mt-4 h-full">
           <div
             className="px-5 py-1.5 border border-zinc-300 hover:bg-zinc-100 transition-all duration-200 rounded-md hover:cursor-pointer shadow-md"

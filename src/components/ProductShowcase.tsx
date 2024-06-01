@@ -11,7 +11,10 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Swiper as SwiperInstance } from "swiper";
 
 interface ProductShowcaseProps {
-  images: string[];
+  images: Array<{
+    url: string;
+    alt: string;
+  }>;
 }
 
 const ProductShowcase = ({ images }: ProductShowcaseProps) => {
@@ -36,18 +39,18 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
 
   useEffect(() => {
     if (productDisplayImages.length > originialImageArrayLength) {
-      setActiveImage(productDisplayImages[productDisplayImages.length - 1]);
+      setActiveImage(productDisplayImages[productDisplayImages.length - 1].url);
     } else {
-      setActiveImage(productDisplayImages[0]);
+      setActiveImage(productDisplayImages[0]?.url);
     }
   }, [productDisplayImages, originialImageArrayLength]);
 
-  const handlePreviewImageClick = (imageUrl: string) => {
-    const index = productDisplayImages.indexOf(imageUrl);
+  const handlePreviewImageClick = (image: { url: string; alt: string }) => {
+    const index = productDisplayImages.indexOf(image);
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(index);
     }
-    setActiveImage(imageUrl);
+    setActiveImage(image.url);
   };
 
   const handlePrev = () => {
@@ -63,7 +66,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   };
 
   const handleSwiperSlideChange = (swiper: SwiperInstance) => {
-    const imageUrl = productDisplayImages[swiper.activeIndex];
+    const imageUrl = productDisplayImages[swiper.activeIndex].url;
     setActiveImage(imageUrl);
     setIsBeginning(swiper.activeIndex === 0);
     setIsEnd(swiper.activeIndex === productDisplayImages.length - 1);
@@ -85,11 +88,11 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
           className="h-full w-full relative"
           ref={swiperRef}
         >
-          {productDisplayImages.map((imageUrl: string) => {
+          {productDisplayImages.map((image: { url: string; alt: string }) => {
             return (
-              <SwiperSlide key={imageUrl} className="h-full w-full relative">
+              <SwiperSlide key={image.url} className="h-full w-full relative">
                 <Image
-                  src={imageUrl}
+                  src={image.url}
                   fill
                   alt="preview-image"
                   className="bg-neutralGray object-contain lg:object-cover "
@@ -117,16 +120,16 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
       </div>
       <div className="w-full hidden lg:block">
         <div className="h-full w-full flex gap-6">
-          {productDisplayImages.map((imageUrl: string) => {
-            const isActive = activeImage === imageUrl;
+          {productDisplayImages.map((image) => {
+            const isActive = activeImage === image.url;
             return (
               <div
-                key={imageUrl}
+                key={image.url}
                 className="h-[120px] w-[120px] relative"
-                onClick={() => handlePreviewImageClick(imageUrl)}
+                onClick={() => handlePreviewImageClick(image)}
               >
                 <Image
-                  src={imageUrl}
+                  src={image.url}
                   fill
                   alt="product image 1"
                   className={`bg-neutralGray hover:cursor-pointer ${

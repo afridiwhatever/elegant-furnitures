@@ -7,7 +7,13 @@ import Pagination from "./ui/pagination";
 const PaginatedReviews = ({
   productReviews,
 }: {
-  productReviews: ProductReview[];
+  productReviews: Array<{
+    username: string;
+    profile_image: string | null;
+    rating: number;
+    comment: string;
+    review: string;
+  }>;
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -24,9 +30,7 @@ const PaginatedReviews = ({
     <>
       <div className="w-full space-y-6">
         {currentReviews.map((review, index) => {
-          return (
-            <ReviewCard key={review.reviewByUser + index} review={review} />
-          );
+          return <ReviewCard key={review.username + index} review={review} />;
         })}
       </div>
       <Pagination

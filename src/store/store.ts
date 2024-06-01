@@ -1,9 +1,17 @@
 import { create } from "zustand";
 
 interface Store {
-  productDisplayImages: string[];
+  productDisplayImages: Array<{
+    url: string;
+    alt: string;
+  }>;
   swiperRef: any;
-  updateProductDisplayImages: (newProductDisplayImages: string[]) => void;
+  updateProductDisplayImages: (
+    newProductDisplayImages: Array<{
+      url: string;
+      alt: string;
+    }>
+  ) => void;
   setSwiperRef: (swiperRef: any) => void;
 }
 

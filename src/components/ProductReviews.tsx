@@ -6,7 +6,13 @@ import ProductRating from "./ProductRating";
 const ProductReviews = ({
   productReviews,
 }: {
-  productReviews: ProductReview[];
+  productReviews: Array<{
+    username: string;
+    profile_image: string | null;
+    rating: number;
+    comment: string;
+    review: string;
+  }>;
 }) => {
   return (
     <div className="w-full pt-4 lg:pt-0 space-y-6">

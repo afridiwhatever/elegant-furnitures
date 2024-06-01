@@ -9,8 +9,12 @@ const ColorPicker = ({
 }: {
   colorVariants: {
     color: string;
-    unitAvailable: number;
-    previewImageUrl: string;
+    availability_status: string;
+    stock_quantity: number;
+    preview_image: {
+      url: string;
+      alt: string;
+    };
   }[];
 }) => {
   const [selectedColor, setSelectedColor] = useState(colorVariants[0].color);
@@ -24,10 +28,13 @@ const ColorPicker = ({
 
   const handleColorPickerImageClick = (
     color: string,
-    previewImageUrl: string
+    preview_image: {
+      url: string;
+      alt: string;
+    }
   ) => {
     setSelectedColor(color);
-    updateProductDisplayImages([...productDisplayImages, previewImageUrl]);
+    updateProductDisplayImages([...productDisplayImages, preview_image]);
 
     setTimeout(() => {
       if (swiperRef?.current && swiperRef.current.swiper) {
@@ -44,7 +51,7 @@ const ColorPicker = ({
         <ChevronRight className="h-5 w-5" />
       </div>
       <div className="flex gap-4">
-        {colorVariants.map(({ color, unitAvailable, previewImageUrl }) => {
+        {colorVariants.map(({ color, stock_quantity, preview_image }) => {
           const isSelected = selectedColor === color;
           return (
             <div className="max-w-max space-y-4" key={color}>
@@ -58,13 +65,13 @@ const ColorPicker = ({
               <div className="h-[96px] w-[96px] relative">
                 <Image
                   onClick={() => {
-                    handleColorPickerImageClick(color, previewImageUrl);
+                    handleColorPickerImageClick(color, preview_image);
                   }}
-                  src={previewImageUrl}
+                  src={preview_image.url}
                   fill
                   alt="color-black"
                   className={`object-contain border  hover:cursor-pointer ${
-                    unitAvailable > 0 ? "" : "opacity-30"
+                    stock_quantity > 0 ? "" : "opacity-30"
                   }
               ${isSelected ? "border-black" : ""}
               `}
