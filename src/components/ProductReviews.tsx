@@ -35,6 +35,7 @@ const ProductReviews = ({
         </span>
         <div className="relative">
           <select
+            defaultValue={"newest"}
             name="review-sort"
             id="review-sort"
             className="border-2 border-gray-200 rounded-md focus:outline-zinc-500 py-2.5 px-4 font-[600] w-full md:w-48"
@@ -46,9 +47,7 @@ const ProductReviews = ({
               background: "none",
             }}
           >
-            <option value="newest" selected>
-              Newest
-            </option>
+            <option value="newest">Newest</option>
             <option value="oldest">Oldest</option>
             <option value="positive">Positive</option>
             <option value="critical">Critical</option>
