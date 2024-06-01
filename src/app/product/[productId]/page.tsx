@@ -6,16 +6,7 @@ import ProductAuxiliaryInfo from "@/components/ProductAuxiliraryInfo";
 import NewsLetter from "@/components/NewsLetter";
 import { convertToSlug } from "@/lib/utils";
 import { Product } from "@/types";
-
-// const BreadcrumbElements = [
-//   { name: "Home", href: "/" },
-//   { name: "Shop", href: "/shop" },
-//   { name: product.category, href: `/shop/${convertToSlug(product.category)}` },
-//   {
-//     name: "Product",
-//     href: `/product/${convertToSlug(product.id + " " + product.name)}`,
-//   },
-// ];
+import { notFound } from "next/navigation";
 
 async function fetchProduct(productId: number) {
   const res = await fetch(`http://localhost:3000/api/products/${productId}`);
@@ -24,6 +15,11 @@ async function fetchProduct(productId: number) {
 }
 const ProductPage = async ({ params }: { params: { productId: string } }) => {
   const product = (await fetchProduct(parseInt(params.productId))) as Product;
+
+  // @ts-expect-error
+  if (product.message) {
+    return notFound();
+  }
 
   const BreadcrumbElements = [
     { name: "Home", href: "/" },
@@ -48,11 +44,11 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           <ProductShowcase images={product.images} />
-          <ProductDetails colorVariants={product.color_variants} />
+          <ProductDetails product={product} />
         </div>
         <ProductAuxiliaryInfo
           productReviews={product.reviews}
-          productQuestions={product.questions_answers}
+          productQuestionAnswers={product.questions_answers}
           productAdditionalInfo={product.additionalInfo}
         />
       </MaxWidthWrapper>

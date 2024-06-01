@@ -4,7 +4,11 @@ import CollapsiblePanel from "./CollapsiblePanel";
 import AdditionalInfo from "./ProductAdditionalInfo";
 import ProductQuestions from "./ProductQuestions";
 import ProductReviews from "./ProductReviews";
-import { ProductReview } from "@/types";
+import {
+  ProductAdditionalInfo,
+  ProductQuestionAnswer,
+  ProductReview,
+} from "@/types";
 
 enum Tab {
   Info = "info",
@@ -14,40 +18,12 @@ enum Tab {
 
 const ProductAuxiliaryInfo = ({
   productAdditionalInfo,
-  productQuestions,
+  productQuestionAnswers,
   productReviews,
 }: {
-  productAdditionalInfo: {
-    weight: string;
-    materials: string[];
-    care_instructions: string;
-    shipping_details: {
-      shipping_weight: string;
-      dimensions: {
-        width: string;
-        height: string;
-        depth: string;
-      };
-      shipping_cost: number;
-      estimated_delivery_time: string;
-    };
-    return_policy: string;
-  };
-  productQuestions: Array<{
-    question: string;
-    answer: string;
-    asked_by: string;
-    asked_on: string;
-    answered_by: string;
-    answered_on: string;
-  }>;
-  productReviews: Array<{
-    username: string;
-    profile_image: string | null;
-    rating: number;
-    comment: string;
-    review: string;
-  }>;
+  productAdditionalInfo: ProductAdditionalInfo;
+  productQuestionAnswers: ProductQuestionAnswer[];
+  productReviews: ProductReview[];
 }) => {
   const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
   const [isQuestionsPanelOpen, setIsQuestionsPanelOpen] = useState(false);
@@ -98,7 +74,7 @@ const ProductAuxiliaryInfo = ({
           onClick={generateOnClickFunction(Tab.Info)}
           isOnMobile={isOnMobile}
         >
-          <AdditionalInfo />
+          <AdditionalInfo productAdditionalInfo={productAdditionalInfo} />
         </CollapsiblePanel>
         <CollapsiblePanel
           title="Questions"
@@ -106,7 +82,7 @@ const ProductAuxiliaryInfo = ({
           onClick={generateOnClickFunction(Tab.Questions)}
           isOnMobile={isOnMobile}
         >
-          <ProductQuestions />
+          <ProductQuestions productQuestionAnswers={productQuestionAnswers} />
         </CollapsiblePanel>
         <CollapsiblePanel
           title="Reviews"

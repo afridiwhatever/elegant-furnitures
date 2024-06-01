@@ -4,20 +4,9 @@ import ColorPicker from "./ColorPicker";
 import ProductRating from "./ProductRating";
 import SaleCountdown from "./SaleCountdown";
 import { Button } from "./ui/button";
+import { Product } from "@/types";
 
-const ProductDetails = ({
-  colorVariants,
-}: {
-  colorVariants: {
-    color: string;
-    availability_status: string;
-    stock_quantity: number;
-    preview_image: {
-      url: string;
-      alt: string;
-    };
-  }[];
-}) => {
+const ProductDetails = ({ product }: { product: Product }) => {
   return (
     <div className="w-full lg:w-[55%] space-y-4 relative ">
       {/* reviews */}
@@ -27,16 +16,14 @@ const ProductDetails = ({
       </div>
 
       {/* details */}
-      <h1 className="font-poppins text-4xl lg:text-5xl">Tray Table</h1>
+      <h1 className="font-poppins text-4xl lg:text-5xl">{product.name}</h1>
       <p className="text-base lg:text-lg text-blackishGray font-[400] ">
-        Buy one or buy a few and make every space where you sit more convenient.
-        Light and easy to move around with removable tray top, handy for serving
-        snacks.
+        {product.description}
       </p>
       <p className="font-poppins text-2xl lg:text-3xl">
-        $199.00{" "}
+        ${product.discounted_price}{" "}
         <span className="text-lg lg:text-xl line-through text-blackishGray">
-          $400.00
+          ${product.price}
         </span>
       </p>
 
@@ -51,11 +38,14 @@ const ProductDetails = ({
         <h4 className="font-semibold text-lg text-blackishGray">
           Measurements
         </h4>
-        <p className="text-xl font-[400]">17 1/2x20 5/8 &apos;&apos;</p>
+        <p className="text-xl font-[400] flex">
+          {product.dimensions.height} * {product.dimensions.width} *{" "}
+          {product.dimensions.depth}
+        </p>
       </div>
 
       {/* color picker */}
-      <ColorPicker colorVariants={colorVariants} />
+      <ColorPicker colorVariants={product.color_variants} />
 
       {/* quantity, wishlist adding to cart */}
       <div className="py-8 space-y-4 border-b border-neutralGray">
@@ -76,13 +66,15 @@ const ProductDetails = ({
       <div className="py-2 space-y-2 font-[400]">
         <div className="flex">
           <p className="min-w-[140px] uppercase text-muted-foreground">SKU</p>
-          <p>1117</p>
+          <p>{product.sku}</p>
         </div>
         <div className="flex">
           <p className="min-w-[140px] uppercase text-muted-foreground">
             Category
           </p>
-          <p>Living Room, Bedroom</p>
+          <p>
+            {product.category}, {product.subcategory}
+          </p>
         </div>
       </div>
     </div>

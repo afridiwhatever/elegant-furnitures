@@ -9,12 +9,10 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Swiper as SwiperInstance } from "swiper";
+import { ProductImage } from "@/types";
 
 interface ProductShowcaseProps {
-  images: Array<{
-    url: string;
-    alt: string;
-  }>;
+  images: ProductImage[];
 }
 
 const ProductShowcase = ({ images }: ProductShowcaseProps) => {
@@ -45,7 +43,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
     }
   }, [productDisplayImages, originialImageArrayLength]);
 
-  const handlePreviewImageClick = (image: { url: string; alt: string }) => {
+  const handlePreviewImageClick = (image: ProductImage) => {
     const index = productDisplayImages.indexOf(image);
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(index);
@@ -88,13 +86,13 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
           className="h-full w-full relative"
           ref={swiperRef}
         >
-          {productDisplayImages.map((image: { url: string; alt: string }) => {
+          {productDisplayImages.map((image: ProductImage) => {
             return (
               <SwiperSlide key={image.url} className="h-full w-full relative">
                 <Image
                   src={image.url}
                   fill
-                  alt="preview-image"
+                  alt={image.alt}
                   className="bg-neutralGray object-contain lg:object-cover "
                 />
               </SwiperSlide>
@@ -131,7 +129,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
                 <Image
                   src={image.url}
                   fill
-                  alt="product image 1"
+                  alt={image.alt}
                   className={`bg-neutralGray hover:cursor-pointer ${
                     isActive ? "border border-black" : null
                   }`}

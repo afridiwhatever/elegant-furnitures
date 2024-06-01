@@ -10,8 +10,11 @@ export async function GET(
   const product = products.find((product) => product.id === productId);
 
   if (product) {
-    return NextResponse.json(product);
+    return NextResponse.json({ product });
   } else {
-    return NextResponse.json({ message: "Product not found" }, { status: 404 });
+    return NextResponse.json(
+      { product: null, message: "Product not found" },
+      { status: 404 }
+    );
   }
 }
