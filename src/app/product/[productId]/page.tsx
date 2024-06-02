@@ -25,8 +25,8 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
     { name: "Home", href: "/" },
     { name: "Shop", href: "/shop" },
     {
-      name: product.category,
-      href: `/shop/${convertToSlug(product.category)}`,
+      name: product.category.value,
+      href: `/shop/${convertToSlug(product.category.label)}`,
     },
     {
       name: "Product",

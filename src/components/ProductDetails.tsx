@@ -75,7 +75,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
             Category
           </p>
           <p>
-            {product.category}, {product.subcategory}
+            {product.category.value}, {product.subcategory.value}
           </p>
         </div>
       </div>
