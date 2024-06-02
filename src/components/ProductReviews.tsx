@@ -2,6 +2,13 @@ import { Product, ProductReview } from "@/types";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import PaginatedReviews from "./PaginatedReviews";
 import ProductRating from "./ProductRating";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import Test from "./Test";
 
@@ -36,8 +43,26 @@ const ProductReviews = ({
           <span className="text-xl font-[500] font-poppins block">
             11 Reviews
           </span>
-          <div>
-            <Test />
+          <div className="relative">
+            <select
+              defaultValue={"newest"}
+              name="review-sort"
+              id="review-sort"
+              className="border border-gray-400 rounded-md focus:outline-zinc-400 py-2.5 px-4 font-[500] w-full md:w-48"
+              style={{
+                appearance: "none",
+                WebkitAppearance: "none",
+                MozAppearance: "none",
+                backgroundImage: "none",
+                background: "none",
+              }}
+            >
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+              <option value="positive">Positive</option>
+              <option value="critical">Critical</option>
+            </select>
+            <ChevronDown className="h-5 w-5 absolute right-2 top-[50%] transform -translate-y-[50%] " />
           </div>
         </div>
         <PaginatedReviews productReviews={productReviews} />

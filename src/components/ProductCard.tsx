@@ -22,9 +22,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <div className="relative hover:cursor-pointer group">
+    <div className="relative hover:cursor-pointer group rounded-md">
       {/* image and button */}
-      <div className="relative w-[230px] h-[310px] rounded-md lg:w-[290px] lg:h-[360px] bg-neutralGray group-hover:border border-black">
+      <div className="relative w-[230px] h-[310px] rounded-lg lg:w-[290px] lg:h-[360px] bg-neutralGray group-hover:border border-black overflow-hidden">
         <Image
           src={product.images[0].url}
           fill
