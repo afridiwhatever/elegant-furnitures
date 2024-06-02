@@ -383,12 +383,21 @@ const products: Product[] = [
     },
     color_variants: [
       {
-        color: "Black",
+        color: "White",
         availability_status: "In Stock",
         stock_quantity: 10,
         preview_image: {
-          url: "/products/sofa_set/colors/black.jpg",
-          alt: "Minimalist Sofa Set in Black",
+          url: "/products/sofa_set/colors/sofa_set_white.webp",
+          alt: "Minimalist Sofa Set in white",
+        },
+      },
+      {
+        color: "Navyblue",
+        availability_status: "In Stock",
+        stock_quantity: 10,
+        preview_image: {
+          url: "/products/sofa_set/colors/sofa_set_navyblue.webp",
+          alt: "Minimalist Sofa Set in Navyblue",
         },
       },
       {
@@ -396,7 +405,7 @@ const products: Product[] = [
         availability_status: "In Stock",
         stock_quantity: 8,
         preview_image: {
-          url: "/products/sofa_set/colors/grey.jpg",
+          url: "/products/sofa_set/colors/sofa_set_grey.webp",
           alt: "Minimalist Sofa Set in Grey",
         },
       },
@@ -408,15 +417,15 @@ const products: Product[] = [
     ],
     images: [
       {
-        url: "/products/sofa_set/sofa_set_1.jpg",
+        url: "/products/sofa_set/sofa_set_1.webp",
         alt: "Minimalist Sofa Set front view",
       },
       {
-        url: "/products/sofa_set/sofa_set_2.jpg",
+        url: "/products/sofa_set/sofa_set_2.webp",
         alt: "Minimalist Sofa Set side view",
       },
       {
-        url: "/products/sofa_set/sofa_set_3.jpg",
+        url: "/products/sofa_set/sofa_set_3.webp",
         alt: "Minimalist Sofa Set angle view",
       },
     ],
