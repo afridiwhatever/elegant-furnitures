@@ -3,7 +3,7 @@ import CategoryCard from "@/components/CategoryCard";
 import Footer from "@/components/Footer";
 import HeroSectionSlider from "@/components/HeroSectionSlider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import NewArrivals from "@/components/NewArrivals";
+import ProductReel from "@/components/ProductReel";
 import ShopNowButton from "@/components/ShopNowButton";
 import NewsLetter from "@/components/NewsLetter";
 import Image from "next/image";
@@ -107,7 +107,7 @@ const HomePage = () => {
           />
         </div>
 
-        <NewArrivals />
+        <ProductReel tag="new" />
 
         {/* features */}
         <div className="mt-10 grid grid-cols-2 grid-rows-2 lg:grid-rows-1 lg:grid-cols-4 gap-x-2 gap-y-6">

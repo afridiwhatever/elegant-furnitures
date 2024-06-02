@@ -21,7 +21,7 @@ const products: Product[] = [
     sku: "TTB-MOD-2024-001",
     price: 129.99,
     discounted_price: 99.99,
-    sale_end_date: new Date("2024-6-31T23:59:59").toISOString(),
+    // sale_end_date: new Date("2024-6-31T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {
       width: "60 cm",
@@ -240,7 +240,7 @@ const products: Product[] = [
     sku: "CTB-MOD-2024-002",
     price: 199.99,
     discounted_price: 159.99,
-    sale_end_date: new Date("2024-6-24T23:59:59").toISOString(),
+    // sale_end_date: new Date("2024-6-24T23:59:59").toISOString(),
     tag: "new",
     currency: "USD",
     dimensions: {
@@ -374,7 +374,7 @@ const products: Product[] = [
     sku: "SS-MIN-2024-003",
     price: 899.99,
     discounted_price: 799.99,
-    sale_end_date: new Date("2024-06-30T23:59:59").toISOString(),
+    // sale_end_date: new Date("2024-06-30T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {
       width: "200 cm",

@@ -9,23 +9,12 @@ import ReactStars from "react-rating-stars-component";
 import { HeartIconFilled } from "../../public/icons/Icons";
 import { Button } from "./ui/button";
 import AddToWishlistButton from "./AddToWishlistButton";
+import { Product, ProductImage } from "@/types";
 
 interface ProductCardProps {
-  name: string;
-  imageUrl: string;
-  originalPrice: number;
-  discountedPrice: number;
-  discountPercent: number;
-  isNew: boolean;
+  product: Product;
 }
-const ProductCard = ({
-  name,
-  imageUrl,
-  originalPrice,
-  discountedPrice,
-  discountPercent,
-  isNew,
-}: ProductCardProps) => {
+const ProductCard = ({ product }: ProductCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleAddedToFavorites = () => {
@@ -37,9 +26,9 @@ const ProductCard = ({
       {/* image and button */}
       <div className="relative w-[230px] h-[310px] rounded-md lg:w-[290px] lg:h-[360px] bg-neutralGray group-hover:border border-black">
         <Image
-          src={imageUrl}
+          src={product.images[0].url}
           fill
-          alt="loveseat_sofa_product"
+          alt={product.images[0].alt}
           className="object-contain"
         />
         <div className="absolute w-full h-10 bottom-16">
@@ -70,22 +59,22 @@ const ProductCard = ({
             edit={false}
           />
         </div>
-        <h4>{name}</h4>
+        <h4>{product.name}</h4>
         <div className="flex gap-2 text-sm">
-          <p>${discountedPrice}</p>
+          <p>${product.discounted_price}</p>
           <p className="text-muted-foreground line-through font-medium">
-            ${originalPrice}
+            ${product.price}
           </p>
         </div>
       </Link>
       {/* discount panel */}
       <div className="absolute top-2 left-2 font-semibold ">
-        {isNew && (
+        {/* {isNew && (
           <p className="uppercase rounded-lg bg-white px-5 py-1 mb-2">New</p>
-        )}
-        <p className="bg-[#38CB89] rounded-lg px-5 py-1 text-white">
+        )} */}
+        {/* <p className="bg-[#38CB89] rounded-lg px-5 py-1 text-white">
           -{discountPercent}%
-        </p>
+        </p> */}
       </div>
       {/* favorite button */}
       <div
