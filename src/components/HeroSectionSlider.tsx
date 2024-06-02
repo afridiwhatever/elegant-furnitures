@@ -32,8 +32,8 @@ const HeroSectionSlider = () => {
         spaceBetween={50}
         slidesPerView={1}
         autoplay
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => {}}
+        onSwiper={(swiper) => {}}
         pagination={{ clickable: true }}
       >
         <SwiperSlide>

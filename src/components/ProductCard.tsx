@@ -42,8 +42,14 @@ const ProductCard = ({
           alt="loveseat_sofa_product"
           className="object-contain"
         />
-        <div className="absolute w-full h-10 bottom-6">
-          <div className="w-[80%] mx-auto transition-all duration-200 opacity-0 translate-y-[100%] group-hover:opacity-100 group-hover:translate-y-0">
+        <div className="absolute w-full h-10 bottom-16">
+          <div className="w-[80%] mx-auto transition-all duration-200 opacity-0 translate-y-[100%] group-hover:opacity-100 group-hover:translate-y-0 space-y-2">
+            <Button
+              className="w-full border border-black rounded md hover:bg-zinc-200"
+              variant={"ghost"}
+            >
+              View Details
+            </Button>
             <Button className="w-full">Add to Cart</Button>
           </div>
         </div>
