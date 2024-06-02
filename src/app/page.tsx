@@ -74,7 +74,6 @@ const HomePage = () => {
     <>
       <MaxWidthWrapper>
         <HeroSectionSlider />
-
         {/* about */}
         <div className="mt-10 flex flex-col lg:flex-row lg:items-center justify-between pr-32">
           <span className="block text-3xl md:text-7xl font-poppins font-medium">
@@ -123,6 +122,8 @@ const HomePage = () => {
             );
           })}
         </div>
+
+        <ProductReel tag="sale" />
       </MaxWidthWrapper>
 
       {/* Sale*/}

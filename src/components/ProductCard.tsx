@@ -34,7 +34,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute w-full h-10 bottom-16">
           <div className="w-[80%] mx-auto transition-all duration-200 opacity-0 translate-y-[100%] group-hover:opacity-100 group-hover:translate-y-0 space-y-2">
             <Button
-              className="w-full border border-black rounded md hover:bg-zinc-200"
+              className="w-full border border-black rounded-md bg-zinc-100 hover:bg-zinc-200"
               variant={"ghost"}
             >
               View Details

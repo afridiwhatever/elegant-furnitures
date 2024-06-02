@@ -3,7 +3,9 @@ import ProductCard from "./ProductCard";
 import ShopNowButton from "./ShopNowButton";
 import { Product } from "@/types";
 
-const ProductReel = async ({ tag }: { tag: "new" | "sale" | "bestseller" }) => {
+type ProductTag = "new" | "sale" | "bestseller";
+
+const ProductReel = async ({ tag }: { tag: ProductTag }) => {
   const fetchProducts = async () => {
     const response = await fetch(`http:localhost:3000/api/products?tag=${tag}`);
     const data = await response.json();
@@ -11,11 +13,28 @@ const ProductReel = async ({ tag }: { tag: "new" | "sale" | "bestseller" }) => {
   };
   const products = (await fetchProducts()) as Product[];
 
+  const renderHeaderText = (tag: ProductTag) => {
+    switch (tag) {
+      case "new":
+        return (
+          <>
+            New <br /> Arrivals
+          </>
+        );
+      case "sale":
+        return "On Sale";
+      case "bestseller":
+        return "Best Sellers";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className="mt-12">
       <div className="flex justify-between items-end">
         <h2 className="font-poppins text-3xl lg:text-5xl">
-          New <br /> Arrivals
+          {renderHeaderText(tag)}
         </h2>
         <div className="hidden md:block">
           <ShopNowButton
