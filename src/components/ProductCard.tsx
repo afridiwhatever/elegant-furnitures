@@ -29,7 +29,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           src={product.images[0].url}
           fill
           alt={product.images[0].alt}
-          className="object-contain"
+          className="object-cover"
         />
         <div className="absolute w-full h-10 bottom-16">
           <div className="w-[80%] mx-auto transition-all duration-200 opacity-0 translate-y-[100%] group-hover:opacity-100 group-hover:translate-y-0 space-y-2">
