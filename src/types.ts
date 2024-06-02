@@ -56,20 +56,21 @@ export type ProductReview = {
   review: string;
 };
 
-export type ProductRelatedProduct = {
-  id: string;
-  name: string;
-  url: string;
-};
-
 export type Product = {
   id: number;
   name: string;
   description: string;
-  tag?: string;
-  category: string;
+  meta_description: string;
+  tag?: "new" | "sale" | "limited" | "bestseller";
+  category: {
+    label: string;
+    value: string;
+  };
   sale_end_date?: string;
-  subcategory: string;
+  subcategory: {
+    label: string;
+    value: string;
+  };
   brand: string;
   sku: string;
   price: number;
@@ -83,5 +84,4 @@ export type Product = {
   additionalInfo: ProductAdditionalInfo;
   questions_answers: ProductQuestionAnswer[];
   reviews: ProductReview[];
-  related_products: ProductRelatedProduct[];
 };

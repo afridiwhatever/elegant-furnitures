@@ -6,14 +6,22 @@ const products: Product[] = [
     name: "Modern Tray Table",
     description:
       "A versatile modern tray table with a sleek design and durable materials.",
-    category: "Living Room",
-    subcategory: "Tables",
-    tag: "New",
+    meta_description:
+      "Explore the stylish tray tables for modern living spaces at Elegant furnitures. Find the perfect blend of functionality and design. Shop now!",
+    category: {
+      label: "living_room",
+      value: "Living Room",
+    },
+    subcategory: {
+      label: "tables",
+      value: "Tables",
+    },
+    tag: "new",
     brand: "FurnitureCo",
     sku: "TTB-MOD-2024-001",
     price: 129.99,
     discounted_price: 99.99,
-    sale_end_date: new Date("2024-12-31T23:59:59").toISOString(),
+    sale_end_date: new Date("2024-6-31T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {
       width: "60 cm",
@@ -26,7 +34,7 @@ const products: Product[] = [
         availability_status: "In Stock",
         stock_quantity: 30,
         preview_image: {
-          url: "/products/black-tray-table/colors/black.jpg",
+          url: "/products/tray_table/colors/tray_table_black.jpg",
           alt: "Modern Tray Table in Black",
         },
       },
@@ -35,7 +43,7 @@ const products: Product[] = [
         availability_status: "Limited Stock",
         stock_quantity: 20,
         preview_image: {
-          url: "/products/black-tray-table/colors/beige.jpg",
+          url: "/products/tray_table/colors/tray_table_beige.jpg",
           alt: "Modern Tray Table in Beige",
         },
       },
@@ -44,37 +52,38 @@ const products: Product[] = [
         availability_status: "In Stock",
         stock_quantity: 25,
         preview_image: {
-          url: "/products/black-tray-table/colors/red.jpg",
+          url: "/products/tray_table/colors/tray_table_red.jpg",
           alt: "Modern Tray Table in Red",
         },
       },
     ],
     features: [
-      "Foldable design",
+      "Build with strong aluminum",
       "Easy to clean surface",
       "Lightweight and portable",
     ],
+
     images: [
       {
-        url: "/products/black-tray-table/black-tray-table.png",
+        url: "/products/tray_table/tray_table_1.png",
         alt: "Modern Tray Table front view",
       },
       {
-        url: "/products/black-tray-table/black-tray-table-2.jpg",
+        url: "/products/tray_table/tray_table_2.jpg",
         alt: "Modern Tray Table side view",
       },
       {
-        url: "/products/black-tray-table/black-tray-table-3.jpg",
+        url: "/products/tray_table/tray_table_3.jpg",
         alt: "Modern Tray Table wide view",
       },
       {
-        url: "/products/black-tray-table/black-tray-table-4.jpg",
+        url: "/products/tray_table/tray_table_4.jpg",
         alt: "Modern Tray Table close view",
       },
     ],
     videos: [
       {
-        url: "/products/black-tray-table/black-tray-table-2.jpg",
+        url: "/products/tray_table/tray_table_1.mp4",
         title: "Modern Tray Table Features and Setup",
       },
     ],
@@ -99,7 +108,7 @@ const products: Product[] = [
     questions_answers: [
       {
         question: "What is the weight capacity of this tray table?",
-        answer: "The tray table can hold up to 15 kg.",
+        answer: "The tray table can hold up to 25 kg.",
         asked_by: "user123",
         asked_on: "2024-05-15",
         answered_by: "FurnitureCo Support",
@@ -212,30 +221,27 @@ const products: Product[] = [
           "The table fits well in my apartment and is quite functional. Pretty good overall, though a bit pricey.",
       },
     ],
-    related_products: [
-      {
-        id: "TTB-2024-002",
-        name: "Modern Coffee Table",
-        url: "https://example.com/products/TTB-2024-002",
-      },
-      {
-        id: "TTB-2024-003",
-        name: "Modern End Table",
-        url: "https://example.com/products/TTB-2024-003",
-      },
-    ],
   },
   {
     id: 2,
     name: "Contemporary Coffee Table",
     description: "A sleek contemporary coffee table with a minimalist design.",
-    category: "Living Room",
-    subcategory: "Tables",
+    meta_description:
+      "Elevate your living space with our contemporary coffee table. Sleek design meets premium quality. Comes in Black, Vintage gray & Marbel white. Shop now!",
+    category: {
+      label: "living_room",
+      value: "Living Room",
+    },
+    subcategory: {
+      label: "tables",
+      value: "Tables",
+    },
     brand: "FurnitureCo",
     sku: "CTB-MOD-2024-002",
     price: 199.99,
     discounted_price: 159.99,
-    tag: "New",
+    sale_end_date: new Date("2024-6-24T23:59:59").toISOString(),
+    tag: "new",
     currency: "USD",
     dimensions: {
       width: "90 cm",
@@ -334,7 +340,7 @@ const products: Product[] = [
     reviews: [
       {
         username: "Sophia Wilson",
-        profile_image: "/reviews/sophia.jpg",
+        profile_image: "/reviews/gary.png",
         rating: 5,
         comment: "Great coffee table!",
         review:
@@ -342,334 +348,96 @@ const products: Product[] = [
       },
       {
         username: "Oliver Brown",
-        profile_image: "/reviews/oliver.jpg",
+        profile_image: "/reviews/neil.png",
         rating: 4,
         comment: "Good value",
         review: "Nice table for the price. Assembly was straightforward.",
       },
     ],
-    related_products: [
-      {
-        id: "CTB-2024-003",
-        name: "Modern Console Table",
-        url: "https://example.com/products/CTB-2024-003",
-      },
-      {
-        id: "CTB-2024-004",
-        name: "Contemporary Side Table",
-        url: "https://example.com/products/CTB-2024-004",
-      },
-    ],
   },
   {
     id: 3,
-    name: "Rustic End Table",
-    description: "A charming rustic end table made from reclaimed wood.",
-    category: "Living Room",
-    subcategory: "Tables",
+    name: "Minimalist Sofa Set",
+    description: "A sleek and modern sofa set for contemporary living rooms.",
+    meta_description:
+      "Upgrade your living room with our minimalist sofa set. Sleek design meets comfort.",
+    category: {
+      label: "living_room",
+      value: "Living Room",
+    },
+    subcategory: {
+      label: "sofas",
+      value: "Sofas",
+    },
+    tag: "new",
     brand: "FurnitureCo",
-    sku: "RTB-MOD-2024-003",
-    tag: "New",
-    price: 89.99,
-    discounted_price: 69.99,
-    sale_end_date: new Date("2024-07-31T23:59:59").toISOString(),
+    sku: "SS-MIN-2024-003",
+    price: 899.99,
+    discounted_price: 799.99,
+    sale_end_date: new Date("2024-06-30T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {
-      width: "50 cm",
-      height: "55 cm",
-      depth: "45 cm",
-    },
-    color_variants: [
-      {
-        color: "Natural",
-        availability_status: "In Stock",
-        stock_quantity: 40,
-        preview_image: {
-          url: "/products/rustic-end-table/colors/natural.jpg",
-          alt: "Rustic End Table in Natural",
-        },
-      },
-      {
-        color: "Walnut",
-        availability_status: "In Stock",
-        stock_quantity: 25,
-        preview_image: {
-          url: "/products/rustic-end-table/colors/walnut.jpg",
-          alt: "Rustic End Table in Walnut",
-        },
-      },
-    ],
-    features: ["Reclaimed wood", "Rustic design", "Durable construction"],
-    images: [
-      {
-        url: "/products/rustic-end-table/rustic-end-table-front.jpg",
-        alt: "Rustic End Table front view",
-      },
-      {
-        url: "/products/rustic-end-table/rustic-end-table-side.jpg",
-        alt: "Rustic End Table side view",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/rustic-end-table/rustic-end-table-setup.mp4",
-        title: "Rustic End Table Assembly",
-      },
-    ],
-    additionalInfo: {
-      weight: "8 kg",
-      materials: ["Reclaimed Wood"],
-      care_instructions: "Wipe with a dry cloth. Avoid moisture.",
-      shipping_details: {
-        shipping_weight: "10 kg",
-        dimensions: {
-          width: "55 cm",
-          height: "60 cm",
-          depth: "50 cm",
-        },
-        shipping_cost: 12.0,
-        estimated_delivery_time: "3-5 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
-    },
-    questions_answers: [
-      {
-        question: "Is the wood treated?",
-        answer: "Yes, the wood is treated for durability.",
-        asked_by: "user789",
-        asked_on: "2024-05-25",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-05-26",
-      },
-      {
-        question: "Is it suitable for outdoor use?",
-        answer: "No, it's designed for indoor use.",
-        asked_by: "anna_m",
-        asked_on: "2024-05-27",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-05-28",
-      },
-    ],
-    reviews: [
-      {
-        username: "Liam Harris",
-        profile_image: "/reviews/liam.jpg",
-        rating: 4.5,
-        comment: "Beautiful and sturdy",
-        review:
-          "This end table looks beautiful and is very sturdy. Great addition to my living room.",
-      },
-      {
-        username: "Emma Green",
-        profile_image: "/reviews/emma.jpg",
-        rating: 5,
-        comment: "Perfect rustic touch",
-        review:
-          "Exactly what I wanted. Adds a perfect rustic touch to my decor.",
-      },
-    ],
-    related_products: [
-      {
-        id: "RTB-2024-005",
-        name: "Rustic Coffee Table",
-        url: "https://example.com/products/RTB-2024-005",
-      },
-      {
-        id: "RTB-2024-006",
-        name: "Rustic Console Table",
-        url: "https://example.com/products/RTB-2024-006",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Vintage Nightstand",
-    description: "A vintage nightstand with classic details and ample storage.",
-    category: "Bedroom",
-    subcategory: "Nightstands",
-    tag: "New",
-    brand: "FurnitureCo",
-    sku: "NTB-MOD-2024-004",
-    price: 149.99,
-    discounted_price: 119.99,
-    currency: "USD",
-    dimensions: {
-      width: "55 cm",
-      height: "60 cm",
-      depth: "45 cm",
-    },
-    color_variants: [
-      {
-        color: "Mahogany",
-        availability_status: "In Stock",
-        stock_quantity: 20,
-        preview_image: {
-          url: "/products/nightstand/colors/mahogany.jpg",
-          alt: "Vintage Nightstand in Mahogany",
-        },
-      },
-      {
-        color: "Oak",
-        availability_status: "In Stock",
-        stock_quantity: 15,
-        preview_image: {
-          url: "/products/nightstand/colors/oak.jpg",
-          alt: "Vintage Nightstand in Oak",
-        },
-      },
-    ],
-    features: ["Classic design", "Two drawers", "High-quality wood"],
-    images: [
-      {
-        url: "/products/nightstand/nightstand-front.jpg",
-        alt: "Vintage Nightstand front view",
-      },
-      {
-        url: "/products/nightstand/nightstand-side.jpg",
-        alt: "Vintage Nightstand side view",
-      },
-      {
-        url: "/products/nightstand/nightstand-open.jpg",
-        alt: "Vintage Nightstand with drawers open",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/nightstand/nightstand-setup.mp4",
-        title: "Vintage Nightstand Setup",
-      },
-    ],
-    additionalInfo: {
-      weight: "10 kg",
-      materials: ["Wood"],
-      care_instructions: "Wipe with a dry cloth.",
-      shipping_details: {
-        shipping_weight: "12 kg",
-        dimensions: {
-          width: "60 cm",
-          height: "65 cm",
-          depth: "50 cm",
-        },
-        shipping_cost: 18.0,
-        estimated_delivery_time: "4-6 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
-    },
-    questions_answers: [
-      {
-        question: "How many drawers does it have?",
-        answer: "It has two drawers.",
-        asked_by: "user987",
-        asked_on: "2024-05-29",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-05-30",
-      },
-      {
-        question: "Is it made from solid wood?",
-        answer: "Yes, it's made from high-quality solid wood.",
-        asked_by: "laura_s",
-        asked_on: "2024-05-31",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-01",
-      },
-    ],
-    reviews: [
-      {
-        username: "Ava Moore",
-        profile_image: "/reviews/ava.jpg",
-        rating: 5,
-        comment: "Beautiful nightstand",
-        review:
-          "The nightstand is beautiful and very well made. Perfect for my bedroom.",
-      },
-      {
-        username: "Mason White",
-        profile_image: "/reviews/mason.jpg",
-        rating: 4,
-        comment: "Nice quality",
-        review: "Good quality nightstand. The drawers slide smoothly.",
-      },
-    ],
-    related_products: [
-      {
-        id: "NTB-2024-005",
-        name: "Vintage Dresser",
-        url: "https://example.com/products/NTB-2024-005",
-      },
-      {
-        id: "NTB-2024-006",
-        name: "Vintage Bed Frame",
-        url: "https://example.com/products/NTB-2024-006",
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "Modern Desk",
-    description: "A modern desk with a spacious work surface and clean lines.",
-    category: "Office",
-    subcategory: "Desks",
-    brand: "FurnitureCo",
-    sku: "DSK-MOD-2024-005",
-    price: 249.99,
-    discounted_price: 199.99,
-    currency: "USD",
-    dimensions: {
-      width: "120 cm",
-      height: "75 cm",
-      depth: "60 cm",
+      width: "200 cm",
+      height: "90 cm",
+      depth: "80 cm",
     },
     color_variants: [
       {
         color: "Black",
         availability_status: "In Stock",
-        stock_quantity: 50,
+        stock_quantity: 10,
         preview_image: {
-          url: "/products/desk/colors/black.jpg",
-          alt: "Modern Desk in Black",
+          url: "/products/sofa_set/colors/black.jpg",
+          alt: "Minimalist Sofa Set in Black",
         },
       },
       {
-        color: "White",
+        color: "Grey",
         availability_status: "In Stock",
-        stock_quantity: 45,
+        stock_quantity: 8,
         preview_image: {
-          url: "/products/desk/colors/white.jpg",
-          alt: "Modern Desk in White",
+          url: "/products/sofa_set/colors/grey.jpg",
+          alt: "Minimalist Sofa Set in Grey",
         },
       },
     ],
-    features: ["Spacious work surface", "Clean lines", "Durable construction"],
+    features: [
+      "Sleek minimalist design",
+      "High-quality fabric",
+      "Comfortable seating",
+    ],
     images: [
       {
-        url: "/products/desk/desk-front.jpg",
-        alt: "Modern Desk front view",
+        url: "/products/sofa_set/sofa_set_1.jpg",
+        alt: "Minimalist Sofa Set front view",
       },
       {
-        url: "/products/desk/desk-side.jpg",
-        alt: "Modern Desk side view",
+        url: "/products/sofa_set/sofa_set_2.jpg",
+        alt: "Minimalist Sofa Set side view",
+      },
+      {
+        url: "/products/sofa_set/sofa_set_3.jpg",
+        alt: "Minimalist Sofa Set angle view",
       },
     ],
     videos: [
       {
-        url: "/products/desk/desk-setup.mp4",
-        title: "Modern Desk Assembly",
+        url: "/products/sofa_set/sofa_set_video.mp4",
+        title: "Minimalist Sofa Set Overview",
       },
     ],
     additionalInfo: {
-      weight: "20 kg",
-      materials: ["Metal", "Wood"],
-      care_instructions: "Wipe clean with a damp cloth.",
+      weight: "50 kg",
+      materials: ["Fabric", "Wood"],
+      care_instructions: "Professional cleaning recommended.",
       shipping_details: {
-        shipping_weight: "22 kg",
+        shipping_weight: "60 kg",
         dimensions: {
-          width: "125 cm",
-          height: "80 cm",
-          depth: "65 cm",
+          width: "210 cm",
+          height: "100 cm",
+          depth: "90 cm",
         },
-        shipping_cost: 25.0,
+        shipping_cost: 50.0,
         estimated_delivery_time: "5-7 business days",
       },
       return_policy:
@@ -677,17 +445,17 @@ const products: Product[] = [
     },
     questions_answers: [
       {
-        question: "Is the desk height adjustable?",
-        answer: "No, the desk height is fixed.",
-        asked_by: "user654",
+        question: "Is assembly required?",
+        answer: "Minimal assembly required.",
+        asked_by: "customer123",
         asked_on: "2024-06-01",
         answered_by: "FurnitureCo Support",
         answered_on: "2024-06-02",
       },
       {
-        question: "Does it have cable management?",
-        answer: "Yes, it includes cable management features.",
-        asked_by: "james_k",
+        question: "Can this sofa set be customized?",
+        answer: "No, the sofa set comes as shown in the images.",
+        asked_by: "customer456",
         asked_on: "2024-06-03",
         answered_by: "FurnitureCo Support",
         answered_on: "2024-06-04",
@@ -695,521 +463,60 @@ const products: Product[] = [
     ],
     reviews: [
       {
-        username: "Isabella Martinez",
-        profile_image: "/reviews/isabella.jpg",
+        username: "John Smith",
+        profile_image: "/reviews/neil.png",
         rating: 4.5,
-        comment: "Great desk",
+        comment: "Great sofa set!",
         review:
-          "The desk is spacious and well-made. Perfect for my home office.",
+          "Very satisfied with this purchase. The sofa set looks stylish and is very comfortable.",
       },
       {
-        username: "Liam Thompson",
-        profile_image: "/reviews/liam.jpg",
+        username: "Emma Johnson",
+        profile_image: "/reviews/gary.png",
         rating: 5,
-        comment: "Very functional",
-        review: "This desk is very functional and looks great in my office.",
-      },
-    ],
-    related_products: [
-      {
-        id: "DSK-2024-006",
-        name: "Modern Office Chair",
-        url: "https://example.com/products/DSK-2024-006",
+        comment: "Excellent quality",
+        review:
+          "High-quality sofa set. It exceeded my expectations in terms of comfort and durability.",
       },
       {
-        id: "DSK-2024-007",
-        name: "Modern Bookshelf",
-        url: "https://example.com/products/DSK-2024-007",
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: "Elegant Dining Table",
-    description: "An elegant dining table with a glass top and sturdy legs.",
-    category: "Dining Room",
-    tag: "New",
-    subcategory: "Tables",
-    brand: "FurnitureCo",
-    sku: "DTB-MOD-2024-006",
-    price: 299.99,
-    discounted_price: 249.99,
-    currency: "USD",
-    dimensions: {
-      width: "150 cm",
-      height: "75 cm",
-      depth: "90 cm",
-    },
-    color_variants: [
-      {
-        color: "Glass",
-        availability_status: "In Stock",
-        stock_quantity: 20,
-        preview_image: {
-          url: "/products/dining-table/colors/glass.jpg",
-          alt: "Elegant Dining Table with Glass Top",
-        },
-      },
-    ],
-    features: ["Glass top", "Sturdy legs", "Elegant design"],
-    images: [
-      {
-        url: "/products/dining-table/dining-table-front.jpg",
-        alt: "Elegant Dining Table front view",
-      },
-      {
-        url: "/products/dining-table/dining-table-side.jpg",
-        alt: "Elegant Dining Table side view",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/dining-table/dining-table-setup.mp4",
-        title: "Elegant Dining Table Setup",
-      },
-    ],
-    additionalInfo: {
-      weight: "25 kg",
-      materials: ["Glass", "Metal"],
-      care_instructions: "Wipe clean with a damp cloth.",
-      shipping_details: {
-        shipping_weight: "28 kg",
-        dimensions: {
-          width: "155 cm",
-          height: "80 cm",
-          depth: "95 cm",
-        },
-        shipping_cost: 30.0,
-        estimated_delivery_time: "5-7 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
-    },
-    questions_answers: [
-      {
-        question: "Is the glass tempered?",
-        answer: "Yes, the glass is tempered for safety.",
-        asked_by: "user321",
-        asked_on: "2024-06-05",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-06",
-      },
-      {
-        question: "Can it seat six people?",
-        answer: "Yes, it comfortably seats six people.",
-        asked_by: "julia_b",
-        asked_on: "2024-06-07",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-08",
-      },
-    ],
-    reviews: [
-      {
-        username: "Charlotte Taylor",
-        profile_image: "/reviews/charlotte.jpg",
-        rating: 5,
-        comment: "Beautiful table",
-        review: "The table is beautiful and fits perfectly in my dining room.",
-      },
-      {
-        username: "Ethan Anderson",
-        profile_image: "/reviews/ethan.jpg",
+        username: "Michael Brown",
+        profile_image: null,
         rating: 4,
-        comment: "Sturdy and elegant",
-        review: "Very sturdy and elegant design. Happy with my purchase.",
-      },
-    ],
-    related_products: [
-      {
-        id: "DTB-2024-007",
-        name: "Elegant Dining Chairs",
-        url: "https://example.com/products/DTB-2024-007",
+        comment: "Nice sofa set",
+        review:
+          "Overall, a nice sofa set. Comfortable seating and looks good in my living room.",
       },
       {
-        id: "DTB-2024-008",
-        name: "Elegant Sideboard",
-        url: "https://example.com/products/DTB-2024-008",
-      },
-    ],
-  },
-  {
-    id: 7,
-    name: "Comfort Recliner",
-    description: "A plush recliner offering maximum comfort and relaxation.",
-    category: "Living Room",
-    tag: "New",
-    subcategory: "Seating",
-    brand: "FurnitureCo",
-    sku: "REC-COM-2024-007",
-    price: 399.99,
-    discounted_price: 349.99,
-    currency: "USD",
-    dimensions: {
-      width: "90 cm",
-      height: "100 cm",
-      depth: "80 cm",
-    },
-    color_variants: [
-      {
-        color: "Gray",
-        availability_status: "In Stock",
-        stock_quantity: 15,
-        preview_image: {
-          url: "/products/recliner/colors/gray.jpg",
-          alt: "Comfort Recliner in Gray",
-        },
-      },
-      {
-        color: "Blue",
-        availability_status: "In Stock",
-        stock_quantity: 10,
-        preview_image: {
-          url: "/products/recliner/colors/blue.jpg",
-          alt: "Comfort Recliner in Blue",
-        },
-      },
-    ],
-    features: ["Plush padding", "Reclining mechanism", "Durable upholstery"],
-    images: [
-      {
-        url: "/products/recliner/recliner-front.jpg",
-        alt: "Comfort Recliner front view",
-      },
-      {
-        url: "/products/recliner/recliner-side.jpg",
-        alt: "Comfort Recliner side view",
-      },
-      {
-        url: "/products/recliner/recliner-recline.jpg",
-        alt: "Comfort Recliner reclined position",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/recliner/recliner-setup.mp4",
-        title: "Comfort Recliner Assembly",
-      },
-    ],
-    additionalInfo: {
-      weight: "30 kg",
-      materials: ["Fabric", "Metal"],
-      care_instructions: "Spot clean with a damp cloth.",
-      shipping_details: {
-        shipping_weight: "35 kg",
-        dimensions: {
-          width: "95 cm",
-          height: "105 cm",
-          depth: "85 cm",
-        },
-        shipping_cost: 40.0,
-        estimated_delivery_time: "6-8 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
-    },
-    questions_answers: [
-      {
-        question: "Is the recliner electric or manual?",
-        answer: "It has a manual reclining mechanism.",
-        asked_by: "user123",
-        asked_on: "2024-06-09",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-10",
-      },
-      {
-        question: "Does it come assembled?",
-        answer: "No, minimal assembly is required.",
-        asked_by: "mike_d",
-        asked_on: "2024-06-11",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-12",
-      },
-    ],
-    reviews: [
-      {
-        username: "Sophia Lewis",
-        profile_image: "/reviews/sophia.jpg",
+        username: "Olivia Jones",
+        profile_image: "/reviews/sofia.jpeg",
         rating: 4.5,
-        comment: "Super comfortable",
+        comment: "Love it!",
         review:
-          "The recliner is super comfortable and perfect for my living room.",
-      },
-      {
-        username: "Logan Wilson",
-        profile_image: "/reviews/logan.jpg",
-        rating: 4,
-        comment: "Good value",
-        review:
-          "Good value for money. The recliner is well-made and comfortable.",
-      },
-    ],
-    related_products: [
-      {
-        id: "REC-2024-008",
-        name: "Comfort Sofa",
-        url: "https://example.com/products/REC-2024-008",
-      },
-      {
-        id: "REC-2024-009",
-        name: "Comfort Ottoman",
-        url: "https://example.com/products/REC-2024-009",
+          "Love the minimalist design of this sofa set. It adds a modern touch to my living room.",
       },
     ],
   },
   {
-    id: 8,
-    name: "Classic Bookshelf",
+    id: 4,
+    name: "Classic Upholstered Bed",
     description:
-      "A classic bookshelf with ample storage space for books and decor.",
-    category: "Office",
-    tag: "New",
-    subcategory: "Storage",
-    brand: "FurnitureCo",
-    sku: "BSH-CLA-2024-008",
-    price: 199.99,
-    discounted_price: 159.99,
-    currency: "USD",
-    dimensions: {
-      width: "80 cm",
-      height: "180 cm",
-      depth: "30 cm",
+      "A classic upholstered bed that brings elegance to your bedroom.",
+    meta_description:
+      "Discover our classic upholstered bed collection for a touch of elegance and comfort in your bedroom. Find your perfect style today!",
+    category: {
+      label: "bedroom",
+      value: "Bedroom",
     },
-    color_variants: [
-      {
-        color: "Brown",
-        availability_status: "In Stock",
-        stock_quantity: 25,
-        preview_image: {
-          url: "/products/bookshelf/colors/brown.jpg",
-          alt: "Classic Bookshelf in Brown",
-        },
-      },
-      {
-        color: "White",
-        availability_status: "Limited Stock",
-        stock_quantity: 10,
-        preview_image: {
-          url: "/products/bookshelf/colors/white.jpg",
-          alt: "Classic Bookshelf in White",
-        },
-      },
-    ],
-    features: ["Ample storage space", "Sturdy construction", "Classic design"],
-    images: [
-      {
-        url: "/products/bookshelf/bookshelf-front.jpg",
-        alt: "Classic Bookshelf front view",
-      },
-      {
-        url: "/products/bookshelf/bookshelf-side.jpg",
-        alt: "Classic Bookshelf side view",
-      },
-      {
-        url: "/products/bookshelf/bookshelf-shelves.jpg",
-        alt: "Classic Bookshelf shelves",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/bookshelf/bookshelf-setup.mp4",
-        title: "Classic Bookshelf Assembly",
-      },
-    ],
-    additionalInfo: {
-      weight: "22 kg",
-      materials: ["Wood"],
-      care_instructions: "Dust regularly with a dry cloth.",
-      shipping_details: {
-        shipping_weight: "25 kg",
-        dimensions: {
-          width: "85 cm",
-          height: "185 cm",
-          depth: "35 cm",
-        },
-        shipping_cost: 28.0,
-        estimated_delivery_time: "5-7 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
+    subcategory: {
+      label: "beds",
+      value: "Beds",
     },
-    questions_answers: [
-      {
-        question: "How many shelves does it have?",
-        answer: "It has five shelves.",
-        asked_by: "user456",
-        asked_on: "2024-06-13",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-14",
-      },
-      {
-        question: "Is the shelf height adjustable?",
-        answer: "Yes, the shelf height is adjustable.",
-        asked_by: "emma_k",
-        asked_on: "2024-06-15",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-16",
-      },
-    ],
-    reviews: [
-      {
-        username: "Amelia Baker",
-        profile_image: "/reviews/amelia.jpg",
-        rating: 4,
-        comment: "Sturdy and spacious",
-        review:
-          "The bookshelf is sturdy and provides ample space for my books and decor.",
-      },
-      {
-        username: "Lucas Harris",
-        profile_image: "/reviews/lucas.jpg",
-        rating: 4.5,
-        comment: "Classic design",
-        review:
-          "I love the classic design of this bookshelf. Fits perfectly in my office.",
-      },
-    ],
-    related_products: [
-      {
-        id: "BSH-2024-009",
-        name: "Classic Desk",
-        url: "https://example.com/products/BSH-2024-009",
-      },
-      {
-        id: "BSH-2024-010",
-        name: "Classic Office Chair",
-        url: "https://example.com/products/BSH-2024-010",
-      },
-    ],
-  },
-  {
-    id: 9,
-    name: "Contemporary TV Stand",
-    description: "A sleek TV stand with ample storage and a modern look.",
-    category: "Living Room",
-    subcategory: "Storage",
-    brand: "FurnitureCo",
-    sku: "TVS-CON-2024-009",
-    price: 279.99,
-    discounted_price: 229.99,
-    currency: "USD",
-    dimensions: {
-      width: "150 cm",
-      height: "50 cm",
-      depth: "40 cm",
-    },
-    color_variants: [
-      {
-        color: "Black",
-        availability_status: "In Stock",
-        stock_quantity: 20,
-        preview_image: {
-          url: "/products/tv-stand/colors/black.jpg",
-          alt: "Contemporary TV Stand in Black",
-        },
-      },
-      {
-        color: "White",
-        availability_status: "In Stock",
-        stock_quantity: 15,
-        preview_image: {
-          url: "/products/tv-stand/colors/white.jpg",
-          alt: "Contemporary TV Stand in White",
-        },
-      },
-    ],
-    features: ["Ample storage", "Modern design", "Cable management"],
-    images: [
-      {
-        url: "/products/tv-stand/tv-stand-front.jpg",
-        alt: "Contemporary TV Stand front view",
-      },
-      {
-        url: "/products/tv-stand/tv-stand-side.jpg",
-        alt: "Contemporary TV Stand side view",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/tv-stand/tv-stand-setup.mp4",
-        title: "Contemporary TV Stand Assembly",
-      },
-    ],
-    additionalInfo: {
-      weight: "18 kg",
-      materials: ["Wood", "Metal"],
-      care_instructions: "Wipe clean with a damp cloth.",
-      shipping_details: {
-        shipping_weight: "20 kg",
-        dimensions: {
-          width: "155 cm",
-          height: "55 cm",
-          depth: "45 cm",
-        },
-        shipping_cost: 25.0,
-        estimated_delivery_time: "5-7 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
-    },
-    questions_answers: [
-      {
-        question: "Can it hold a 55-inch TV?",
-        answer: "Yes, it can hold a TV up to 55 inches.",
-        asked_by: "user789",
-        asked_on: "2024-06-17",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-18",
-      },
-      {
-        question: "Does it require assembly?",
-        answer: "Yes, assembly is required.",
-        asked_by: "olivia_r",
-        asked_on: "2024-06-19",
-        answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-20",
-      },
-    ],
-    reviews: [
-      {
-        username: "Harper Young",
-        profile_image: "/reviews/harper.jpg",
-        rating: 4.5,
-        comment: "Modern and functional",
-        review:
-          "The TV stand looks modern and provides ample storage. Very satisfied with my purchase.",
-      },
-      {
-        username: "Benjamin Green",
-        profile_image: "/reviews/benjamin.jpg",
-        rating: 4,
-        comment: "Good quality",
-        review: "Good quality TV stand. Assembly was straightforward.",
-      },
-    ],
-    related_products: [
-      {
-        id: "TVS-2024-010",
-        name: "Contemporary Coffee Table",
-        url: "https://example.com/products/TVS-2024-010",
-      },
-      {
-        id: "TVS-2024-011",
-        name: "Contemporary Side Table",
-        url: "https://example.com/products/TVS-2024-011",
-      },
-    ],
-  },
-  {
-    id: 10,
-    name: "Luxury Bed Frame",
-    description:
-      "A luxury bed frame with an upholstered headboard and sturdy construction.",
-    category: "Bedroom",
-    subcategory: "Bed Frames",
-    brand: "FurnitureCo",
-    sku: "BDF-LUX-2024-010",
-    price: 599.99,
-    discounted_price: 499.99,
+    tag: "bestseller",
+    brand: "HomeComfort",
+    sku: "BED-CLA-2024-003",
+    price: 499.99,
+    discounted_price: 449.99,
+    sale_end_date: "2024-06-30T23:59:59",
     currency: "USD",
     dimensions: {
       width: "160 cm",
@@ -1220,105 +527,1480 @@ const products: Product[] = [
       {
         color: "Gray",
         availability_status: "In Stock",
-        stock_quantity: 8,
+        stock_quantity: 15,
         preview_image: {
-          url: "/products/bed-frame/colors/gray.jpg",
-          alt: "Luxury Bed Frame in Gray",
+          url: "/products/beds/upholstered_bed_gray.jpg",
+          alt: "Classic Upholstered Bed in Gray",
         },
       },
       {
         color: "Beige",
-        availability_status: "Limited Stock",
-        stock_quantity: 5,
+        availability_status: "In Stock",
+        stock_quantity: 18,
         preview_image: {
-          url: "/products/bed-frame/colors/beige.jpg",
-          alt: "Luxury Bed Frame in Beige",
+          url: "/products/beds/upholstered_bed_beige.jpg",
+          alt: "Classic Upholstered Bed in Beige",
+        },
+      },
+      {
+        color: "Navy Blue",
+        availability_status: "Limited Stock",
+        stock_quantity: 10,
+        preview_image: {
+          url: "/products/beds/upholstered_bed_navy_blue.jpg",
+          alt: "Classic Upholstered Bed in Navy Blue",
         },
       },
     ],
     features: [
-      "Upholstered headboard",
-      "Sturdy construction",
-      "Elegant design",
+      "Soft upholstered headboard",
+      "Sturdy wooden frame",
+      "Easy to assemble",
     ],
     images: [
       {
-        url: "/products/bed-frame/bed-frame-front.jpg",
-        alt: "Luxury Bed Frame front view",
+        url: "/products/beds/upholstered_bed_1.jpg",
+        alt: "Classic Upholstered Bed front view",
       },
       {
-        url: "/products/bed-frame/bed-frame-side.jpg",
-        alt: "Luxury Bed Frame side view",
+        url: "/products/beds/upholstered_bed_2.jpg",
+        alt: "Classic Upholstered Bed side view",
+      },
+      {
+        url: "/products/beds/upholstered_bed_3.jpg",
+        alt: "Classic Upholstered Bed angled view",
+      },
+      {
+        url: "/products/beds/upholstered_bed_4.jpg",
+        alt: "Classic Upholstered Bed detail view",
       },
     ],
     videos: [
       {
-        url: "/products/bed-frame/bed-frame-setup.mp4",
-        title: "Luxury Bed Frame Assembly",
+        url: "/products/beds/upholstered_bed_assembly.mp4",
+        title: "Classic Upholstered Bed Assembly Guide",
       },
     ],
     additionalInfo: {
-      weight: "40 kg",
+      weight: "30 kg",
       materials: ["Wood", "Fabric"],
-      care_instructions: "Vacuum the fabric regularly to keep it clean.",
+      care_instructions: "Spot clean only",
       shipping_details: {
-        shipping_weight: "45 kg",
+        shipping_weight: "35 kg",
         dimensions: {
-          width: "165 cm",
-          height: "125 cm",
-          depth: "205 cm",
+          width: "170 cm",
+          height: "130 cm",
+          depth: "210 cm",
         },
-        shipping_cost: 50.0,
-        estimated_delivery_time: "7-10 business days",
+        shipping_cost: 30,
+        estimated_delivery_time: "5-7 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original packaging.",
+    },
+    questions_answers: [
+      {
+        question: "Is the headboard padded for extra comfort?",
+        answer: "Yes, the headboard is padded for added comfort.",
+        asked_by: "customer321",
+        asked_on: "2024-05-25",
+        answered_by: "HomeComfort Support",
+        answered_on: "2024-05-26",
+      },
+      {
+        question: "What is the weight capacity of this bed frame?",
+        answer: "The bed frame can support up to 250 kg.",
+        asked_by: "jane_doe",
+        asked_on: "2024-05-27",
+        answered_by: "HomeComfort Support",
+        answered_on: "2024-05-28",
+      },
+    ],
+    reviews: [
+      {
+        username: "Alex Miller",
+        profile_image: "/reviews/neil.png",
+        rating: 4.5,
+        comment: "Great bed, comfortable and stylish.",
+        review:
+          "This bed exceeded my expectations in terms of comfort and style. I love it!",
+      },
+      {
+        username: "Sarah White",
+        profile_image: "/reviews/gary.png",
+        rating: 5,
+        comment: "Excellent choice for a cozy bedroom.",
+        review:
+          "The bed is very cozy, and it adds a touch of elegance to my bedroom. Highly recommended!",
+      },
+      {
+        username: "Michael Brown",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4,
+        comment: "Lovely design and good quality.",
+        review:
+          "The design of this bed is lovely, and the quality is top-notch. A great purchase!",
+      },
+      {
+        username: "Grace Adams",
+        profile_image: null,
+        rating: 5,
+        comment: "Absolutely in love with this bed!",
+        review:
+          "I am absolutely in love with this bed. It's beautiful, comfortable, and well-made. Perfect for my bedroom!",
+      },
+      {
+        username: "James Rogers",
+        profile_image: "/reviews/neil.png",
+        rating: 4.5,
+        comment: "Happy with my purchase. Comfortable and elegant.",
+        review:
+          "I am very happy with my purchase. The bed is not only comfortable but also very elegant. Highly recommend!",
+      },
+      {
+        username: "Linda Cooper",
+        profile_image: "/reviews/gary.png",
+        rating: 3,
+        comment: "Nice bed, but had some issues with delivery.",
+        review:
+          "The bed is nice, but I faced some issues with the delivery process. Overall, a decent product.",
+      },
+      {
+        username: "Henry Ward",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4,
+        comment: "Comfortable bed with a classic look.",
+        review:
+          "This bed is very comfortable and has a classic look that fits well in any bedroom. Satisfied with my purchase!",
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Elegant Bookshelf",
+    description:
+      "A modern and stylish bookshelf for organizing your books and decor items.",
+    meta_description:
+      "Organize your living space with our elegant bookshelf. Stylish and functional design. Shop now!",
+    category: {
+      label: "living_room",
+      value: "Living Room",
+    },
+    subcategory: {
+      label: "shelves",
+      value: "Shelves",
+    },
+    tag: "new",
+    brand: "FurnitureCo",
+    sku: "BS-ELEG-2024-004",
+    price: 149.99,
+    discounted_price: 119.99,
+    sale_end_date: new Date("2024-06-30T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "80 cm",
+      height: "180 cm",
+      depth: "30 cm",
+    },
+    color_variants: [
+      {
+        color: "White",
+        availability_status: "In Stock",
+        stock_quantity: 20,
+        preview_image: {
+          url: "/products/bookshelf/colors/bookshelf_white.jpg",
+          alt: "Elegant Bookshelf in White",
+        },
+      },
+      {
+        color: "Brown",
+        availability_status: "Limited Stock",
+        stock_quantity: 10,
+        preview_image: {
+          url: "/products/bookshelf/colors/bookshelf_brown.jpg",
+          alt: "Elegant Bookshelf in Brown",
+        },
+      },
+    ],
+    features: ["Modern design", "Durable materials", "Ample storage space"],
+    images: [
+      {
+        url: "/products/bookshelf/bookshelf_1.jpg",
+        alt: "Elegant Bookshelf front view",
+      },
+      {
+        url: "/products/bookshelf/bookshelf_2.jpg",
+        alt: "Elegant Bookshelf side view",
+      },
+      {
+        url: "/products/bookshelf/bookshelf_3.jpg",
+        alt: "Elegant Bookshelf angle view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/bookshelf/bookshelf_video.mp4",
+        title: "Elegant Bookshelf Overview",
+      },
+    ],
+    additionalInfo: {
+      weight: "25 kg",
+      materials: ["Wood", "Metal"],
+      care_instructions: "Wipe clean with a damp cloth.",
+      shipping_details: {
+        shipping_weight: "28 kg",
+        dimensions: {
+          width: "85 cm",
+          height: "190 cm",
+          depth: "35 cm",
+        },
+        shipping_cost: 25.0,
+        estimated_delivery_time: "5-7 business days",
       },
       return_policy:
         "30-day return policy. Product must be in original condition.",
     },
     questions_answers: [
       {
-        question: "Does it come with a mattress?",
-        answer: "No, the mattress is not included.",
-        asked_by: "user999",
-        asked_on: "2024-06-21",
+        question: "Is assembly required?",
+        answer: "Yes, assembly is required.",
+        asked_by: "user789",
+        asked_on: "2024-05-25",
         answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-22",
+        answered_on: "2024-05-26",
       },
       {
-        question: "Is the headboard height adjustable?",
-        answer: "No, the headboard height is fixed.",
-        asked_by: "alex_t",
-        asked_on: "2024-06-23",
+        question: "Can the shelves be adjusted?",
+        answer: "Yes, the shelves are adjustable.",
+        asked_by: "user012",
+        asked_on: "2024-05-27",
         answered_by: "FurnitureCo Support",
-        answered_on: "2024-06-24",
+        answered_on: "2024-05-28",
       },
     ],
     reviews: [
       {
-        username: "Mia Perez",
-        profile_image: "/reviews/mia.jpg",
+        username: "Sophia Wilson",
+        profile_image: "/reviews/sofia.jpeg",
         rating: 5,
-        comment: "Elegant bed frame",
+        comment: "Fantastic bookshelf!",
         review:
-          "The bed frame is elegant and very well made. Highly recommend.",
+          "This bookshelf is exactly what I needed. It looks great and holds a lot of books.",
       },
       {
-        username: "Noah King",
-        profile_image: "/reviews/noah.jpg",
+        username: "Oliver Brown",
+        profile_image: "/reviews/gary.png",
         rating: 4.5,
-        comment: "Very sturdy",
-        review: "Very sturdy bed frame and the headboard is beautiful.",
+        comment: "Stylish and functional",
+        review:
+          "Very pleased with this bookshelf. It's stylish and provides ample storage.",
+      },
+      {
+        username: "Emily Johnson",
+        profile_image: null,
+        rating: 4,
+        comment: "Good value for money",
+        review:
+          "The bookshelf is good quality for the price. Assembly was straightforward.",
+      },
+      {
+        username: "Michael Brown",
+        profile_image: "/reviews/neil.png",
+        rating: 4,
+        comment: "Nice bookshelf",
+        review:
+          "Overall, a nice bookshelf. It looks good in my living room and is very sturdy.",
+      },
+      {
+        username: "Olivia Jones",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Love it!",
+        review:
+          "Love the design of this bookshelf. It adds a modern touch to my room.",
+      },
+      {
+        username: "John Smith",
+        profile_image: "/reviews/neil.png",
+        rating: 4.5,
+        comment: "Great purchase!",
+        review:
+          "Very satisfied with this purchase. The bookshelf is stylish and functional.",
       },
     ],
-    related_products: [
+  },
+  {
+    id: 6,
+    name: "Luxury Recliner Chair",
+    description:
+      "A comfortable and luxurious recliner chair perfect for relaxation.",
+    meta_description:
+      "Discover our luxury recliner chair for ultimate comfort and style. Perfect addition to any living space. Shop now!",
+    category: {
+      label: "living_room",
+      value: "Living Room",
+    },
+    subcategory: {
+      label: "chairs",
+      value: "Chairs",
+    },
+    tag: "sale",
+    brand: "ComfortPlus",
+    sku: "RC-LUX-2024-006",
+    price: 299.99,
+    discounted_price: 249.99,
+    sale_end_date: new Date("2024-06-15T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "85 cm",
+      height: "110 cm",
+      depth: "95 cm",
+    },
+    color_variants: [
       {
-        id: "BDF-2024-011",
-        name: "Luxury Nightstand",
-        url: "https://example.com/products/BDF-2024-011",
+        color: "Gray",
+        availability_status: "In Stock",
+        stock_quantity: 15,
+        preview_image: {
+          url: "/products/recliner_chair/colors/recliner_chair_gray.jpg",
+          alt: "Luxury Recliner Chair in Gray",
+        },
       },
       {
-        id: "BDF-2024-012",
-        name: "Luxury Dresser",
-        url: "https://example.com/products/BDF-2024-012",
+        color: "Brown",
+        availability_status: "Limited Stock",
+        stock_quantity: 8,
+        preview_image: {
+          url: "/products/recliner_chair/colors/recliner_chair_brown.jpg",
+          alt: "Luxury Recliner Chair in Brown",
+        },
+      },
+      {
+        color: "Blue",
+        availability_status: "In Stock",
+        stock_quantity: 10,
+        preview_image: {
+          url: "/products/recliner_chair/colors/recliner_chair_blue.jpg",
+          alt: "Luxury Recliner Chair in Blue",
+        },
+      },
+    ],
+    features: [
+      "Ergonomic design",
+      "Premium leather upholstery",
+      "Reclining feature with footrest",
+    ],
+    images: [
+      {
+        url: "/products/recliner_chair/recliner_chair_1.jpg",
+        alt: "Luxury Recliner Chair front view",
+      },
+      {
+        url: "/products/recliner_chair/recliner_chair_2.jpg",
+        alt: "Luxury Recliner Chair side view",
+      },
+      {
+        url: "/products/recliner_chair/recliner_chair_3.jpg",
+        alt: "Luxury Recliner Chair back view",
+      },
+      {
+        url: "/products/recliner_chair/recliner_chair_4.jpg",
+        alt: "Luxury Recliner Chair close up view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/recliner_chair/recliner_chair_demo.mp4",
+        title: "Luxury Recliner Chair Features and Setup",
+      },
+    ],
+    additionalInfo: {
+      weight: "30 kg",
+      materials: ["Leather", "Metal"],
+      care_instructions: "Clean with a leather conditioner.",
+      shipping_details: {
+        shipping_weight: "35 kg",
+        dimensions: {
+          width: "90 cm",
+          height: "115 cm",
+          depth: "100 cm",
+        },
+        shipping_cost: 30.0,
+        estimated_delivery_time: "5-7 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original condition.",
+    },
+    questions_answers: [
+      {
+        question: "Is the recliner mechanism manual or electric?",
+        answer: "The recliner mechanism is manual.",
+        asked_by: "user789",
+        asked_on: "2024-05-25",
+        answered_by: "ComfortPlus Support",
+        answered_on: "2024-05-26",
+      },
+      {
+        question: "Does it come with a warranty?",
+        answer: "Yes, it comes with a 1-year warranty.",
+        asked_by: "user012",
+        asked_on: "2024-05-27",
+        answered_by: "ComfortPlus Support",
+        answered_on: "2024-05-28",
+      },
+    ],
+    reviews: [
+      {
+        username: "Sophia Wilson",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Extremely comfortable recliner!",
+        review:
+          "This recliner chair is very comfortable and looks great in my living room.",
+      },
+      {
+        username: "Oliver Brown",
+        profile_image: "/reviews/gary.png",
+        rating: 4.5,
+        comment: "High-quality and comfortable",
+        review:
+          "Very pleased with this recliner. It's high-quality and very comfortable.",
+      },
+      {
+        username: "Emily Johnson",
+        profile_image: null,
+        rating: 4,
+        comment: "Great value for money",
+        review:
+          "The recliner is worth the price. It's very comfortable and easy to assemble.",
+      },
+      {
+        username: "Michael Brown",
+        profile_image: "/reviews/neil.png",
+        rating: 4,
+        comment: "Nice recliner",
+        review:
+          "Overall, a nice recliner. It looks good and is very comfortable.",
+      },
+      {
+        username: "Olivia Jones",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Love it!",
+        review:
+          "Love the design of this recliner. It's perfect for my living room.",
+      },
+      {
+        username: "John Smith",
+        profile_image: "/reviews/neil.png",
+        rating: 4.5,
+        comment: "Great purchase!",
+        review:
+          "Very satisfied with this purchase. The recliner is stylish and comfortable.",
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "Stainless Steel Kitchen Island",
+    description:
+      "A durable and stylish stainless steel kitchen island with ample storage and workspace.",
+    meta_description:
+      "Enhance your kitchen with our durable stainless steel kitchen island. Ample storage and workspace for a modern kitchen. Shop now!",
+    category: {
+      label: "kitchen",
+      value: "Kitchen",
+    },
+    subcategory: {
+      label: "islands",
+      value: "Islands",
+    },
+    tag: "limited",
+    brand: "KitchenMaster",
+    sku: "KI-SS-2024-007",
+    price: 499.99,
+    discounted_price: 449.99,
+    sale_end_date: new Date("2024-06-20T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "120 cm",
+      height: "90 cm",
+      depth: "60 cm",
+    },
+    color_variants: [
+      {
+        color: "Silver",
+        availability_status: "In Stock",
+        stock_quantity: 12,
+        preview_image: {
+          url: "/products/kitchen_island/colors/kitchen_island_silver.jpg",
+          alt: "Stainless Steel Kitchen Island in Silver",
+        },
+      },
+    ],
+    features: [
+      "High-quality stainless steel",
+      "Spacious countertop",
+      "Ample storage shelves",
+      "Easy to clean",
+    ],
+    images: [
+      {
+        url: "/products/kitchen_island/kitchen_island_1.jpg",
+        alt: "Stainless Steel Kitchen Island front view",
+      },
+      {
+        url: "/products/kitchen_island/kitchen_island_2.jpg",
+        alt: "Stainless Steel Kitchen Island side view",
+      },
+      {
+        url: "/products/kitchen_island/kitchen_island_3.jpg",
+        alt: "Stainless Steel Kitchen Island storage view",
+      },
+      {
+        url: "/products/kitchen_island/kitchen_island_4.jpg",
+        alt: "Stainless Steel Kitchen Island top view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/kitchen_island/kitchen_island_demo.mp4",
+        title: "Stainless Steel Kitchen Island Features and Setup",
+      },
+    ],
+    additionalInfo: {
+      weight: "40 kg",
+      materials: ["Stainless Steel"],
+      care_instructions: "Clean with a stainless steel cleaner.",
+      shipping_details: {
+        shipping_weight: "45 kg",
+        dimensions: {
+          width: "125 cm",
+          height: "95 cm",
+          depth: "65 cm",
+        },
+        shipping_cost: 50.0,
+        estimated_delivery_time: "5-7 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original condition.",
+    },
+    questions_answers: [
+      {
+        question: "Is assembly required for this kitchen island?",
+        answer:
+          "Yes, assembly is required and it comes with easy-to-follow instructions.",
+        asked_by: "user321",
+        asked_on: "2024-05-28",
+        answered_by: "KitchenMaster Support",
+        answered_on: "2024-05-29",
+      },
+      {
+        question: "Is the countertop heat resistant?",
+        answer: "Yes, the stainless steel countertop is heat resistant.",
+        asked_by: "user654",
+        asked_on: "2024-05-30",
+        answered_by: "KitchenMaster Support",
+        answered_on: "2024-05-31",
+      },
+    ],
+    reviews: [
+      {
+        username: "Jessica Lee",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Amazing kitchen island!",
+        review:
+          "This kitchen island has transformed my kitchen. It's durable and provides ample workspace.",
+      },
+      {
+        username: "David Martinez",
+        profile_image: "/reviews/gary.png",
+        rating: 4.5,
+        comment: "High-quality and stylish",
+        review:
+          "Very pleased with the quality and design of this kitchen island. Highly recommend!",
+      },
+      {
+        username: "Lisa White",
+        profile_image: null,
+        rating: 4,
+        comment: "Great addition to my kitchen",
+        review:
+          "The kitchen island is a great addition to my kitchen. It provides extra storage and workspace.",
+      },
+      {
+        username: "Tom Harris",
+        profile_image: "/reviews/neil.png",
+        rating: 4,
+        comment: "Sturdy and functional",
+        review:
+          "The kitchen island is sturdy and functional. It was easy to assemble and looks great.",
+      },
+      {
+        username: "Emma Taylor",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Highly recommend!",
+        review:
+          "I'm very happy with this purchase. The kitchen island is of high quality and very functional.",
+      },
+      {
+        username: "Jack Wilson",
+        profile_image: "/reviews/neil.png",
+        rating: 4.5,
+        comment: "Excellent product",
+        review:
+          "This kitchen island exceeded my expectations. It's well-made and very practical.",
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: "Stainless Steel Kitchen Island",
+    description:
+      "A durable and stylish stainless steel kitchen island with ample storage and workspace.",
+    meta_description:
+      "Enhance your kitchen with our durable stainless steel kitchen island. Ample storage and workspace for a modern kitchen. Shop now!",
+    category: {
+      label: "kitchen",
+      value: "Kitchen",
+    },
+    subcategory: {
+      label: "islands",
+      value: "Islands",
+    },
+    tag: "limited",
+    brand: "KitchenMaster",
+    sku: "KI-SS-2024-007",
+    price: 499.99,
+    discounted_price: 449.99,
+    sale_end_date: new Date("2024-06-20T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "120 cm",
+      height: "90 cm",
+      depth: "60 cm",
+    },
+    color_variants: [
+      {
+        color: "Silver",
+        availability_status: "In Stock",
+        stock_quantity: 12,
+        preview_image: {
+          url: "/products/kitchen_island/colors/kitchen_island_silver.jpg",
+          alt: "Stainless Steel Kitchen Island in Silver",
+        },
+      },
+    ],
+    features: [
+      "High-quality stainless steel",
+      "Spacious countertop",
+      "Ample storage shelves",
+      "Easy to clean",
+    ],
+    images: [
+      {
+        url: "/products/kitchen_island/kitchen_island_1.jpg",
+        alt: "Stainless Steel Kitchen Island front view",
+      },
+      {
+        url: "/products/kitchen_island/kitchen_island_2.jpg",
+        alt: "Stainless Steel Kitchen Island side view",
+      },
+      {
+        url: "/products/kitchen_island/kitchen_island_3.jpg",
+        alt: "Stainless Steel Kitchen Island storage view",
+      },
+      {
+        url: "/products/kitchen_island/kitchen_island_4.jpg",
+        alt: "Stainless Steel Kitchen Island top view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/kitchen_island/kitchen_island_demo.mp4",
+        title: "Stainless Steel Kitchen Island Features and Setup",
+      },
+    ],
+    additionalInfo: {
+      weight: "40 kg",
+      materials: ["Stainless Steel"],
+      care_instructions: "Clean with a stainless steel cleaner.",
+      shipping_details: {
+        shipping_weight: "45 kg",
+        dimensions: {
+          width: "125 cm",
+          height: "95 cm",
+          depth: "65 cm",
+        },
+        shipping_cost: 50.0,
+        estimated_delivery_time: "5-7 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original condition.",
+    },
+    questions_answers: [
+      {
+        question: "Is assembly required for this kitchen island?",
+        answer:
+          "Yes, assembly is required and it comes with easy-to-follow instructions.",
+        asked_by: "user321",
+        asked_on: "2024-05-28",
+        answered_by: "KitchenMaster Support",
+        answered_on: "2024-05-29",
+      },
+      {
+        question: "Is the countertop heat resistant?",
+        answer: "Yes, the stainless steel countertop is heat resistant.",
+        asked_by: "user654",
+        asked_on: "2024-05-30",
+        answered_by: "KitchenMaster Support",
+        answered_on: "2024-05-31",
+      },
+    ],
+    reviews: [
+      {
+        username: "Jessica Lee",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Amazing kitchen island!",
+        review:
+          "This kitchen island has transformed my kitchen. It's durable and provides ample workspace.",
+      },
+      {
+        username: "David Martinez",
+        profile_image: "/reviews/gary.png",
+        rating: 4.5,
+        comment: "High-quality and stylish",
+        review:
+          "Very pleased with the quality and design of this kitchen island. Highly recommend!",
+      },
+      {
+        username: "Lisa White",
+        profile_image: null,
+        rating: 4,
+        comment: "Great addition to my kitchen",
+        review:
+          "The kitchen island is a great addition to my kitchen. It provides extra storage and workspace.",
+      },
+      {
+        username: "Tom Harris",
+        profile_image: "/reviews/neil.png",
+        rating: 4,
+        comment: "Sturdy and functional",
+        review:
+          "The kitchen island is sturdy and functional. It was easy to assemble and looks great.",
+      },
+      {
+        username: "Emma Taylor",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Highly recommend!",
+        review:
+          "I'm very happy with this purchase. The kitchen island is of high quality and very functional.",
+      },
+      {
+        username: "Jack Wilson",
+        profile_image: "/reviews/neil.png",
+        rating: 4.5,
+        comment: "Excellent product",
+        review:
+          "This kitchen island exceeded my expectations. It's well-made and very practical.",
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: "Elegant Dining Chair",
+    description:
+      "A stylish and comfortable dining chair perfect for modern dining rooms.",
+    meta_description:
+      "Discover our elegant dining chair for your modern dining room. Comfortable, stylish, and available in various colors. Shop now!",
+    category: {
+      label: "dining_room",
+      value: "Dining Room",
+    },
+    subcategory: {
+      label: "furniture",
+      value: "Furniture",
+    },
+    tag: "new",
+    brand: "DiningElegance",
+    sku: "EDC-MOD-2024-009",
+    price: 89.99,
+    discounted_price: 69.99,
+    sale_end_date: new Date("2024-06-30T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "45 cm",
+      height: "90 cm",
+      depth: "50 cm",
+    },
+    color_variants: [
+      {
+        color: "Blue",
+        availability_status: "In Stock",
+        stock_quantity: 40,
+        preview_image: {
+          url: "/products/dining_chair/colors/dining_chair_blue.jpg",
+          alt: "Elegant Dining Chair in Blue",
+        },
+      },
+      {
+        color: "Gray",
+        availability_status: "Limited Stock",
+        stock_quantity: 25,
+        preview_image: {
+          url: "/products/dining_chair/colors/dining_chair_gray.jpg",
+          alt: "Elegant Dining Chair in Gray",
+        },
+      },
+      {
+        color: "White",
+        availability_status: "In Stock",
+        stock_quantity: 30,
+        preview_image: {
+          url: "/products/dining_chair/colors/dining_chair_white.jpg",
+          alt: "Elegant Dining Chair in White",
+        },
+      },
+    ],
+    features: [
+      "Ergonomic design",
+      "Durable materials",
+      "Easy to clean",
+      "Available in various colors",
+    ],
+    images: [
+      {
+        url: "/products/dining_chair/dining_chair_1.jpg",
+        alt: "Elegant Dining Chair front view",
+      },
+      {
+        url: "/products/dining_chair/dining_chair_2.jpg",
+        alt: "Elegant Dining Chair side view",
+      },
+      {
+        url: "/products/dining_chair/dining_chair_3.jpg",
+        alt: "Elegant Dining Chair in dining room",
+      },
+      {
+        url: "/products/dining_chair/dining_chair_4.jpg",
+        alt: "Elegant Dining Chair close view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/dining_chair/dining_chair_setup.mp4",
+        title: "Elegant Dining Chair Assembly Guide",
+      },
+    ],
+    additionalInfo: {
+      weight: "6 kg",
+      materials: ["Fabric", "Metal"],
+      care_instructions: "Wipe clean with a damp cloth.",
+      shipping_details: {
+        shipping_weight: "8 kg",
+        dimensions: {
+          width: "50 cm",
+          height: "95 cm",
+          depth: "55 cm",
+        },
+        shipping_cost: 12.0,
+        estimated_delivery_time: "3-5 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original condition.",
+    },
+    questions_answers: [
+      {
+        question: "Is this chair suitable for outdoor use?",
+        answer: "No, this chair is designed for indoor use only.",
+        asked_by: "user987",
+        asked_on: "2024-05-30",
+        answered_by: "DiningElegance Support",
+        answered_on: "2024-05-31",
+      },
+      {
+        question: "What is the weight capacity of this chair?",
+        answer: "The chair can support up to 150 kg.",
+        asked_by: "user654",
+        asked_on: "2024-06-01",
+        answered_by: "DiningElegance Support",
+        answered_on: "2024-06-02",
+      },
+    ],
+    reviews: [
+      {
+        username: "Ava Martinez",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Beautiful dining chair!",
+        review:
+          "This dining chair is not only beautiful but also very comfortable. Highly recommend!",
+      },
+      {
+        username: "William Brown",
+        profile_image: "/reviews/gary.png",
+        rating: 4.5,
+        comment: "Great value",
+        review:
+          "Excellent value for money. The chairs are sturdy and look great in my dining room.",
+      },
+      {
+        username: "Mia Davis",
+        profile_image: null,
+        rating: 4,
+        comment: "Stylish and comfortable",
+        review:
+          "The chairs are stylish and comfortable. Assembly was easy and they look great.",
+      },
+      {
+        username: "Noah Wilson",
+        profile_image: "/reviews/neil.png",
+        rating: 4,
+        comment: "Good quality",
+        review:
+          "Good quality chairs for the price. Very happy with my purchase.",
+      },
+      {
+        username: "Isabella Johnson",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 5,
+        comment: "Highly recommend",
+        review:
+          "Highly recommend these dining chairs. They are well-made and very comfortable.",
+      },
+      {
+        username: "Lucas Martinez",
+        profile_image: "/reviews/neil.png",
+        rating: 4.5,
+        comment: "Excellent product",
+        review:
+          "The dining chairs exceeded my expectations. They are sturdy and look great.",
+      },
+    ],
+  },
+  {
+    id: 10,
+    name: "Ergonomic Office Chair",
+    description:
+      "An ergonomic office chair designed for maximum comfort and support during long working hours.",
+    meta_description:
+      "Upgrade your workspace with our ergonomic office chair. Designed for comfort and support. Shop now for the best in office seating.",
+    category: {
+      label: "office",
+      value: "Office",
+    },
+    subcategory: {
+      label: "furniture",
+      value: "Furniture",
+    },
+    tag: "new",
+    brand: "OfficeComfort",
+    sku: "EOC-MOD-2024-010",
+    price: 229.99,
+    discounted_price: 179.99,
+    sale_end_date: new Date("2024-06-30T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "70 cm",
+      height: "120 cm",
+      depth: "70 cm",
+    },
+    color_variants: [
+      {
+        color: "Black",
+        availability_status: "In Stock",
+        stock_quantity: 50,
+        preview_image: {
+          url: "/products/office_chair/colors/office_chair_black.jpg",
+          alt: "Ergonomic Office Chair in Black",
+        },
+      },
+      {
+        color: "Gray",
+        availability_status: "Limited Stock",
+        stock_quantity: 20,
+        preview_image: {
+          url: "/products/office_chair/colors/office_chair_gray.jpg",
+          alt: "Ergonomic Office Chair in Gray",
+        },
+      },
+      {
+        color: "Blue",
+        availability_status: "In Stock",
+        stock_quantity: 30,
+        preview_image: {
+          url: "/products/office_chair/colors/office_chair_blue.jpg",
+          alt: "Ergonomic Office Chair in Blue",
+        },
+      },
+    ],
+    features: [
+      "Adjustable height and recline",
+      "Lumbar support",
+      "Breathable mesh back",
+      "Padded seat cushion",
+    ],
+    images: [
+      {
+        url: "/products/office_chair/office_chair_1.jpg",
+        alt: "Ergonomic Office Chair front view",
+      },
+      {
+        url: "/products/office_chair/office_chair_2.jpg",
+        alt: "Ergonomic Office Chair side view",
+      },
+      {
+        url: "/products/office_chair/office_chair_3.jpg",
+        alt: "Ergonomic Office Chair back view",
+      },
+      {
+        url: "/products/office_chair/office_chair_4.jpg",
+        alt: "Ergonomic Office Chair close view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/office_chair/office_chair_setup.mp4",
+        title: "Ergonomic Office Chair Assembly Guide",
+      },
+    ],
+    additionalInfo: {
+      weight: "15 kg",
+      materials: ["Mesh", "Metal", "Fabric"],
+      care_instructions: "Wipe clean with a damp cloth.",
+      shipping_details: {
+        shipping_weight: "17 kg",
+        dimensions: {
+          width: "75 cm",
+          height: "125 cm",
+          depth: "75 cm",
+        },
+        shipping_cost: 25.0,
+        estimated_delivery_time: "3-5 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original condition.",
+    },
+    questions_answers: [
+      {
+        question: "Is the chair suitable for tall people?",
+        answer:
+          "Yes, the chair's height and backrest are adjustable to accommodate taller individuals.",
+        asked_by: "user101",
+        asked_on: "2024-06-01",
+        answered_by: "OfficeComfort Support",
+        answered_on: "2024-06-02",
+      },
+      {
+        question: "Does the chair come pre-assembled?",
+        answer:
+          "No, some assembly is required, but it is straightforward and takes about 20 minutes.",
+        asked_by: "user202",
+        asked_on: "2024-06-03",
+        answered_by: "OfficeComfort Support",
+        answered_on: "2024-06-04",
+      },
+    ],
+    reviews: [
+      {
+        username: "Liam Thompson",
+        profile_image: "/reviews/neil.png",
+        rating: 5,
+        comment: "Best office chair I've ever owned",
+        review:
+          "This office chair is incredibly comfortable and supportive. It has made a huge difference in my daily comfort.",
+      },
+      {
+        username: "Olivia Brown",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4.5,
+        comment: "Great chair for long hours",
+        review:
+          "I work from home and sit for long hours. This chair has really helped with my back pain.",
+      },
+      {
+        username: "Aiden Smith",
+        profile_image: "/reviews/gary.png",
+        rating: 4,
+        comment: "Comfortable and stylish",
+        review:
+          "The chair is comfortable and looks great in my home office. Highly recommend!",
+      },
+      {
+        username: "Emma Wilson",
+        profile_image: null,
+        rating: 4,
+        comment: "Good quality chair",
+        review:
+          "The chair is well-built and offers good support. Assembly was a bit tricky but worth it.",
+      },
+      {
+        username: "James Johnson",
+        profile_image: "/reviews/neil.png",
+        rating: 5,
+        comment: "Excellent office chair",
+        review:
+          "This chair is exactly what I needed for my home office. It's very comfortable and provides great support.",
+      },
+      {
+        username: "Isabella Davis",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4,
+        comment: "Very satisfied",
+        review:
+          "I'm very satisfied with this chair. It's comfortable, easy to adjust, and looks great.",
+      },
+    ],
+  },
+  {
+    id: 11,
+    name: "Outdoor Patio Set",
+    description:
+      "A stylish and durable outdoor patio set perfect for your backyard or garden.",
+    meta_description:
+      "Enhance your outdoor space with our stylish and durable patio set. Perfect for backyards and gardens. Shop now for premium outdoor furniture.",
+    category: {
+      label: "outdoor",
+      value: "Outdoor",
+    },
+    subcategory: {
+      label: "furniture",
+      value: "Furniture",
+    },
+    tag: "new",
+    brand: "GardenEase",
+    sku: "OPS-MOD-2024-011",
+    price: 599.99,
+    discounted_price: 499.99,
+    sale_end_date: new Date("2024-07-31T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "200 cm",
+      height: "90 cm",
+      depth: "100 cm",
+    },
+    color_variants: [
+      {
+        color: "Beige",
+        availability_status: "In Stock",
+        stock_quantity: 15,
+        preview_image: {
+          url: "/products/patio_set/colors/patio_set_beige.jpg",
+          alt: "Outdoor Patio Set in Beige",
+        },
+      },
+      {
+        color: "Gray",
+        availability_status: "Limited Stock",
+        stock_quantity: 10,
+        preview_image: {
+          url: "/products/patio_set/colors/patio_set_gray.jpg",
+          alt: "Outdoor Patio Set in Gray",
+        },
+      },
+      {
+        color: "Brown",
+        availability_status: "In Stock",
+        stock_quantity: 20,
+        preview_image: {
+          url: "/products/patio_set/colors/patio_set_brown.jpg",
+          alt: "Outdoor Patio Set in Brown",
+        },
+      },
+    ],
+    features: [
+      "Weather-resistant materials",
+      "Comfortable cushions",
+      "Easy to assemble",
+      "Stylish design",
+    ],
+    images: [
+      {
+        url: "/products/patio_set/patio_set_1.jpg",
+        alt: "Outdoor Patio Set front view",
+      },
+      {
+        url: "/products/patio_set/patio_set_2.jpg",
+        alt: "Outdoor Patio Set side view",
+      },
+      {
+        url: "/products/patio_set/patio_set_3.jpg",
+        alt: "Outdoor Patio Set top view",
+      },
+      {
+        url: "/products/patio_set/patio_set_4.jpg",
+        alt: "Outdoor Patio Set close view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/patio_set/patio_set_setup.mp4",
+        title: "Outdoor Patio Set Assembly Guide",
+      },
+    ],
+    additionalInfo: {
+      weight: "50 kg",
+      materials: ["Rattan", "Metal", "Fabric"],
+      care_instructions:
+        "Clean with mild soap and water. Store cushions indoors during inclement weather.",
+      shipping_details: {
+        shipping_weight: "55 kg",
+        dimensions: {
+          width: "205 cm",
+          height: "95 cm",
+          depth: "105 cm",
+        },
+        shipping_cost: 50.0,
+        estimated_delivery_time: "5-7 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original condition.",
+    },
+    questions_answers: [
+      {
+        question: "Are the cushions waterproof?",
+        answer:
+          "The cushions are water-resistant, but it is recommended to store them indoors during heavy rain.",
+        asked_by: "user789",
+        asked_on: "2024-06-01",
+        answered_by: "GardenEase Support",
+        answered_on: "2024-06-02",
+      },
+      {
+        question: "Is assembly required?",
+        answer:
+          "Yes, the patio set requires assembly, but it comes with easy-to-follow instructions.",
+        asked_by: "user321",
+        asked_on: "2024-06-03",
+        answered_by: "GardenEase Support",
+        answered_on: "2024-06-04",
+      },
+    ],
+    reviews: [
+      {
+        username: "Noah Harris",
+        profile_image: "/reviews/neil.png",
+        rating: 5,
+        comment: "Fantastic patio set",
+        review:
+          "This patio set is amazing. It's comfortable, stylish, and perfect for our backyard. Highly recommend!",
+      },
+      {
+        username: "Mia Thompson",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4.5,
+        comment: "Great value for the price",
+        review:
+          "The patio set offers great value for the price. It's durable and looks great in our garden.",
+      },
+      {
+        username: "Lucas Martinez",
+        profile_image: "/reviews/gary.png",
+        rating: 4,
+        comment: "Stylish and comfortable",
+        review:
+          "Very stylish and comfortable. Assembly was straightforward. Happy with the purchase!",
+      },
+      {
+        username: "Amelia Wilson",
+        profile_image: null,
+        rating: 4,
+        comment: "Good quality",
+        review:
+          "The quality of the patio set is good. The cushions are comfortable and the frame feels sturdy.",
+      },
+      {
+        username: "Ethan Johnson",
+        profile_image: "/reviews/neil.png",
+        rating: 5,
+        comment: "Excellent outdoor furniture",
+        review:
+          "This patio set is perfect for our outdoor space. It's comfortable and looks fantastic. Highly recommend!",
+      },
+      {
+        username: "Charlotte Brown",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4,
+        comment: "Very satisfied",
+        review:
+          "I'm very satisfied with this purchase. The patio set is comfortable and easy to clean.",
+      },
+    ],
+  },
+  {
+    id: 12,
+    name: "Ergonomic Office Chair",
+    description:
+      "A comfortable and ergonomic office chair designed for long hours of work.",
+    meta_description:
+      "Upgrade your home office with our ergonomic office chair. Designed for comfort and support during long work hours. Shop now for premium office furniture.",
+    category: {
+      label: "office",
+      value: "Office",
+    },
+    subcategory: {
+      label: "chairs",
+      value: "Chairs",
+    },
+    tag: "sale",
+    brand: "ComfortOffice",
+    sku: "EOC-MOD-2024-012",
+    price: 299.99,
+    discounted_price: 249.99,
+    sale_end_date: new Date("2024-07-15T23:59:59").toISOString(),
+    currency: "USD",
+    dimensions: {
+      width: "70 cm",
+      height: "120 cm",
+      depth: "70 cm",
+    },
+    color_variants: [
+      {
+        color: "Black",
+        availability_status: "In Stock",
+        stock_quantity: 40,
+        preview_image: {
+          url: "/products/office_chair/colors/office_chair_black.jpg",
+          alt: "Ergonomic Office Chair in Black",
+        },
+      },
+      {
+        color: "Gray",
+        availability_status: "Limited Stock",
+        stock_quantity: 20,
+        preview_image: {
+          url: "/products/office_chair/colors/office_chair_gray.jpg",
+          alt: "Ergonomic Office Chair in Gray",
+        },
+      },
+      {
+        color: "Blue",
+        availability_status: "In Stock",
+        stock_quantity: 30,
+        preview_image: {
+          url: "/products/office_chair/colors/office_chair_blue.jpg",
+          alt: "Ergonomic Office Chair in Blue",
+        },
+      },
+    ],
+    features: [
+      "Adjustable height and tilt",
+      "Lumbar support",
+      "Breathable mesh back",
+      "Padded seat",
+    ],
+    images: [
+      {
+        url: "/products/office_chair/office_chair_1.jpg",
+        alt: "Ergonomic Office Chair front view",
+      },
+      {
+        url: "/products/office_chair/office_chair_2.jpg",
+        alt: "Ergonomic Office Chair side view",
+      },
+      {
+        url: "/products/office_chair/office_chair_3.jpg",
+        alt: "Ergonomic Office Chair back view",
+      },
+      {
+        url: "/products/office_chair/office_chair_4.jpg",
+        alt: "Ergonomic Office Chair close view",
+      },
+    ],
+    videos: [
+      {
+        url: "/products/office_chair/office_chair_setup.mp4",
+        title: "Ergonomic Office Chair Setup and Features",
+      },
+    ],
+    additionalInfo: {
+      weight: "15 kg",
+      materials: ["Metal", "Mesh", "Foam"],
+      care_instructions:
+        "Wipe clean with a damp cloth. Avoid using harsh chemicals.",
+      shipping_details: {
+        shipping_weight: "18 kg",
+        dimensions: {
+          width: "75 cm",
+          height: "125 cm",
+          depth: "75 cm",
+        },
+        shipping_cost: 25.0,
+        estimated_delivery_time: "3-5 business days",
+      },
+      return_policy:
+        "30-day return policy. Product must be in original condition.",
+    },
+    questions_answers: [
+      {
+        question: "Does this chair have adjustable armrests?",
+        answer: "Yes, the armrests are adjustable in height and angle.",
+        asked_by: "user654",
+        asked_on: "2024-05-10",
+        answered_by: "ComfortOffice Support",
+        answered_on: "2024-05-11",
+      },
+      {
+        question: "What is the weight capacity of this chair?",
+        answer: "The chair can support up to 150 kg.",
+        asked_by: "user987",
+        asked_on: "2024-05-12",
+        answered_by: "ComfortOffice Support",
+        answered_on: "2024-05-13",
+      },
+    ],
+    reviews: [
+      {
+        username: "Jack Taylor",
+        profile_image: "/reviews/gary.png",
+        rating: 5,
+        comment: "Best office chair I've ever used",
+        review:
+          "This chair is incredibly comfortable and has great support. Perfect for long hours at the desk.",
+      },
+      {
+        username: "Emma Anderson",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4.5,
+        comment: "Very comfortable",
+        review:
+          "The chair is very comfortable and easy to adjust. It has improved my posture significantly.",
+      },
+      {
+        username: "Liam White",
+        profile_image: null,
+        rating: 4,
+        comment: "Good value",
+        review:
+          "Good value for the price. The chair is well-made and comfortable.",
+      },
+      {
+        username: "Olivia Martinez",
+        profile_image: "/reviews/neil.png",
+        rating: 5,
+        comment: "Highly recommend",
+        review:
+          "I highly recommend this chair. It has great lumbar support and is very comfortable for long work hours.",
+      },
+      {
+        username: "Ava Clark",
+        profile_image: "/reviews/sofia.jpeg",
+        rating: 4,
+        comment: "Satisfied with the purchase",
+        review:
+          "I'm satisfied with the purchase. The chair is comfortable and was easy to assemble.",
+      },
+      {
+        username: "Ethan Walker",
+        profile_image: "/reviews/neil.png",
+        rating: 4,
+        comment: "Good quality chair",
+        review:
+          "The chair is of good quality and provides good support. Worth the money.",
       },
     ],
   },
