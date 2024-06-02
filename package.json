@@ -20,7 +20,6 @@
     "react-dom": "^18",
     "react-rating-stars-component": "^2.2.0",
     "react-stars": "^2.2.5",
-    "recharts": "^2.13.0-alpha.3",
     "swiper": "^11.1.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
