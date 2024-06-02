@@ -5,6 +5,7 @@ import ProductRating from "./ProductRating";
 import SaleCountdown from "./SaleCountdown";
 import { Button } from "./ui/button";
 import { Product } from "@/types";
+import Test from "./Test";
 
 const ProductDetails = ({ product }: { product: Product }) => {
   return (
