@@ -35,7 +35,7 @@ const ProductCard = ({
   return (
     <div className="relative hover:cursor-pointer group">
       {/* image and button */}
-      <div className="relative w-[230px] h-[310px]  lg:w-[290px] lg:h-[360px] bg-neutralGray ">
+      <div className="relative w-[230px] h-[310px] rounded-md lg:w-[290px] lg:h-[360px] bg-neutralGray group-hover:border border-black">
         <Image
           src={imageUrl}
           fill

@@ -66,7 +66,9 @@ export type Product = {
   id: number;
   name: string;
   description: string;
+  tag?: string;
   category: string;
+  sale_end_date?: string;
   subcategory: string;
   brand: string;
   sku: string;

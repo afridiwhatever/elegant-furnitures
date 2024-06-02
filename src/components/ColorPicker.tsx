@@ -69,7 +69,7 @@ const ColorPicker = ({
                   }}
                   src={preview_image.url}
                   fill
-                  alt="color-black"
+                  alt={preview_image.alt}
                   className={`object-contain border  hover:cursor-pointer ${
                     stock_quantity > 0 ? "" : "opacity-30"
                   }

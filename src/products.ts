@@ -8,10 +8,12 @@ const products: Product[] = [
       "A versatile modern tray table with a sleek design and durable materials.",
     category: "Living Room",
     subcategory: "Tables",
+    tag: "New",
     brand: "FurnitureCo",
     sku: "TTB-MOD-2024-001",
     price: 129.99,
     discounted_price: 99.99,
+    sale_end_date: new Date("2024-12-31T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {
       width: "60 cm",
@@ -233,6 +235,7 @@ const products: Product[] = [
     sku: "CTB-MOD-2024-002",
     price: 199.99,
     discounted_price: 159.99,
+    tag: "New",
     currency: "USD",
     dimensions: {
       width: "90 cm",
@@ -241,46 +244,50 @@ const products: Product[] = [
     },
     color_variants: [
       {
-        color: "White",
+        color: "Black",
         availability_status: "In Stock",
         stock_quantity: 25,
         preview_image: {
-          url: "/products/coffee-table/colors/white.jpg",
+          url: "/products/coffee_table/colors/coffee_table_black.webp",
           alt: "Contemporary Coffee Table in White",
         },
       },
       {
-        color: "Grey",
+        color: "Vintage Brown",
         availability_status: "In Stock",
         stock_quantity: 30,
         preview_image: {
-          url: "/products/coffee-table/colors/grey.jpg",
-          alt: "Contemporary Coffee Table in Grey",
+          url: "/products/coffee_table/colors/coffee_table_vintage_brown.webp",
+          alt: "Contemporary Coffee Table in Vintage Brown",
         },
       },
       {
-        color: "Black",
+        color: "White Marbel",
         availability_status: "Limited Stock",
         stock_quantity: 15,
         preview_image: {
-          url: "/products/coffee-table/colors/black.jpg",
-          alt: "Contemporary Coffee Table in Black",
+          url: "/products/coffee_table/colors/coffee_table_white_marbel.webp",
+          alt: "Contemporary Coffee Table in White Marbel",
         },
       },
     ],
     features: ["Minimalist design", "Durable materials", "Easy to clean"],
     images: [
       {
-        url: "/products/coffee-table/coffee-table-front.jpg",
+        url: "/products/coffee_table/coffee_table_1.webp",
         alt: "Contemporary Coffee Table front view",
       },
       {
-        url: "/products/coffee-table/coffee-table-side.jpg",
+        url: "/products/coffee_table/coffee_table_2.webp",
         alt: "Contemporary Coffee Table side view",
       },
       {
-        url: "/products/coffee-table/coffee-table-top.jpg",
+        url: "/products/coffee_table/coffee_table_3.webp",
         alt: "Contemporary Coffee Table top view",
+      },
+      {
+        url: "/products/coffee_table/coffee_table_4.webp",
+        alt: "Contemporary Coffee Table angled view",
       },
     ],
     videos: [
@@ -362,8 +369,10 @@ const products: Product[] = [
     subcategory: "Tables",
     brand: "FurnitureCo",
     sku: "RTB-MOD-2024-003",
+    tag: "New",
     price: 89.99,
     discounted_price: 69.99,
+    sale_end_date: new Date("2024-07-31T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {
       width: "50 cm",
@@ -479,6 +488,7 @@ const products: Product[] = [
     description: "A vintage nightstand with classic details and ample storage.",
     category: "Bedroom",
     subcategory: "Nightstands",
+    tag: "New",
     brand: "FurnitureCo",
     sku: "NTB-MOD-2024-004",
     price: 149.99,
@@ -718,6 +728,7 @@ const products: Product[] = [
     name: "Elegant Dining Table",
     description: "An elegant dining table with a glass top and sturdy legs.",
     category: "Dining Room",
+    tag: "New",
     subcategory: "Tables",
     brand: "FurnitureCo",
     sku: "DTB-MOD-2024-006",
@@ -826,6 +837,7 @@ const products: Product[] = [
     name: "Comfort Recliner",
     description: "A plush recliner offering maximum comfort and relaxation.",
     category: "Living Room",
+    tag: "New",
     subcategory: "Seating",
     brand: "FurnitureCo",
     sku: "REC-COM-2024-007",
@@ -950,6 +962,7 @@ const products: Product[] = [
     description:
       "A classic bookshelf with ample storage space for books and decor.",
     category: "Office",
+    tag: "New",
     subcategory: "Storage",
     brand: "FurnitureCo",
     sku: "BSH-CLA-2024-008",

@@ -28,20 +28,22 @@ const ProductDetails = ({ product }: { product: Product }) => {
       </p>
 
       {/* countdown */}
-      <div className="border-y lg:border-none border-[#E8ECEF] py-6 my-6 lg:absolute right-1 top-[35%] lg:-translate-y-[50%] ">
-        <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
-        <SaleCountdown />
-      </div>
+      {product.sale_end_date && (
+        <div className="border-y lg:border-none border-[#E8ECEF] py-6 my-6 lg:absolute right-1 top-[35%] lg:-translate-y-[50%] ">
+          <p className="text-lg text-[#343839] mb-3">Offer expires in:</p>
+          <SaleCountdown saleEndDate={product.sale_end_date} />
+        </div>
+      )}
 
       {/* measurements */}
       <div className="space-y-2 py-4">
         <h4 className="font-semibold text-lg text-blackishGray">
           Measurements
         </h4>
-        <p className="text-xl font-[400] flex">
+        {/* <p className="text-xl font-[400] flex">
           {product.dimensions.height} * {product.dimensions.width} *{" "}
           {product.dimensions.depth}
-        </p>
+        </p> */}
       </div>
 
       {/* color picker */}
