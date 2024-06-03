@@ -703,7 +703,7 @@ const products: Product[] = [
     brand: "FurnitureCo",
     sku: "BS-ELEG-2024-004",
     price: 149.99,
-    discounted_price: 119.99,
+    discounted_price: undefined,
     sale_end_date: new Date("2024-06-30T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {

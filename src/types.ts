@@ -76,7 +76,7 @@ export type Product = {
   brand: string;
   sku: string;
   price: number;
-  discounted_price: number;
+  discounted_price: number | undefined;
   currency: string;
   dimensions: ProductDimensions;
   color_variants: ProductColorVariant[];
