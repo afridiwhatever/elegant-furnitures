@@ -65,20 +65,20 @@ const products: Product[] = [
 
     images: [
       {
-        url: "/products/tray_table/tray_table_1.png",
-        alt: "Modern Tray Table front view",
+        url: "/products/tray_table/tray_table_4.jpg",
+        alt: "Modern Tray Table close view",
       },
       {
         url: "/products/tray_table/tray_table_2.jpg",
         alt: "Modern Tray Table side view",
       },
       {
-        url: "/products/tray_table/tray_table_3.jpg",
-        alt: "Modern Tray Table wide view",
+        url: "/products/tray_table/tray_table_1.png",
+        alt: "Modern Tray Table front view",
       },
       {
-        url: "/products/tray_table/tray_table_4.jpg",
-        alt: "Modern Tray Table close view",
+        url: "/products/tray_table/tray_table_3.jpg",
+        alt: "Modern Tray Table wide view",
       },
     ],
     videos: [
@@ -1183,161 +1183,6 @@ const products: Product[] = [
   },
   {
     id: 8,
-    name: "Stainless Steel Kitchen Island",
-    description:
-      "A durable and stylish stainless steel kitchen island with ample storage and workspace.",
-    meta_description:
-      "Enhance your kitchen with our durable stainless steel kitchen island. Ample storage and workspace for a modern kitchen. Shop now!",
-    category: {
-      label: "kitchen",
-      value: "Kitchen",
-    },
-    subcategory: {
-      label: "islands",
-      value: "Islands",
-    },
-    tag: "limited",
-    brand: "KitchenMaster",
-    sku: "KI-SS-2024-007",
-    price: 499.99,
-    discounted_price: 449.99,
-    sale_end_date: new Date("2024-06-20T23:59:59").toISOString(),
-    currency: "USD",
-    dimensions: {
-      width: "120 cm",
-      height: "90 cm",
-      depth: "60 cm",
-    },
-    color_variants: [
-      {
-        color: "Silver",
-        availability_status: "In Stock",
-        stock_quantity: 12,
-        preview_image: {
-          url: "/products/kitchen_island/colors/kitchen_island_silver.jpg",
-          alt: "Stainless Steel Kitchen Island in Silver",
-        },
-      },
-    ],
-    features: [
-      "High-quality stainless steel",
-      "Spacious countertop",
-      "Ample storage shelves",
-      "Easy to clean",
-    ],
-    images: [
-      {
-        url: "/products/kitchen_island/kitchen_island_1.jpg",
-        alt: "Stainless Steel Kitchen Island front view",
-      },
-      {
-        url: "/products/kitchen_island/kitchen_island_2.jpg",
-        alt: "Stainless Steel Kitchen Island side view",
-      },
-      {
-        url: "/products/kitchen_island/kitchen_island_3.jpg",
-        alt: "Stainless Steel Kitchen Island storage view",
-      },
-      {
-        url: "/products/kitchen_island/kitchen_island_4.jpg",
-        alt: "Stainless Steel Kitchen Island top view",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/kitchen_island/kitchen_island_demo.mp4",
-        title: "Stainless Steel Kitchen Island Features and Setup",
-      },
-    ],
-    additionalInfo: {
-      weight: "40 kg",
-      materials: ["Stainless Steel"],
-      care_instructions: "Clean with a stainless steel cleaner.",
-      shipping_details: {
-        shipping_weight: "45 kg",
-        dimensions: {
-          width: "125 cm",
-          height: "95 cm",
-          depth: "65 cm",
-        },
-        shipping_cost: 50.0,
-        estimated_delivery_time: "5-7 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
-    },
-    questions_answers: [
-      {
-        question: "Is assembly required for this kitchen island?",
-        answer:
-          "Yes, assembly is required and it comes with easy-to-follow instructions.",
-        asked_by: "user321",
-        asked_on: "2024-05-28",
-        answered_by: "KitchenMaster Support",
-        answered_on: "2024-05-29",
-      },
-      {
-        question: "Is the countertop heat resistant?",
-        answer: "Yes, the stainless steel countertop is heat resistant.",
-        asked_by: "user654",
-        asked_on: "2024-05-30",
-        answered_by: "KitchenMaster Support",
-        answered_on: "2024-05-31",
-      },
-    ],
-    reviews: [
-      {
-        username: "Jessica Lee",
-        profile_image: "/reviews/sofia.jpeg",
-        rating: 5,
-        comment: "Amazing kitchen island!",
-        review:
-          "This kitchen island has transformed my kitchen. It's durable and provides ample workspace.",
-      },
-      {
-        username: "David Martinez",
-        profile_image: "/reviews/gary.png",
-        rating: 4.5,
-        comment: "High-quality and stylish",
-        review:
-          "Very pleased with the quality and design of this kitchen island. Highly recommend!",
-      },
-      {
-        username: "Lisa White",
-        profile_image: null,
-        rating: 4,
-        comment: "Great addition to my kitchen",
-        review:
-          "The kitchen island is a great addition to my kitchen. It provides extra storage and workspace.",
-      },
-      {
-        username: "Tom Harris",
-        profile_image: "/reviews/neil.png",
-        rating: 4,
-        comment: "Sturdy and functional",
-        review:
-          "The kitchen island is sturdy and functional. It was easy to assemble and looks great.",
-      },
-      {
-        username: "Emma Taylor",
-        profile_image: "/reviews/sofia.jpeg",
-        rating: 5,
-        comment: "Highly recommend!",
-        review:
-          "I'm very happy with this purchase. The kitchen island is of high quality and very functional.",
-      },
-      {
-        username: "Jack Wilson",
-        profile_image: "/reviews/neil.png",
-        rating: 4.5,
-        comment: "Excellent product",
-        review:
-          "This kitchen island exceeded my expectations. It's well-made and very practical.",
-      },
-    ],
-  },
-  {
-    id: 9,
     name: "Elegant Dining Chair",
     description:
       "A stylish and comfortable dining chair perfect for modern dining rooms.",
@@ -1365,12 +1210,12 @@ const products: Product[] = [
     },
     color_variants: [
       {
-        color: "Blue",
+        color: "Green",
         availability_status: "In Stock",
         stock_quantity: 40,
         preview_image: {
-          url: "/products/dining_chair/colors/dining_chair_blue.jpg",
-          alt: "Elegant Dining Chair in Blue",
+          url: "/products/dining_chair/colors/dining_chair_green.webp",
+          alt: "Elegant Dining Chair in Green",
         },
       },
       {
@@ -1378,17 +1223,17 @@ const products: Product[] = [
         availability_status: "Limited Stock",
         stock_quantity: 25,
         preview_image: {
-          url: "/products/dining_chair/colors/dining_chair_gray.jpg",
+          url: "/products/dining_chair/colors/dining_chair_gray.webp",
           alt: "Elegant Dining Chair in Gray",
         },
       },
       {
-        color: "White",
+        color: "Orange",
         availability_status: "In Stock",
         stock_quantity: 30,
         preview_image: {
-          url: "/products/dining_chair/colors/dining_chair_white.jpg",
-          alt: "Elegant Dining Chair in White",
+          url: "/products/dining_chair/colors/dining_chair_orange.webp",
+          alt: "Elegant Dining Chair in Orange",
         },
       },
     ],
@@ -1400,19 +1245,19 @@ const products: Product[] = [
     ],
     images: [
       {
-        url: "/products/dining_chair/dining_chair_1.jpg",
+        url: "/products/dining_chair/dining_chair_1.webp",
         alt: "Elegant Dining Chair front view",
       },
       {
-        url: "/products/dining_chair/dining_chair_2.jpg",
+        url: "/products/dining_chair/dining_chair_2.webp",
         alt: "Elegant Dining Chair side view",
       },
       {
-        url: "/products/dining_chair/dining_chair_3.jpg",
+        url: "/products/dining_chair/dining_chair_3.webp",
         alt: "Elegant Dining Chair in dining room",
       },
       {
-        url: "/products/dining_chair/dining_chair_4.jpg",
+        url: "/products/dining_chair/dining_chair_4.webp",
         alt: "Elegant Dining Chair close view",
       },
     ],
@@ -1509,7 +1354,7 @@ const products: Product[] = [
     ],
   },
   {
-    id: 10,
+    id: 9,
     name: "Ergonomic Office Chair",
     description:
       "An ergonomic office chair designed for maximum comfort and support during long working hours.",
@@ -1541,26 +1386,17 @@ const products: Product[] = [
         availability_status: "In Stock",
         stock_quantity: 50,
         preview_image: {
-          url: "/products/office_chair/colors/office_chair_black.jpg",
+          url: "/products/office_chair/colors/office_chair_black.webp",
           alt: "Ergonomic Office Chair in Black",
         },
       },
       {
-        color: "Gray",
+        color: "White",
         availability_status: "Limited Stock",
         stock_quantity: 20,
         preview_image: {
-          url: "/products/office_chair/colors/office_chair_gray.jpg",
-          alt: "Ergonomic Office Chair in Gray",
-        },
-      },
-      {
-        color: "Blue",
-        availability_status: "In Stock",
-        stock_quantity: 30,
-        preview_image: {
-          url: "/products/office_chair/colors/office_chair_blue.jpg",
-          alt: "Ergonomic Office Chair in Blue",
+          url: "/products/office_chair/colors/office_chair_white.webp",
+          alt: "Ergonomic Office Chair in White",
         },
       },
     ],
@@ -1572,19 +1408,19 @@ const products: Product[] = [
     ],
     images: [
       {
-        url: "/products/office_chair/office_chair_1.jpg",
+        url: "/products/office_chair/office_chair_1.webp",
         alt: "Ergonomic Office Chair front view",
       },
       {
-        url: "/products/office_chair/office_chair_2.jpg",
+        url: "/products/office_chair/office_chair_2.webp",
         alt: "Ergonomic Office Chair side view",
       },
       {
-        url: "/products/office_chair/office_chair_3.jpg",
+        url: "/products/office_chair/office_chair_3.webp",
         alt: "Ergonomic Office Chair back view",
       },
       {
-        url: "/products/office_chair/office_chair_4.jpg",
+        url: "/products/office_chair/office_chair_4.webp",
         alt: "Ergonomic Office Chair close view",
       },
     ],
@@ -1683,7 +1519,7 @@ const products: Product[] = [
     ],
   },
   {
-    id: 11,
+    id: 10,
     name: "Outdoor Patio Set",
     description:
       "A stylish and durable outdoor patio set perfect for your backyard or garden.",
@@ -1711,21 +1547,21 @@ const products: Product[] = [
     },
     color_variants: [
       {
-        color: "Beige",
+        color: "Black",
         availability_status: "In Stock",
         stock_quantity: 15,
         preview_image: {
-          url: "/products/patio_set/colors/patio_set_beige.jpg",
-          alt: "Outdoor Patio Set in Beige",
+          url: "/products/patio_set/colors/patio_set_black.webp",
+          alt: "Outdoor Patio Set in Black",
         },
       },
       {
-        color: "Gray",
+        color: "White",
         availability_status: "Limited Stock",
         stock_quantity: 10,
         preview_image: {
-          url: "/products/patio_set/colors/patio_set_gray.jpg",
-          alt: "Outdoor Patio Set in Gray",
+          url: "/products/patio_set/colors/patio_set_white.webp",
+          alt: "Outdoor Patio Set in White",
         },
       },
       {
@@ -1746,19 +1582,19 @@ const products: Product[] = [
     ],
     images: [
       {
-        url: "/products/patio_set/patio_set_1.jpg",
+        url: "/products/patio_set/patio_set_1.webp",
         alt: "Outdoor Patio Set front view",
       },
       {
-        url: "/products/patio_set/patio_set_2.jpg",
+        url: "/products/patio_set/patio_set_2.webp",
         alt: "Outdoor Patio Set side view",
       },
       {
-        url: "/products/patio_set/patio_set_3.jpg",
+        url: "/products/patio_set/patio_set_3.webp",
         alt: "Outdoor Patio Set top view",
       },
       {
-        url: "/products/patio_set/patio_set_4.jpg",
+        url: "/products/patio_set/patio_set_4.webp",
         alt: "Outdoor Patio Set close view",
       },
     ],
@@ -1854,179 +1690,6 @@ const products: Product[] = [
         comment: "Very satisfied",
         review:
           "I'm very satisfied with this purchase. The patio set is comfortable and easy to clean.",
-      },
-    ],
-  },
-  {
-    id: 12,
-    name: "Ergonomic Office Chair",
-    description:
-      "A comfortable and ergonomic office chair designed for long hours of work.",
-    meta_description:
-      "Upgrade your home office with our ergonomic office chair. Designed for comfort and support during long work hours. Shop now for premium office furniture.",
-    category: {
-      label: "office",
-      value: "Office",
-    },
-    subcategory: {
-      label: "chairs",
-      value: "Chairs",
-    },
-    tag: "sale",
-    brand: "ComfortOffice",
-    sku: "EOC-MOD-2024-012",
-    price: 299.99,
-    discounted_price: 249.99,
-    sale_end_date: new Date("2024-07-15T23:59:59").toISOString(),
-    currency: "USD",
-    dimensions: {
-      width: "70 cm",
-      height: "120 cm",
-      depth: "70 cm",
-    },
-    color_variants: [
-      {
-        color: "Black",
-        availability_status: "In Stock",
-        stock_quantity: 40,
-        preview_image: {
-          url: "/products/office_chair/colors/office_chair_black.jpg",
-          alt: "Ergonomic Office Chair in Black",
-        },
-      },
-      {
-        color: "Gray",
-        availability_status: "Limited Stock",
-        stock_quantity: 20,
-        preview_image: {
-          url: "/products/office_chair/colors/office_chair_gray.jpg",
-          alt: "Ergonomic Office Chair in Gray",
-        },
-      },
-      {
-        color: "Blue",
-        availability_status: "In Stock",
-        stock_quantity: 30,
-        preview_image: {
-          url: "/products/office_chair/colors/office_chair_blue.jpg",
-          alt: "Ergonomic Office Chair in Blue",
-        },
-      },
-    ],
-    features: [
-      "Adjustable height and tilt",
-      "Lumbar support",
-      "Breathable mesh back",
-      "Padded seat",
-    ],
-    images: [
-      {
-        url: "/products/office_chair/office_chair_1.jpg",
-        alt: "Ergonomic Office Chair front view",
-      },
-      {
-        url: "/products/office_chair/office_chair_2.jpg",
-        alt: "Ergonomic Office Chair side view",
-      },
-      {
-        url: "/products/office_chair/office_chair_3.jpg",
-        alt: "Ergonomic Office Chair back view",
-      },
-      {
-        url: "/products/office_chair/office_chair_4.jpg",
-        alt: "Ergonomic Office Chair close view",
-      },
-    ],
-    videos: [
-      {
-        url: "/products/office_chair/office_chair_setup.mp4",
-        title: "Ergonomic Office Chair Setup and Features",
-      },
-    ],
-    additionalInfo: {
-      weight: "15 kg",
-      materials: ["Metal", "Mesh", "Foam"],
-      care_instructions:
-        "Wipe clean with a damp cloth. Avoid using harsh chemicals.",
-      shipping_details: {
-        shipping_weight: "18 kg",
-        dimensions: {
-          width: "75 cm",
-          height: "125 cm",
-          depth: "75 cm",
-        },
-        shipping_cost: 25.0,
-        estimated_delivery_time: "3-5 business days",
-      },
-      return_policy:
-        "30-day return policy. Product must be in original condition.",
-    },
-    questions_answers: [
-      {
-        question: "Does this chair have adjustable armrests?",
-        answer: "Yes, the armrests are adjustable in height and angle.",
-        asked_by: "user654",
-        asked_on: "2024-05-10",
-        answered_by: "ComfortOffice Support",
-        answered_on: "2024-05-11",
-      },
-      {
-        question: "What is the weight capacity of this chair?",
-        answer: "The chair can support up to 150 kg.",
-        asked_by: "user987",
-        asked_on: "2024-05-12",
-        answered_by: "ComfortOffice Support",
-        answered_on: "2024-05-13",
-      },
-    ],
-    reviews: [
-      {
-        username: "Jack Taylor",
-        profile_image: "/reviews/gary.png",
-        rating: 5,
-        comment: "Best office chair I've ever used",
-        review:
-          "This chair is incredibly comfortable and has great support. Perfect for long hours at the desk.",
-      },
-      {
-        username: "Emma Anderson",
-        profile_image: "/reviews/sofia.jpeg",
-        rating: 4.5,
-        comment: "Very comfortable",
-        review:
-          "The chair is very comfortable and easy to adjust. It has improved my posture significantly.",
-      },
-      {
-        username: "Liam White",
-        profile_image: null,
-        rating: 4,
-        comment: "Good value",
-        review:
-          "Good value for the price. The chair is well-made and comfortable.",
-      },
-      {
-        username: "Olivia Martinez",
-        profile_image: "/reviews/neil.png",
-        rating: 5,
-        comment: "Highly recommend",
-        review:
-          "I highly recommend this chair. It has great lumbar support and is very comfortable for long work hours.",
-      },
-      {
-        username: "Ava Clark",
-        profile_image: "/reviews/sofia.jpeg",
-        rating: 4,
-        comment: "Satisfied with the purchase",
-        review:
-          "I'm satisfied with the purchase. The chair is comfortable and was easy to assemble.",
-      },
-      {
-        username: "Ethan Walker",
-        profile_image: "/reviews/neil.png",
-        rating: 4,
-        comment: "Good quality chair",
-        review:
-          "The chair is of good quality and provides good support. Worth the money.",
       },
     ],
   },
