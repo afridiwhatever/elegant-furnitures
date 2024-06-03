@@ -534,30 +534,30 @@ const products: Product[] = [
     },
     color_variants: [
       {
-        color: "Gray",
+        color: "Dark Gray",
         availability_status: "In Stock",
         stock_quantity: 15,
         preview_image: {
-          url: "/products/beds/upholstered_bed_gray.jpg",
-          alt: "Classic Upholstered Bed in Gray",
+          url: "/products/upholstered_bed/colors/upholstered_bed_dark_gray.webp",
+          alt: "Classic Upholstered Bed in Dark Gray",
         },
       },
       {
-        color: "Beige",
+        color: "Light Gray",
         availability_status: "In Stock",
         stock_quantity: 18,
         preview_image: {
-          url: "/products/beds/upholstered_bed_beige.jpg",
-          alt: "Classic Upholstered Bed in Beige",
+          url: "/products/upholstered_bed/colors/upholstered_bed_light_gray.webp",
+          alt: "Classic Upholstered Bed in Light Gray",
         },
       },
       {
-        color: "Navy Blue",
+        color: "Black",
         availability_status: "Limited Stock",
         stock_quantity: 10,
         preview_image: {
-          url: "/products/beds/upholstered_bed_navy_blue.jpg",
-          alt: "Classic Upholstered Bed in Navy Blue",
+          url: "/products/upholstered_bed/colors/upholstered_bed_black.webp",
+          alt: "Classic Upholstered Bed in Black",
         },
       },
     ],
@@ -568,19 +568,19 @@ const products: Product[] = [
     ],
     images: [
       {
-        url: "/products/beds/upholstered_bed_1.jpg",
+        url: "/products/upholstered_bed/upholstered_bed_1.webp",
         alt: "Classic Upholstered Bed front view",
       },
       {
-        url: "/products/beds/upholstered_bed_2.jpg",
+        url: "/products/upholstered_bed/upholstered_bed_2.webp",
         alt: "Classic Upholstered Bed side view",
       },
       {
-        url: "/products/beds/upholstered_bed_3.jpg",
+        url: "/products/upholstered_bed/upholstered_bed_3.webp",
         alt: "Classic Upholstered Bed angled view",
       },
       {
-        url: "/products/beds/upholstered_bed_4.jpg",
+        url: "/products/upholstered_bed/upholstered_bed_4.webp",
         alt: "Classic Upholstered Bed detail view",
       },
     ],
@@ -713,37 +713,50 @@ const products: Product[] = [
     },
     color_variants: [
       {
+        color: "Black",
+        availability_status: "Limited Stock",
+        stock_quantity: 10,
+        preview_image: {
+          url: "/products/bookshelf/colors/bookshelf_black.webp",
+          alt: "Elegant Bookshelf in Black",
+        },
+      },
+      {
         color: "White",
         availability_status: "In Stock",
         stock_quantity: 20,
         preview_image: {
-          url: "/products/bookshelf/colors/bookshelf_white.jpg",
+          url: "/products/bookshelf/colors/bookshelf_white.webp",
           alt: "Elegant Bookshelf in White",
         },
       },
       {
-        color: "Brown",
-        availability_status: "Limited Stock",
-        stock_quantity: 10,
+        color: "Black/White",
+        availability_status: "In Stock",
+        stock_quantity: 20,
         preview_image: {
-          url: "/products/bookshelf/colors/bookshelf_brown.jpg",
-          alt: "Elegant Bookshelf in Brown",
+          url: "/products/bookshelf/colors/bookshelf_black_white.webp",
+          alt: "Elegant Bookshelf in Black and White",
         },
       },
     ],
     features: ["Modern design", "Durable materials", "Ample storage space"],
     images: [
       {
-        url: "/products/bookshelf/bookshelf_1.jpg",
+        url: "/products/bookshelf/bookshelf_1.webp",
         alt: "Elegant Bookshelf front view",
       },
       {
-        url: "/products/bookshelf/bookshelf_2.jpg",
+        url: "/products/bookshelf/bookshelf_2.webp",
         alt: "Elegant Bookshelf side view",
       },
       {
-        url: "/products/bookshelf/bookshelf_3.jpg",
+        url: "/products/bookshelf/bookshelf_3.webp",
         alt: "Elegant Bookshelf angle view",
+      },
+      {
+        url: "/products/bookshelf/bookshelf_4.webp",
+        alt: "Elegant Bookshelf open view",
       },
     ],
     videos: [
