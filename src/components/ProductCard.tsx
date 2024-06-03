@@ -17,13 +17,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
     );
   }
 
-  const { averageRating } = getRatingAndReviewCount(product);
+  const { averageRating, numberOfReviews } = getRatingAndReviewCount(
+    product.reviews
+  );
 
   return (
-    <div className="relative hover:cursor-pointer group rounded-md">
+    <div className="relative hover:cursor-pointer group rounded-md p-2 border border-transparent transition-all duration-150 hover:border-black hover:bg-zinc-100 hover:shadow-lg">
       {/* image and button */}
       <div className="relative overflow-hidden rounded-md">
-        <div className="relative w-[230px] h-[310px] lg:w-[290px] lg:h-[360px] bg-neutralGray group-hover:border border-black rounded-lg overflow-hidden">
+        <div className="relative w-[230px] h-[310px] lg:w-[290px] lg:h-[360px] bg-neutralGray rounded-lg overflow-hidden">
           <Image
             src={product.images[0].url}
             fill
@@ -52,7 +54,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* tag panel - absolute */}
         {product.tag && (
-          <p className=" bg-purple-700 text-sm text-white rounded-tr-lg font-spaceGrotesk font-thin px-2 absolute bottom-0 z-1 ">
+          <p className=" bg-purple-700 text-sm text-white rounded-tr-lg font-spaceGrotesk font-thin px-2 absolute bottom-0 z-1">
             {product.tag}
           </p>
         )}
@@ -65,21 +67,26 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       {/* details */}
       <Link
-        href={`product/${product.id}`}
-        className="flex flex-col gap-1 font-semibold mt-3"
+        href={`/product/${product.id}`}
+        className="flex flex-col gap-1 mt-3 "
       >
-        <ProductRating rating={averageRating} />
-        <h4>{product.name}</h4>
+        <h4 className="text-xl tracking-normal">{product.name}</h4>
         {product.discounted_price ? (
-          <div className="flex gap-2 text-sm">
-            <p>${product.discounted_price}</p>
-            <p className="text-muted-foreground line-through font-medium">
+          <div className="flex gap-2 items-center ">
+            <p className="text-lg">${product.discounted_price}</p>
+            <p className="text-muted-foreground text-sm  line-through font-medium">
               ${product.price}
             </p>
           </div>
         ) : (
-          <p className="text-sm font-medium">${product.price}</p>
+          <p className="text-lg ">${product.price}</p>
         )}
+        <div className="flex gap-1 items-center">
+          <ProductRating rating={averageRating} size={16} />
+          <span className="block font-[300] tracking-wider">
+            ({numberOfReviews})
+          </span>
+        </div>
       </Link>
     </div>
   );

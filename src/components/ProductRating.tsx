@@ -3,11 +3,17 @@
 // @ts-ignore
 import ReactStars from "react-rating-stars-component";
 
-const ProductRating = ({ rating }: { rating?: number }) => {
+const ProductRating = ({
+  rating,
+  size,
+}: {
+  rating?: number;
+  size?: number;
+}) => {
   return (
     <ReactStars
       count={5}
-      size={13}
+      size={size || 13}
       value={rating || 5}
       isHalf={true}
       color={"black"}

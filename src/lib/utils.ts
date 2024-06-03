@@ -1,4 +1,4 @@
-import { Product } from "@/types";
+import { ProductReview } from "@/types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -10,10 +10,10 @@ export function convertToSlug(text: string) {
   return text.toLowerCase().replace(/\s+/g, "-");
 }
 
-export const getRatingAndReviewCount = (product: Product) => {
-  const numberOfReviews = product.reviews.length;
+export const getRatingAndReviewCount = (productReviews: ProductReview[]) => {
+  const numberOfReviews = productReviews.length;
   const averageRating =
-    product.reviews.reduce((total, review) => {
+    productReviews.reduce((total, review) => {
       return total + review.rating;
     }, 0) / numberOfReviews;
 

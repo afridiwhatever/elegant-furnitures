@@ -1,5 +1,5 @@
 "use client";
-import { finalDate } from "@/lib/utils";
+
 import Countdown from "react-countdown";
 
 interface SaleCountdownRendererProps {

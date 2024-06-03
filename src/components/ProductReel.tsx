@@ -41,7 +41,7 @@ const ProductReel = async ({ tag }: { tag: ProductTag }) => {
           />
         </div>
       </div>
-      <div className="overflow-x-auto mt-10 flex gap-8 pb-6">
+      <div className="overflow-x-auto mt-10 flex gap-2 pb-6">
         {products.map((prod) => {
           return <ProductCard key={prod.name} product={prod} />;
         })}

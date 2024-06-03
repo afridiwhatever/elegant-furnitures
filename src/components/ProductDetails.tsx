@@ -8,7 +8,9 @@ import { Button } from "./ui/button";
 import { getRatingAndReviewCount } from "@/lib/utils";
 
 const ProductDetails = ({ product }: { product: Product }) => {
-  const { averageRating, numberOfReviews } = getRatingAndReviewCount(product);
+  const { averageRating, numberOfReviews } = getRatingAndReviewCount(
+    product.reviews
+  );
   return (
     <div className="w-full lg:w-[55%] space-y-4 relative ">
       {/* reviews */}
@@ -42,10 +44,10 @@ const ProductDetails = ({ product }: { product: Product }) => {
         <h4 className="font-semibold text-lg text-blackishGray">
           Measurements
         </h4>
-        {/* <p className="text-xl font-[400] flex">
+        <p className="text-xl font-[400] flex">
           {product.dimensions.height} * {product.dimensions.width} *{" "}
           {product.dimensions.depth}
-        </p> */}
+        </p>
       </div>
 
       {/* color picker */}

@@ -7,6 +7,7 @@ import NewsLetter from "@/components/NewsLetter";
 import { convertToSlug } from "@/lib/utils";
 import { Product } from "@/types";
 import { notFound } from "next/navigation";
+import ProductReel from "@/components/ProductReel";
 
 async function fetchProduct(productId: number) {
   const res = await fetch(`http://localhost:3000/api/products/${productId}`);
@@ -51,9 +52,10 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
           productQuestionAnswers={product.questions_answers}
           productAdditionalInfo={product.additionalInfo}
         />
+        <ProductReel tag="new" />
       </MaxWidthWrapper>
+
       <NewsLetter />
-      <div className="h-40 w-full bg-blue-300"></div>
     </>
   );
 };
