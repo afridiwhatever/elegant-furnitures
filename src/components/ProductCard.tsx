@@ -21,6 +21,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
     setIsFavorite(!isFavorite);
   };
 
+  let discountPercent = 0;
+  if (product.discounted_price) {
+    discountPercent = Math.ceil(
+      ((product.price - product.discounted_price) / product.price) * 100
+    );
+  }
+
   return (
     <div className="relative hover:cursor-pointer group rounded-md">
       {/* image and button */}
@@ -37,7 +44,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               className="w-full border border-black rounded-md bg-zinc-100 hover:bg-zinc-200"
               variant={"ghost"}
             >
-              View Details
+              <Link href={`/product/${product.id}`}>View Details</Link>
             </Button>
             <Button className="w-full">Add to Cart</Button>
           </div>
@@ -45,7 +52,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       {/* details */}
       <Link
-        href="/products/loveseat-sofa"
+        href={`product/${product.id}`}
         className="flex flex-col gap-1 font-semibold mt-3"
       >
         <div>
@@ -72,9 +79,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
         {/* {isNew && (
           <p className="uppercase rounded-lg bg-white px-5 py-1 mb-2">New</p>
         )} */}
-        {/* <p className="bg-[#38CB89] rounded-lg px-5 py-1 text-white">
-          -{discountPercent}%
-        </p> */}
+        <p className="bg-red-800 rounded-lg px-2 py-1 text-white text-sm">
+          -{discountPercent > 0 ? discountPercent : ""}%
+        </p>
       </div>
       {/* favorite button */}
       <div

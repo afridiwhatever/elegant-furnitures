@@ -870,7 +870,7 @@ const products: Product[] = [
     brand: "ComfortPlus",
     sku: "RC-LUX-2024-006",
     price: 299.99,
-    discounted_price: 249.99,
+    discounted_price: 149.99,
     sale_end_date: new Date("2024-06-15T23:59:59").toISOString(),
     currency: "USD",
     dimensions: {
@@ -1562,15 +1562,6 @@ const products: Product[] = [
         preview_image: {
           url: "/products/patio_set/colors/patio_set_white.webp",
           alt: "Outdoor Patio Set in White",
-        },
-      },
-      {
-        color: "Brown",
-        availability_status: "In Stock",
-        stock_quantity: 20,
-        preview_image: {
-          url: "/products/patio_set/colors/patio_set_brown.jpg",
-          alt: "Outdoor Patio Set in Brown",
         },
       },
     ],

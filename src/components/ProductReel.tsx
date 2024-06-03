@@ -2,8 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import ShopNowButton from "./ShopNowButton";
 import { Product } from "@/types";
-
-type ProductTag = "new" | "sale" | "bestseller";
+import { ProductTag } from "@/types";
 
 const ProductReel = async ({ tag }: { tag: ProductTag }) => {
   const fetchProducts = async () => {

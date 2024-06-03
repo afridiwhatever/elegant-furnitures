@@ -56,12 +56,14 @@ export type ProductReview = {
   review: string;
 };
 
+export type ProductTag = "new" | "sale" | "limited" | "bestseller" | undefined;
+
 export type Product = {
   id: number;
   name: string;
   description: string;
   meta_description: string;
-  tag?: "new" | "sale" | "limited" | "bestseller";
+  tag?: ProductTag;
   category: {
     label: string;
     value: string;
