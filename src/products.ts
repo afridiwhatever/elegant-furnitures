@@ -880,29 +880,29 @@ const products: Product[] = [
     },
     color_variants: [
       {
+        color: "Dark Gray",
+        availability_status: "Limited Stock",
+        stock_quantity: 8,
+        preview_image: {
+          url: "/products/recliner_chair/colors/recliner_chair_dark_gray.webp",
+          alt: "Luxury Recliner Chair in Dark Gray",
+        },
+      },
+      {
         color: "Gray",
         availability_status: "In Stock",
         stock_quantity: 15,
         preview_image: {
-          url: "/products/recliner_chair/colors/recliner_chair_gray.jpg",
+          url: "/products/recliner_chair/colors/recliner_chair_gray.webp",
           alt: "Luxury Recliner Chair in Gray",
         },
       },
       {
-        color: "Brown",
-        availability_status: "Limited Stock",
-        stock_quantity: 8,
-        preview_image: {
-          url: "/products/recliner_chair/colors/recliner_chair_brown.jpg",
-          alt: "Luxury Recliner Chair in Brown",
-        },
-      },
-      {
         color: "Blue",
-        availability_status: "In Stock",
-        stock_quantity: 10,
+        availability_status: "Out of Stock",
+        stock_quantity: 0,
         preview_image: {
-          url: "/products/recliner_chair/colors/recliner_chair_blue.jpg",
+          url: "/products/recliner_chair/colors/recliner_chair_blue.webp",
           alt: "Luxury Recliner Chair in Blue",
         },
       },
@@ -914,20 +914,24 @@ const products: Product[] = [
     ],
     images: [
       {
-        url: "/products/recliner_chair/recliner_chair_1.jpg",
+        url: "/products/recliner_chair/recliner_chair_1.webp",
         alt: "Luxury Recliner Chair front view",
       },
       {
-        url: "/products/recliner_chair/recliner_chair_2.jpg",
+        url: "/products/recliner_chair/recliner_chair_2.webp",
         alt: "Luxury Recliner Chair side view",
       },
       {
-        url: "/products/recliner_chair/recliner_chair_3.jpg",
+        url: "/products/recliner_chair/recliner_chair_3.webp",
         alt: "Luxury Recliner Chair back view",
       },
       {
-        url: "/products/recliner_chair/recliner_chair_4.jpg",
+        url: "/products/recliner_chair/recliner_chair_4.webp",
         alt: "Luxury Recliner Chair close up view",
+      },
+      {
+        url: "/products/recliner_chair/recliner_chair_5.webp",
+        alt: "Luxury Recliner Chair feature remote holder",
       },
     ],
     videos: [
@@ -1055,7 +1059,7 @@ const products: Product[] = [
         availability_status: "In Stock",
         stock_quantity: 12,
         preview_image: {
-          url: "/products/kitchen_island/colors/kitchen_island_silver.jpg",
+          url: "/products/kitchen_island/colors/kitchen_island_silver.webp",
           alt: "Stainless Steel Kitchen Island in Silver",
         },
       },
@@ -1068,19 +1072,19 @@ const products: Product[] = [
     ],
     images: [
       {
-        url: "/products/kitchen_island/kitchen_island_1.jpg",
+        url: "/products/kitchen_island/kitchen_island_1.webp",
         alt: "Stainless Steel Kitchen Island front view",
       },
       {
-        url: "/products/kitchen_island/kitchen_island_2.jpg",
+        url: "/products/kitchen_island/kitchen_island_2.webp",
         alt: "Stainless Steel Kitchen Island side view",
       },
       {
-        url: "/products/kitchen_island/kitchen_island_3.jpg",
+        url: "/products/kitchen_island/kitchen_island_3.webp",
         alt: "Stainless Steel Kitchen Island storage view",
       },
       {
-        url: "/products/kitchen_island/kitchen_island_4.jpg",
+        url: "/products/kitchen_island/kitchen_island_4.webp",
         alt: "Stainless Steel Kitchen Island top view",
       },
     ],
