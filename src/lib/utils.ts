@@ -1,3 +1,4 @@
+import { Product } from "@/types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -9,6 +10,15 @@ export function convertToSlug(text: string) {
   return text.toLowerCase().replace(/\s+/g, "-");
 }
 
-const saleEndDate = new Date();
-saleEndDate.setDate(new Date().getDate() + 1);
-export const finalDate = saleEndDate.toISOString();
+export const getRatingAndReviewCount = (product: Product) => {
+  const numberOfReviews = product.reviews.length;
+  const averageRating =
+    product.reviews.reduce((total, review) => {
+      return total + review.rating;
+    }, 0) / numberOfReviews;
+
+  return {
+    averageRating,
+    numberOfReviews,
+  };
+};

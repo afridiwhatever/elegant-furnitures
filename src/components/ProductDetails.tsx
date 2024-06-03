@@ -1,19 +1,20 @@
+import { Product } from "@/types";
 import { Minus, Plus } from "lucide-react";
 import AddToWishlistButton from "./AddToWishlistButton";
 import ColorPicker from "./ColorPicker";
 import ProductRating from "./ProductRating";
 import SaleCountdown from "./SaleCountdown";
 import { Button } from "./ui/button";
-import { Product } from "@/types";
-import Test from "./Test";
+import { getRatingAndReviewCount } from "@/lib/utils";
 
 const ProductDetails = ({ product }: { product: Product }) => {
+  const { averageRating, numberOfReviews } = getRatingAndReviewCount(product);
   return (
     <div className="w-full lg:w-[55%] space-y-4 relative ">
       {/* reviews */}
       <div className="flex gap-3 items-center">
-        <ProductRating />
-        <p>11 Reviews</p>
+        <ProductRating rating={averageRating} />
+        <p>{numberOfReviews} Reviews</p>
       </div>
 
       {/* details */}
@@ -62,7 +63,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
             Add to Cart
           </Button>
         </div>
-        <AddToWishlistButton />
+        <AddToWishlistButton useCase="product_page" />
       </div>
 
       {/* SKU and category */}

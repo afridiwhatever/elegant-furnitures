@@ -1,8 +1,6 @@
-import React from "react";
+import { Product, ProductTag } from "@/types";
 import ProductCard from "./ProductCard";
 import ShopNowButton from "./ShopNowButton";
-import { Product } from "@/types";
-import { ProductTag } from "@/types";
 
 const ProductReel = async ({ tag }: { tag: ProductTag }) => {
   const fetchProducts = async () => {
@@ -45,14 +43,7 @@ const ProductReel = async ({ tag }: { tag: ProductTag }) => {
       </div>
       <div className="overflow-x-auto mt-10 flex gap-8 pb-6">
         {products.map((prod) => {
-          return (
-            <ProductCard
-              key={prod.name}
-              product={prod}
-              // discountPercent={prod.discountPercent}
-              // isNew={prod.isNew}
-            />
-          );
+          return <ProductCard key={prod.name} product={prod} />;
         })}
       </div>
       <div className="mt-6 mb-6 block md:hidden">
