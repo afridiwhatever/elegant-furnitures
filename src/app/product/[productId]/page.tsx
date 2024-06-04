@@ -1,7 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import ProductDetails from "@/components/ProductDetails";
-import ProductShowcase from "@/components/ProductShowcase";
+import ProductShowcase from "@/components/ProductShowcaseCarousel";
 import ProductAuxiliaryInfo from "@/components/ProductAuxiliraryInfo";
 import NewsLetter from "@/components/NewsLetter";
 import { convertToSlug } from "@/lib/utils";
@@ -44,7 +44,7 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
       <MaxWidthWrapper>
         <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          <ProductShowcase images={product.images} />
+          <ProductShowcase productImages={product.images} />
           <ProductDetails product={product} />
         </div>
         <ProductAuxiliaryInfo

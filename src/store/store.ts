@@ -2,32 +2,35 @@ import { create } from "zustand";
 import { ProductImage } from "@/types";
 
 interface Store {
-  productDisplayImages: (ProductImage | null)[];
-  imagesArrayLength: number;
-  swiperRef: any;
-  updateProductDisplayImages: (
+  imagesForProductCarousel: (ProductImage | null)[];
+  setImagesForProductCarousel: (
     newProductDisplayImages: (ProductImage | null)[]
   ) => void;
-  updateImagesArrayLength: (length: number) => void;
+  originalImagesArrayLength: number;
+  swiperRef: any;
+  setOriginalImagesArrayLength: (length: number) => void;
   setSwiperRef: (swiperRef: any) => void;
 }
 
 const useStore = create<Store>((set) => ({
-  productDisplayImages: [],
-  imagesArrayLength: 0,
+  imagesForProductCarousel: [],
+  originalImagesArrayLength: 0,
   swiperRef: null,
-  updateProductDisplayImages: (newProductDisplayImages) =>
+  setImagesForProductCarousel: (newProductDisplayImages) =>
     set((state) => {
-      if (newProductDisplayImages.length - state.imagesArrayLength > 1) {
-        newProductDisplayImages.splice(state.imagesArrayLength, 1);
+      if (
+        newProductDisplayImages.length - state.originalImagesArrayLength >
+        1
+      ) {
+        newProductDisplayImages.splice(state.originalImagesArrayLength, 1);
       }
       return {
-        productDisplayImages: newProductDisplayImages,
+        imagesForProductCarousel: newProductDisplayImages,
       };
     }),
-  updateImagesArrayLength: (length: number) =>
+  setOriginalImagesArrayLength: (length: number) =>
     set(() => {
-      return { imagesArrayLength: length };
+      return { originalImagesArrayLength: length };
     }),
   setSwiperRef: (swiperRef) =>
     set(() => {

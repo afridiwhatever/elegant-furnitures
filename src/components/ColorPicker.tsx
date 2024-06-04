@@ -13,10 +13,12 @@ const ColorPicker = ({
 }) => {
   const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.color);
 
-  const productDisplayImages = useStore((state) => state.productDisplayImages);
-
-  const updateProductDisplayImages = useStore(
-    (state) => state.updateProductDisplayImages
+  // bring in state imagesForProductCarousel array and setter function to update as required, also the swiper div to change slide
+  const imagesForProductCarousel = useStore(
+    (state) => state.imagesForProductCarousel
+  );
+  const setImagesForProductCarousel = useStore(
+    (state) => state.setImagesForProductCarousel
   );
   const swiperRef = useStore((state) => state.swiperRef);
 
@@ -25,15 +27,12 @@ const ColorPicker = ({
     preview_image: ProductImage
   ) => {
     setSelectedColor(color);
-    updateProductDisplayImages([...productDisplayImages, preview_image]);
-
-    setTimeout(() => {
-      if (swiperRef?.current && swiperRef.current.swiper) {
-        swiperRef.current.swiper.slideTo(
-          swiperRef.current.swiper.slides.length - 1
-        );
-      }
-    }, 20);
+    setImagesForProductCarousel([...imagesForProductCarousel, preview_image]);
+    if (swiperRef?.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideTo(
+        swiperRef.current.swiper.slides.length - 1
+      );
+    }
   };
   return (
     <div className="space-y-2">

@@ -1,58 +1,64 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import useStore from "@/store/store";
+import { ProductImage } from "@/types";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ArrowRight, ArrowLeft } from "lucide-react";
-import { Swiper as SwiperInstance } from "swiper";
-import { ProductImage } from "@/types";
 
-interface ProductShowcaseProps {
-  images: ProductImage[];
-}
-
-const ProductShowcase = ({ images }: ProductShowcaseProps) => {
+const ProductShowcaseCarousel = ({
+  productImages,
+}: {
+  productImages: ProductImage[];
+}) => {
   const swiperRef = useRef<any>(null);
 
-  const originialImageArrayLength: number = images.length;
+  // useEffect to update the images, imagesarraylength and swiper right away
+  useEffect(() => {
+    setSwiperRef(swiperRef);
+    // the length has to be set before updating the productImages bcoz of the way the logic is written in the store
+    setOriginalImagesArrayLength(productImages.length);
+    setImagesForProductCarousel(productImages);
+  }, []);
 
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
   const [activeImage, setActiveImage] = useState<undefined | string>(undefined);
 
   // bring values and setter functions from store
-  const productDisplayImages = useStore((state) => state.productDisplayImages);
-  const updateProductDisplayImages = useStore(
-    (state) => state.updateProductDisplayImages
+  const imagesForProductCarousel = useStore(
+    (state) => state.imagesForProductCarousel
   );
-  const updateImagesArrayLength = useStore(
-    (state) => state.updateImagesArrayLength
+  const setImagesForProductCarousel = useStore(
+    (state) => state.setImagesForProductCarousel
+  );
+  const setOriginalImagesArrayLength = useStore(
+    (state) => state.setOriginalImagesArrayLength
   );
   const setSwiperRef = useStore((state) => state.setSwiperRef);
+  const originalImagesArrayLength = useStore(
+    (state) => state.originalImagesArrayLength
+  );
 
-  // useEffects
+  // this useeffect carries active image (border around image) logic
   useEffect(() => {
-    setSwiperRef(swiperRef);
-    updateImagesArrayLength(images.length);
-    updateProductDisplayImages(images);
-  }, []);
-
-  useEffect(() => {
-    if (productDisplayImages.length > originialImageArrayLength) {
+    if (imagesForProductCarousel.length > originalImagesArrayLength) {
       setActiveImage(
-        productDisplayImages[productDisplayImages.length - 1]?.url
+        imagesForProductCarousel[imagesForProductCarousel.length - 1]?.url
       );
     } else {
-      setActiveImage(productDisplayImages[0]?.url);
+      setActiveImage(imagesForProductCarousel[0]?.url);
     }
-  }, [productDisplayImages]);
+  }, [imagesForProductCarousel]);
 
   const handlePreviewImageClick = (image: ProductImage) => {
-    const index = productDisplayImages.indexOf(image);
+    const index = imagesForProductCarousel.indexOf(image);
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(index);
     }
@@ -72,14 +78,15 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   };
 
   const handleSwiperSlideChange = (swiper: SwiperInstance) => {
-    const imageUrl = productDisplayImages[swiper.activeIndex]?.url;
+    const imageUrl = imagesForProductCarousel[swiper.activeIndex]?.url;
     setActiveImage(imageUrl);
     setIsBeginning(swiper.activeIndex === 0);
-    setIsEnd(swiper.activeIndex === productDisplayImages.length - 1);
+    setIsEnd(swiper.activeIndex === imagesForProductCarousel.length - 1);
   };
 
   return (
     <div className="w-full lg:w-[45%] h-[60vh] lg:h-[80vh] space-y-4 ">
+      {/* main product image carousel */}
       <div className="h-full lg:h-[85%] w-full ">
         <Swiper
           modules={[Navigation, Autoplay]}
@@ -89,19 +96,21 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
           autoplay={{
             delay: 3500,
             pauseOnMouseEnter: true,
-            disableOnInteraction: false,
           }}
           className="h-full w-full relative"
           ref={swiperRef}
         >
-          {productDisplayImages.map((image) => {
+          {imagesForProductCarousel.map((image, index) => {
             return (
-              <SwiperSlide key={image?.url} className="h-full w-full relative">
+              <SwiperSlide
+                key={image?.url! + index}
+                className="h-full w-full relative"
+              >
                 <Image
                   src={image?.url || ""}
                   fill
                   alt={image?.alt || ""}
-                  className="bg-neutralGray object-contain lg:object-cover "
+                  className="bg-neutralGray object-contain lg:object-cover"
                 />
               </SwiperSlide>
             );
@@ -124,13 +133,15 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
           </button>
         </Swiper>
       </div>
+
+      {/* preview image */}
       <div className="w-full hidden lg:block">
         <div className="h-full w-full flex gap-6">
-          {productDisplayImages.map((image) => {
+          {imagesForProductCarousel.map((image, index) => {
             const isActive = activeImage === image?.url;
             return (
               <div
-                key={Math.random()}
+                key={image?.url! + index}
                 className="h-[120px] w-[120px] relative"
                 onClick={() => {
                   if (image) handlePreviewImageClick(image);
@@ -153,4 +164,4 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   );
 };
 
-export default ProductShowcase;
+export default ProductShowcaseCarousel;
