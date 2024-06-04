@@ -28,11 +28,15 @@ const ColorPicker = ({
   ) => {
     setSelectedColor(color);
     setImagesForProductCarousel([...imagesForProductCarousel, preview_image]);
-    if (swiperRef?.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideTo(
-        swiperRef.current.swiper.slides.length - 1
-      );
-    }
+
+    // this is required. whenever the slide is at the last image (without this new preview_image), it doesn't slide as expected without this timeout
+    setTimeout(() => {
+      if (swiperRef?.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slideTo(
+          swiperRef.current.swiper.slides.length - 1
+        );
+      }
+    }, 1);
   };
   return (
     <div className="space-y-2">

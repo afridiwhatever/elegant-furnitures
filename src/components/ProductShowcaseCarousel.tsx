@@ -19,14 +19,6 @@ const ProductShowcaseCarousel = ({
 }) => {
   const swiperRef = useRef<any>(null);
 
-  // useEffect to update the images, imagesarraylength and swiper right away
-  useEffect(() => {
-    setSwiperRef(swiperRef);
-    // the length has to be set before updating the productImages bcoz of the way the logic is written in the store
-    setOriginalImagesArrayLength(productImages.length);
-    setImagesForProductCarousel(productImages);
-  }, []);
-
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
   const [activeImage, setActiveImage] = useState<undefined | string>(undefined);
@@ -46,23 +38,29 @@ const ProductShowcaseCarousel = ({
     (state) => state.originalImagesArrayLength
   );
 
-  // this useeffect carries active image (border around image) logic
-  useEffect(() => {
-    if (imagesForProductCarousel.length > originalImagesArrayLength) {
-      setActiveImage(
-        imagesForProductCarousel[imagesForProductCarousel.length - 1]?.url
-      );
-    } else {
-      setActiveImage(imagesForProductCarousel[0]?.url);
-    }
-  }, [imagesForProductCarousel]);
-
+  // event handler functions
   const handlePreviewImageClick = (image: ProductImage) => {
     const index = imagesForProductCarousel.indexOf(image);
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideTo(index);
     }
     setActiveImage(image.url);
+  };
+
+  const handlePreviewImageKeyboardNavigation = (event: KeyboardEvent) => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      switch (event.key) {
+        case "ArrowLeft":
+          swiperRef.current.swiper.slidePrev();
+          break;
+        case "ArrowRight":
+          swiperRef.current.swiper.slideNext();
+          break;
+        default:
+          // Do nothing for other keys
+          break;
+      }
+    }
   };
 
   const handlePrev = () => {
@@ -83,6 +81,34 @@ const ProductShowcaseCarousel = ({
     setIsBeginning(swiper.activeIndex === 0);
     setIsEnd(swiper.activeIndex === imagesForProductCarousel.length - 1);
   };
+
+  // useEffect to update the images, imagesarraylength and swiper right away, also handle keyboard navigation
+  useEffect(() => {
+    setSwiperRef(swiperRef);
+    // the length has to be set before updating the productImages bcoz of the way the logic is written in the store
+    setOriginalImagesArrayLength(productImages.length);
+    setImagesForProductCarousel(productImages);
+
+    // to handle keyboard navigation
+    document.addEventListener("keydown", handlePreviewImageKeyboardNavigation);
+    return () => {
+      document.removeEventListener(
+        "keydown",
+        handlePreviewImageKeyboardNavigation
+      );
+    };
+  }, []);
+
+  // this useeffect carries active image (border around image) logic
+  useEffect(() => {
+    if (imagesForProductCarousel.length > originalImagesArrayLength) {
+      setActiveImage(
+        imagesForProductCarousel[imagesForProductCarousel.length - 1]?.url
+      );
+    } else {
+      setActiveImage(imagesForProductCarousel[0]?.url);
+    }
+  }, [imagesForProductCarousel]);
 
   return (
     <div className="w-full lg:w-[45%] h-[60vh] lg:h-[80vh] space-y-4 ">
