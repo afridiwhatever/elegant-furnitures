@@ -6,9 +6,13 @@ import ReactStars from "react-rating-stars-component";
 const ProductRating = ({
   rating,
   size,
+  color,
+  activeColor,
 }: {
   rating?: number;
   size?: number;
+  color?: string;
+  activeColor?: string;
 }) => {
   return (
     <ReactStars
@@ -16,8 +20,8 @@ const ProductRating = ({
       size={size || 13}
       value={rating || 5}
       isHalf={true}
-      color={"black"}
-      activeColor={"#ffd700"}
+      color={color || "black"}
+      activeColor={activeColor || "#ffd700"}
       edit={false}
     />
   );

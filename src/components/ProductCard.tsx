@@ -22,7 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   );
 
   return (
-    <div className="relative hover:cursor-pointer group rounded-md p-2 border border-transparent transition-all duration-150 hover:border-black hover:bg-zinc-100 hover:shadow-lg">
+    <div className="relative hover:cursor-pointer group rounded-md p-2 border border-transparent transition-all duration-150 hover:border-black hover:bg-slate-100 hover:shadow-lg">
       {/* image and button */}
       <div className="relative overflow-hidden rounded-md">
         <div className="relative w-[230px] h-[310px] lg:w-[290px] lg:h-[360px] bg-neutralGray rounded-lg overflow-hidden">
@@ -31,6 +31,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
             fill
             alt={product.images[0].alt}
             className="object-cover"
+          />
+          <Image
+            src={product.images[1].url}
+            fill
+            alt={product.images[1].alt}
+            className="opacity-0 group-hover:opacity-100 object-cover transition-all duration-300"
           />
           <div className="absolute z-10 w-full h-10 bottom-16">
             <div className="w-[80%] mx-auto transition-all duration-200 opacity-0 translate-y-[100%] group-hover:opacity-100 group-hover:translate-y-0 space-y-2">
@@ -70,7 +76,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         href={`/product/${product.id}`}
         className="flex flex-col gap-1 mt-3 "
       >
-        <h4 className="text-xl tracking-normal">{product.name}</h4>
+        <h4 className="text-xl tracking-tight font-semibold">{product.name}</h4>
         {product.discounted_price ? (
           <div className="flex gap-2 items-center ">
             <p className="text-lg">${product.discounted_price}</p>
@@ -82,8 +88,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <p className="text-lg ">${product.price}</p>
         )}
         <div className="flex gap-1 items-center">
-          <ProductRating rating={averageRating} size={16} />
-          <span className="block font-[300] tracking-wider">
+          <ProductRating
+            rating={averageRating}
+            size={16}
+            color="lightgray"
+            activeColor="black"
+          />
+          <span className="block font-[300] text-sm tracking-wider">
             ({numberOfReviews})
           </span>
         </div>
