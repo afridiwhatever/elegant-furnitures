@@ -24,6 +24,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   const [isEnd, setIsEnd] = useState(false);
   const [activeImage, setActiveImage] = useState<undefined | string>(undefined);
 
+  // bring values and setter functions from store
   const productDisplayImages = useStore((state) => state.productDisplayImages);
   const updateProductDisplayImages = useStore(
     (state) => state.updateProductDisplayImages
@@ -33,10 +34,11 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
   );
   const setSwiperRef = useStore((state) => state.setSwiperRef);
 
+  // useEffects
   useEffect(() => {
     setSwiperRef(swiperRef);
-    updateProductDisplayImages(images);
     updateImagesArrayLength(images.length);
+    updateProductDisplayImages(images);
   }, []);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ const ProductShowcase = ({ images }: ProductShowcaseProps) => {
     } else {
       setActiveImage(productDisplayImages[0]?.url);
     }
-  }, [productDisplayImages, originialImageArrayLength]);
+  }, [productDisplayImages]);
 
   const handlePreviewImageClick = (image: ProductImage) => {
     const index = productDisplayImages.indexOf(image);

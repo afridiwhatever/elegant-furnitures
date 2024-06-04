@@ -54,7 +54,6 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
         />
         <ProductReel tag="new" />
       </MaxWidthWrapper>
-
       <NewsLetter />
     </>
   );

@@ -40,12 +40,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
           />
           <div className="absolute z-10 w-full h-10 bottom-16">
             <div className="w-[80%] mx-auto transition-all duration-200 opacity-0 translate-y-[100%] group-hover:opacity-100 group-hover:translate-y-0 space-y-2">
-              <Button
-                className="w-full border border-black rounded-md bg-zinc-100 hover:bg-zinc-200"
-                variant={"ghost"}
-              >
-                <Link href={`/product/${product.id}`}>View Details</Link>
-              </Button>
+              <Link href={`/product/${product.id}`}>
+                <Button
+                  className="w-full border border-black rounded-md bg-zinc-100 hover:bg-zinc-200"
+                  variant={"ghost"}
+                >
+                  View Details
+                </Button>
+              </Link>
               <Button className="w-full">Add to Cart</Button>
             </div>
           </div>
