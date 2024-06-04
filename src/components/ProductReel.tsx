@@ -4,10 +4,14 @@ import ShopNowButton from "./ShopNowButton";
 
 const ProductReel = async ({ tag }: { tag: ProductTag }) => {
   const fetchProducts = async () => {
-    const response = await fetch(`http:localhost:3000/api/products?tag=${tag}`);
-    const data = await response.json();
+    // const response = await fetch(
+    //   `http://localhost:3000/api/products?tag=${tag}`
+    // );
+    const res = await fetch(`http://localhost:3000/api/products/?tag=${tag}`);
+    const data = await res.json();
     return data;
   };
+
   const products = (await fetchProducts()) as Product[];
 
   const renderHeaderText = (tag: ProductTag) => {

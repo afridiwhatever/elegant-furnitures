@@ -9,13 +9,13 @@ import { Product } from "@/types";
 import { notFound } from "next/navigation";
 import ProductReel from "@/components/ProductReel";
 
-async function fetchProduct(productId: number) {
+async function fetchProduct(productId: string) {
   const res = await fetch(`http://localhost:3000/api/products/${productId}`);
   const data = await res.json();
   return data;
 }
 const ProductPage = async ({ params }: { params: { productId: string } }) => {
-  const product = (await fetchProduct(parseInt(params.productId))) as Product;
+  const product = (await fetchProduct(params.productId)) as Product;
 
   // @ts-expect-error
   if (product.message) {

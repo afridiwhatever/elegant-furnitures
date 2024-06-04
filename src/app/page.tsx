@@ -3,14 +3,13 @@ import CategoryCard from "@/components/CategoryCard";
 import Footer from "@/components/Footer";
 import HeroSectionSlider from "@/components/HeroSectionSlider";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import NewsLetter from "@/components/NewsLetter";
 import ProductReel from "@/components/ProductReel";
 import ShopNowButton from "@/components/ShopNowButton";
-import NewsLetter from "@/components/NewsLetter";
 import Image from "next/image";
 import {
   DeliveryIcon,
   LockIcon,
-  MailIcon,
   MoneyIcon,
   PhoneSupportIcon,
 } from "../../public/icons/Icons";

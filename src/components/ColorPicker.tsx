@@ -1,23 +1,17 @@
 "use client";
 import useStore from "@/store/store";
+import { ProductImage } from "@/types";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { ProductColorVariant } from "@/types";
 
 const ColorPicker = ({
   colorVariants,
 }: {
-  colorVariants: {
-    color: string;
-    availability_status: string;
-    stock_quantity: number;
-    preview_image: {
-      url: string;
-      alt: string;
-    };
-  }[];
+  colorVariants: ProductColorVariant[];
 }) => {
-  const [selectedColor, setSelectedColor] = useState(colorVariants[0].color);
+  const [selectedColor, setSelectedColor] = useState(colorVariants[0]?.color);
 
   const productDisplayImages = useStore((state) => state.productDisplayImages);
 
@@ -28,10 +22,7 @@ const ColorPicker = ({
 
   const handleColorPickerImageClick = (
     color: string,
-    preview_image: {
-      url: string;
-      alt: string;
-    }
+    preview_image: ProductImage
   ) => {
     setSelectedColor(color);
     updateProductDisplayImages([...productDisplayImages, preview_image]);
@@ -54,9 +45,9 @@ const ColorPicker = ({
         {colorVariants.map(({ color, stock_quantity, preview_image }) => {
           const isSelected = selectedColor === color;
           return (
-            <div className="max-w-max space-y-4" key={color}>
+            <div className="max-w-max space-y-1" key={color}>
               <p
-                className={`text-xl font-[400] max-w-max mx-auto ${
+                className={`text-sm font-[400] max-w-max mx-auto ${
                   isSelected ? "" : "invisible"
                 }`}
               >

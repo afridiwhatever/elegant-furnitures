@@ -5,8 +5,6 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const tag = searchParams.get("tag");
 
-  console.log(tag);
-
   if (!tag) {
     return NextResponse.json(
       { error: "Tag query parameter is required" },
