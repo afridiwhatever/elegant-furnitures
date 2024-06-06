@@ -103,6 +103,9 @@ const Navbar = () => {
             <li>
               <Link href="/product/1">Contact Us</Link>
             </li>
+            <li>
+              <Link href="/products">Products</Link>
+            </li>
           </ul>
 
           {/* right side items */}
