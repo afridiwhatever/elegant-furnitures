@@ -30,7 +30,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <div className="bg-[#232627] text-[#FEFEFE] font-[200] w-full py-8">
+    <footer className="bg-[#232627] text-[#FEFEFE] font-[200] w-full py-8">
       <MaxWidthWrapper>
         <div className="border-b border-b-[#6C7275] lg:flex lg:justify-between lg:py-16">
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-center">
@@ -77,7 +77,7 @@ const Footer = () => {
           </p>
         </div>
       </MaxWidthWrapper>
-    </div>
+    </footer>
   );
 };
 

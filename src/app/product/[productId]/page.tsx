@@ -36,7 +36,7 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
   ];
 
   return (
-    <>
+    <main>
       <div
         className="w-full h-[1px] border-t border-neutralGray"
         aria-hidden
@@ -55,7 +55,7 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
         <ProductReel tag="new" />
       </MaxWidthWrapper>
       <NewsLetter />
-    </>
+    </main>
   );
 };
 

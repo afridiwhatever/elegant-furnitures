@@ -70,7 +70,7 @@ const features = [
 
 const HomePage = () => {
   return (
-    <>
+    <main>
       <MaxWidthWrapper>
         <HeroSectionSlider />
         {/* about */}
@@ -183,9 +183,7 @@ const HomePage = () => {
       </MaxWidthWrapper>
 
       <NewsLetter />
-
-      <Footer />
-    </>
+    </main>
   );
 };
 
