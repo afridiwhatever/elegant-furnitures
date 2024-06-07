@@ -47,7 +47,7 @@ const Products = async () => {
             <div className="h-[600px] bg-blue-200 lg:w-[20%] hidden lg:block py-1"></div>
 
             {/* filter and products */}
-            <div className="lg:w-[80%] lg:ml-auto space-y-2 bg-green-100">
+            <div className="lg:w-[80%] lg:ml-auto space-y-2 bg-green-50">
               {/* filter options */}
               <div className="space-y-2 lg:space-y-0 flex flex-col lg:flex-row lg:gap-8 lg:text-lg w-full">
                 {/* filter button and icons */}
@@ -88,7 +88,7 @@ const Products = async () => {
               </div>
 
               {/* products */}
-              <div className="grid grid-cols-2 lg:grid-cols-3 row-gap-2">
+              <div className="grid grid-cols-2 lg:grid-cols-4 row-gap-2">
                 {products.map((prod, index) => {
                   return <ProductCard key={prod.id} product={prod} />;
                 })}

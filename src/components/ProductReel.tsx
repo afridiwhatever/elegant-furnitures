@@ -44,7 +44,11 @@ const ProductReel = async ({ tag }: { tag: ProductTag }) => {
       </div>
       <div className="overflow-x-auto mt-10 flex gap-2 pb-6">
         {products.map((prod) => {
-          return <ProductCard key={prod.name} product={prod} />;
+          return (
+            <div key={prod.name} className="min-w-80">
+              <ProductCard product={prod} />
+            </div>
+          );
         })}
       </div>
       <div className="mt-6 mb-6 block md:hidden">

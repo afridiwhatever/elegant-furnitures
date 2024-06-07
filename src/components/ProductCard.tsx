@@ -25,7 +25,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <div className="relative hover:cursor-pointer group rounded-md p-2 border border-transparent transition-all duration-150 hover:border-black hover:bg-slate-100 hover:shadow-lg">
       {/* image and button */}
       <div className="relative overflow-hidden rounded-md w-full">
-        <div className="relative aspect-auto w-[230px] h-[310px] lg:w-[370px] lg:h-[420px] bg-neutralGray rounded-lg overflow-hidden">
+        <div className="relative aspect-auto pb-[115%] bg-neutralGray rounded-lg overflow-hidden">
           <Image
             src={product.images[0].url}
             fill
