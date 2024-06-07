@@ -90,7 +90,9 @@ const Products = async () => {
               {/* products */}
               <div className="grid grid-cols-2 lg:grid-cols-4 row-gap-2">
                 {products.map((prod, index) => {
-                  return <ProductCard key={prod.id} product={prod} />;
+                  return (
+                    <ProductCard key={prod.id} product={prod} context="grid" />
+                  );
                 })}
               </div>
             </div>

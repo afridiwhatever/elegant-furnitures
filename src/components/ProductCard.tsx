@@ -8,8 +8,9 @@ import { getRatingAndReviewCount } from "@/lib/utils";
 
 interface ProductCardProps {
   product: Product;
+  context: "list" | "grid";
 }
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, context }: ProductCardProps) => {
   let discountPercent = 0;
   if (product.discounted_price) {
     discountPercent = Math.ceil(
@@ -25,7 +26,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <div className="relative hover:cursor-pointer group rounded-md p-2 border border-transparent transition-all duration-150 hover:border-black hover:bg-slate-100 hover:shadow-lg">
       {/* image and button */}
       <div className="relative overflow-hidden rounded-md w-full">
-        <div className="relative aspect-auto pb-[115%] bg-neutralGray rounded-lg overflow-hidden">
+        <div
+          className={`relative ${
+            context === "grid"
+              ? "pb-[115%]"
+              : "w-[230px] h-[310px] lg:w-[320px] lg:h-[400px]"
+          }  bg-neutralGray rounded-lg overflow-hidden`}
+        >
           <Image
             src={product.images[0].url}
             fill
@@ -78,10 +85,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
         href={`/product/${product.id}`}
         className="flex flex-col gap-1 mt-3 "
       >
-        <h4 className="text-base lg:text-xl tracking-tight">{product.name}</h4>
+        <h4 className="text-base lg:text-lg tracking-tight">{product.name}</h4>
         {product.discounted_price ? (
           <div className="flex gap-2 items-center ">
-            <p className="lg:text-lg">${product.discounted_price}</p>
+            <p>${product.discounted_price}</p>
             <p className="text-muted-foreground text-sm  line-through font-medium">
               ${product.price}
             </p>
