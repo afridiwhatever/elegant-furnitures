@@ -24,8 +24,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="relative hover:cursor-pointer group rounded-md p-2 border border-transparent transition-all duration-150 hover:border-black hover:bg-slate-100 hover:shadow-lg">
       {/* image and button */}
-      <div className="relative overflow-hidden rounded-md">
-        <div className="relative w-[230px] h-[310px] lg:w-[290px] lg:h-[360px] bg-neutralGray rounded-lg overflow-hidden">
+      <div className="relative overflow-hidden rounded-md w-full">
+        <div className="relative aspect-auto w-[230px] h-[310px] lg:w-[370px] lg:h-[420px] bg-neutralGray rounded-lg overflow-hidden">
           <Image
             src={product.images[0].url}
             fill
@@ -78,10 +78,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
         href={`/product/${product.id}`}
         className="flex flex-col gap-1 mt-3 "
       >
-        <h4 className="text-xl tracking-tight font-semibold">{product.name}</h4>
+        <h4 className="text-base lg:text-xl tracking-tight">{product.name}</h4>
         {product.discounted_price ? (
           <div className="flex gap-2 items-center ">
-            <p className="text-lg">${product.discounted_price}</p>
+            <p className="lg:text-lg">${product.discounted_price}</p>
             <p className="text-muted-foreground text-sm  line-through font-medium">
               ${product.price}
             </p>
@@ -92,7 +92,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="flex gap-1 items-center">
           <ProductRating
             rating={averageRating}
-            size={16}
+            size={12}
             color="lightgray"
             activeColor="black"
           />
