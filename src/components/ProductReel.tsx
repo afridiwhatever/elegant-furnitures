@@ -2,14 +2,18 @@ import { Product, ProductTag } from "@/types";
 import ProductCard from "./ProductCard";
 import ShopNowButton from "./ShopNowButton";
 
+type ProductResponse = {
+  products: Product[];
+};
+
 const ProductReel = async ({ tag }: { tag: ProductTag }) => {
   const fetchProducts = async () => {
     const res = await fetch(`http://localhost:3000/api/products/?tag=${tag}`);
-    const data = await res.json();
+    const data: ProductResponse = await res.json();
     return data;
   };
 
-  const products = (await fetchProducts()) as Product[];
+  const { products } = await fetchProducts();
 
   const renderHeaderText = (tag: ProductTag) => {
     switch (tag) {

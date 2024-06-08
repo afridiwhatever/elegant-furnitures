@@ -1,30 +1,44 @@
-import React from "react";
+import Filter from "@/components/Filter";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import {
-  SlidersHorizontal,
-  ChevronDown,
-  StretchHorizontal,
-  StretchVertical,
-  Grip,
-  LayoutGrid,
-} from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import { Product, ProductCategory } from "@/types";
-import Link from "next/link";
+import {
+  ChevronDown,
+  Grip,
+  LayoutGrid,
+  SlidersHorizontal,
+  StretchHorizontal,
+  StretchVertical,
+} from "lucide-react";
 
 type ProductResponse = {
   products: Product[];
-  allCategories: ProductCategory[];
+  filteringCriteria: {
+    categories: ProductCategory[];
+    priceRange: {
+      minPrice: number;
+      maxPrice: number;
+    };
+  };
 };
 
-const fetchProducts = async () => {
-  const res = await fetch(`http://localhost:3000/api/products`);
+const fetchProducts = async (queryParams?: any) => {
+  let url = "http://localhost:3000/api/products";
+
+  if (queryParams && Object.keys(queryParams).length > 0) {
+    const queryString = new URLSearchParams(queryParams);
+    url += `?${queryString}`;
+  }
+
+  const res = await fetch(url);
   const data: ProductResponse = await res.json();
   return data;
 };
 
-const Products = async () => {
-  const { products, allCategories } = await fetchProducts();
+const Products = async ({ searchParams }: any) => {
+  const { products, filteringCriteria } = await fetchProducts(searchParams);
+
+  console.log(filteringCriteria);
 
   return (
     <main>
@@ -50,33 +64,10 @@ const Products = async () => {
           {/* page actual content */}
           <div className="flex items-start py-8 gap-4">
             {/* filter column for desktop only */}
-            <div className="h-[600px] lg:w-[20%] hidden lg:block py-1 space-y-8">
-              {/* desktop filter button */}
-              <div className="flex items-center gap-2">
-                <SlidersHorizontal className="w-5 h-5" strokeWidth={3} />
-                <span className="block text-xl font-[600]">Filter</span>
-              </div>
-              {/* category selector */}
-              <div>
-                <h4 className="uppercase font-[600]">Categories</h4>
-                <div className="space-y-2 mt-2">
-                  {allCategories.map((cat) => {
-                    return (
-                      <div key={cat.label}>
-                        <Link
-                          className="text-sm text-muted-foreground"
-                          href={`/products?category=${cat.label}`}
-                        >
-                          {cat.value}
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              {/* price selector */}
-              <div></div>
-            </div>
+            <Filter
+              categories={filteringCriteria.categories}
+              priceRange={filteringCriteria.priceRange}
+            />
 
             {/* filter and products */}
             <div className="w-full lg:w-[80%] lg:ml-auto space-y-2 ">
