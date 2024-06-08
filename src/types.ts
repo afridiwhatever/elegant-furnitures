@@ -56,6 +56,11 @@ export type ProductReview = {
   review: string;
 };
 
+export type ProductCategory = {
+  label: string;
+  value: string;
+};
+
 export type ProductTag = "new" | "sale" | "limited" | "bestseller" | undefined;
 
 export type Product = {
@@ -64,10 +69,7 @@ export type Product = {
   description: string;
   meta_description: string;
   tag?: ProductTag;
-  category: {
-    label: string;
-    value: string;
-  };
+  category: ProductCategory;
   sale_end_date?: string;
   subcategory: {
     label: string;

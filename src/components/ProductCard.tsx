@@ -80,10 +80,16 @@ const ProductCard = ({ product, context }: ProductCardProps) => {
         </div>
       </div>
 
+      <Link
+        href={`/product/${product.id}`}
+        className="text-xs text-muted-foreground hover:underline"
+      >
+        +More Options
+      </Link>
       {/* details */}
       <Link
         href={`/product/${product.id}`}
-        className="flex flex-col gap-1 mt-3 "
+        className="flex flex-col gap-1 mt-1 "
       >
         <h4 className="text-base lg:text-lg tracking-tight">{product.name}</h4>
         {product.discounted_price ? (
