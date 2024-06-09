@@ -144,14 +144,6 @@ const Filter = ({
     price: searchParams.get("price") || "",
   });
 
-  // const [filterCriteria, setFilterCriteria] = useState<FilterCriteria>({
-  //   category: [],
-  //   colors: [],
-  //   price: "",
-  // });
-
-  console.log(filterCriteria);
-
   const handleCategoryChange = (label: string) => {
     setFilterCriteria((prevCriteria) => {
       const newCategories = prevCriteria.category?.includes(label)
@@ -196,7 +188,7 @@ const Filter = ({
 
     const queryString = queryParams.toString();
     const url = `/products?${queryString}`;
-    router.push(url);
+    router.push(url, { scroll: false });
   }, [filterCriteria, router]);
 
   return (
