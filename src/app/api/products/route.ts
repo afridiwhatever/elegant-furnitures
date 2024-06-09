@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import products from "@/products";
-import { Product, ProductCategory } from "@/types";
+import { ProductCategory, ProductColorVariant } from "@/types";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const getCategories = (): ProductCategory[] => {
@@ -12,7 +12,6 @@ export async function GET(req: NextRequest) {
     });
     return Array.from(categoryMap.values());
   };
-
   const categories = getCategories();
 
   const getPriceRange = () => {
@@ -23,12 +22,30 @@ export async function GET(req: NextRequest) {
       maxPrice,
     };
   };
-
   const priceRange = getPriceRange();
+
+  const getColors = () => {
+    const colorVariantArray: ProductColorVariant[] = products.flatMap(
+      (product) => {
+        return product.color_variants;
+      }
+    );
+
+    const colorMap = new Map<string, string>();
+    colorVariantArray.forEach((variant) => {
+      if (!colorMap.has(variant.color)) {
+        colorMap.set(variant.color, variant.color);
+      }
+    });
+    return Array.from(colorMap.values());
+  };
+
+  const colors = getColors();
 
   const filteringCriteria = {
     categories,
     priceRange,
+    colors,
   };
 
   return NextResponse.json({ products, filteringCriteria });

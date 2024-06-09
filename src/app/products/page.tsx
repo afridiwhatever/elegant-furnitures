@@ -19,6 +19,7 @@ type ProductResponse = {
       minPrice: number;
       maxPrice: number;
     };
+    colors: string[];
   };
 };
 
@@ -37,8 +38,6 @@ const fetchProducts = async (queryParams?: any) => {
 
 const Products = async ({ searchParams }: any) => {
   const { products, filteringCriteria } = await fetchProducts(searchParams);
-
-  console.log(filteringCriteria);
 
   return (
     <main>
@@ -67,6 +66,7 @@ const Products = async ({ searchParams }: any) => {
             <Filter
               categories={filteringCriteria.categories}
               priceRange={filteringCriteria.priceRange}
+              colors={filteringCriteria.colors}
             />
 
             {/* filter and products */}
