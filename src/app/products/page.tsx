@@ -39,8 +39,6 @@ const fetchProducts = async (queryParams?: any) => {
 const Products = async ({ searchParams }: any) => {
   const { products, filteringCriteria } = await fetchProducts(searchParams);
 
-  console.log(products, "from page after build");
-
   return (
     <main>
       <section>
