@@ -401,12 +401,12 @@ const products: Product[] = [
         },
       },
       {
-        color: "Grey",
+        color: "Gray",
         availability_status: "In Stock",
         stock_quantity: 8,
         preview_image: {
           url: "/products/sofa_set/colors/sofa_set_grey.webp",
-          alt: "Minimalist Sofa Set in Grey",
+          alt: "Minimalist Sofa Set in Gray",
         },
       },
     ],

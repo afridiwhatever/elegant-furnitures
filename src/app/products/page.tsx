@@ -10,7 +10,7 @@ import {
   StretchHorizontal,
   StretchVertical,
 } from "lucide-react";
-
+import { Suspense } from "react";
 type ProductResponse = {
   products: Product[];
   filteringCriteria: {
@@ -63,14 +63,16 @@ const Products = async ({ searchParams }: any) => {
           {/* page actual content */}
           <div className="flex items-start py-8 gap-4">
             {/* filter column for desktop only */}
-            <Filter
-              categories={filteringCriteria.categories}
-              priceRange={filteringCriteria.priceRange}
-              colors={filteringCriteria.colors}
-            />
+            <Suspense>
+              <Filter
+                categories={filteringCriteria.categories}
+                priceRange={filteringCriteria.priceRange}
+                colors={filteringCriteria.colors}
+              />
+            </Suspense>
 
             {/* filter and products */}
-            <div className="w-full lg:w-[80%] lg:ml-auto space-y-2 ">
+            <div className="w-full lg:w-[85%] lg:ml-auto space-y-2 border border-zinc-300 rounded-lg p-2">
               {/* filter options */}
               <div className="space-y-2 lg:space-y-0 flex flex-col lg:flex-row lg:gap-8 lg:text-lg w-full">
                 {/* filter button and icons */}
