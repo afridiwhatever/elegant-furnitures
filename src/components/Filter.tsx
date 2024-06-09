@@ -144,8 +144,6 @@ const Filter = ({
     price: searchParams.get("price") || "",
   });
 
-  console.log("filter", filterCriteria, "from Filter after build");
-
   const handleCategoryChange = (label: string) => {
     setFilterCriteria((prevCriteria) => {
       const newCategories = prevCriteria.category?.includes(label)
