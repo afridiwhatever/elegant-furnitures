@@ -3,7 +3,10 @@ import { ProductCategory, ProductColorVariant } from "@/types";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
+  console.log("url hit");
   const { searchParams } = new URL(req.url);
+
+  console.log(searchParams, "from route after build");
 
   // Parse categories and colors from searchParams
   const categoriesParam = searchParams.get("category");
@@ -71,6 +74,8 @@ export async function GET(req: NextRequest) {
     priceRange,
     colors,
   };
+
+  console.log(filteredProducts, "from route after build");
 
   return NextResponse.json({ products: filteredProducts, filteringCriteria });
 }

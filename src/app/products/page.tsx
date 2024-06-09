@@ -31,13 +31,15 @@ const fetchProducts = async (queryParams?: any) => {
     url += `?${queryString}`;
   }
 
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: "no-store" });
   const data: ProductResponse = await res.json();
   return data;
 };
 
 const Products = async ({ searchParams }: any) => {
   const { products, filteringCriteria } = await fetchProducts(searchParams);
+
+  console.log(products, "from page after build");
 
   return (
     <main>
