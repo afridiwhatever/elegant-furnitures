@@ -11,7 +11,8 @@ import {
   StretchVertical,
 } from "lucide-react";
 import { Suspense } from "react";
-type ProductResponse = {
+
+type ProductFetchResponse = {
   products: Product[];
   filteringCriteria: {
     categories: ProductCategory[];
@@ -26,17 +27,20 @@ type ProductResponse = {
 const fetchProducts = async (queryParams?: any) => {
   let url = "http://localhost:3000/api/products";
 
+  // check if there's actually any queryparam that is passed, and if so, convert it to a query string and add on to the url
   if (queryParams && Object.keys(queryParams).length > 0) {
     const queryString = new URLSearchParams(queryParams);
     url += `?${queryString}`;
   }
 
+  // make the request, don't cache it, otherwise it won't work for obvious reasons
   const res = await fetch(url, { cache: "no-store" });
-  const data: ProductResponse = await res.json();
+  const data: ProductFetchResponse = await res.json();
   return data;
 };
 
 const Products = async ({ searchParams }: any) => {
+  // get the products and filteringcritera *based on those products*
   const { products, filteringCriteria } = await fetchProducts(searchParams);
 
   return (
@@ -63,6 +67,10 @@ const Products = async ({ searchParams }: any) => {
           {/* page actual content */}
           <div className="flex items-start py-8 gap-4">
             {/* filter column for desktop only */}
+
+            {/* pass on filtering criteria to the filter component, which will do it's magic to
+             *update the url* based on these so that this page will re-render and find queryParams this time  */}
+            {/* without the suspense was getting an useSearchParams() error used in filter component */}
             <Suspense>
               <Filter
                 categories={filteringCriteria.categories}
