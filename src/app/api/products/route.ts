@@ -1,13 +1,21 @@
-import products from "@/products";
 import { NextRequest, NextResponse } from "next/server";
 import { getFilteringCriteria } from "./routeUtils";
+import { fetchProducts } from "@/products";
+
+const cache = new Map();
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 
-  if (Object.keys(searchParams).length === 0) {
-    console.log("initial req, no search param");
+  const cacheKey = searchParams.toString();
+
+  if (cache.has(cacheKey)) {
+    console.log("returning cache response");
+    const response = cache.get(cacheKey);
+    return NextResponse.json(response);
   }
+
+  const products = await fetchProducts();
 
   // Parse categories and colors from searchParams
   const categoriesParam = searchParams.get("category");
@@ -30,6 +38,9 @@ export async function GET(req: NextRequest) {
   });
 
   const filteringCriteria = getFilteringCriteria(products);
+  const response = { products: filteredProducts, filteringCriteria };
 
-  return NextResponse.json({ products: filteredProducts, filteringCriteria });
+  cache.set(cacheKey, response);
+
+  return NextResponse.json(response);
 }
