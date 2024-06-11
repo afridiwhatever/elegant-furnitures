@@ -22,6 +22,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDiscountPanelShowing, setIsDiscountPanelShowing] =
     useState<boolean>(true);
+
   const pathname = usePathname();
 
   const navRef = useRef(null);
@@ -32,18 +33,41 @@ const Navbar = () => {
     setIsShopDropdownOpen(false);
   }, [pathname]);
 
+  // effect to update body top margin on discount panel toggle
+  useEffect(() => {
+    const updateBodyTopMargin = () => {
+      if (navRef.current) {
+        // @ts-ignore
+        const navbarHeight = navRef.current?.offsetHeight;
+        document.documentElement.style.setProperty(
+          "--navbar-height",
+          `${navbarHeight}px`
+        );
+      }
+    };
+    // Initial update
+    updateBodyTopMargin();
+
+    // Update on window resize
+    window.addEventListener("resize", updateBodyTopMargin);
+
+    return () => {
+      window.removeEventListener("resize", updateBodyTopMargin);
+    };
+  }, [isDiscountPanelShowing]);
+
   useOnClickOutside(navRef, () => {
     setIsProductDropdownOpen(false);
     setIsShopDropdownOpen(false);
   });
   return (
-    <header className="fixed top-0 w-screen z-10 bg-white">
+    <header className="fixed top-0 w-screen z-10 bg-white" ref={navRef}>
       {isDiscountPanelShowing && (
         <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
 
       <MaxWidthWrapper className="font-spaceGrotesk ">
-        <nav className="flex justify-between py-4 items-center " ref={navRef}>
+        <nav className="flex justify-between py-4 items-center " id="navbar">
           <div className="flex items-center gap-3">
             <BurgerIcon
               className="lg:hidden cursor-pointer -mt-1"

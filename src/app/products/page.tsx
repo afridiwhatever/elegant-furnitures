@@ -11,6 +11,7 @@ import {
   StretchVertical,
 } from "lucide-react";
 import { Suspense } from "react";
+import Test from "@/components/Test";
 
 type ProductFetchResponse = {
   products: Product[];
@@ -112,11 +113,12 @@ const Products = async ({ searchParams }: any) => {
                 {/* room title and sort */}
                 <div className="flex justify-between items-center lg:order-1 lg:flex-grow">
                   <span className="block font-semibold text-2xl ml-3">
-                    All Rooms
+                    All Furnitures
                   </span>
-                  <div className="flex items-center gap-2">
-                    Sort By
-                    <ChevronDown />
+                  <div className="flex items-center gap-2 py-4">
+                    {/* Sort By
+                    <ChevronDown /> */}
+                    <Test />
                   </div>
                 </div>
               </div>

@@ -27,6 +27,7 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+    --navbar-height: 0px;
   }
 
   .dark {
@@ -87,8 +88,7 @@
 
 body {
   margin: 0;
-
-  padding-top: 108px;
+  margin-top: var(--navbar-height);
 }
 
 /* Target the container with horizontal scrollbar */

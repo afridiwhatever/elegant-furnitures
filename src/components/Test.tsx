@@ -9,45 +9,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-// const Test = () => {
-//   return (
-<div className="relative">
-  <select
-    defaultValue={"newest"}
-    name="review-sort"
-    id="review-sort"
-    className="border-2 border-gray-200 rounded-md focus:outline-zinc-500 py-2.5 px-4 font-[600] w-full md:w-48"
-    style={{
-      appearance: "none",
-      WebkitAppearance: "none",
-      MozAppearance: "none",
-      backgroundImage: "none",
-      background: "none",
-    }}
-  >
-    <option value="newest">Newest</option>
-    <option value="oldest">Oldest</option>
-    <option value="positive">Positive</option>
-    <option value="critical">Critical</option>
-  </select>
-  <ChevronDown className="h-5 w-5 absolute right-2 top-[50%] transform -translate-y-[50%] " />
-</div>;
-//   );
-// };
-
-// export default Test;
-
 import React from "react";
 
 const Test = () => {
   return (
-    <div className="">
+    <div className="relative text-2xl">
       <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Select a fruit" />
+        <SelectTrigger className="w-[220px] py-5 border-black">
+          <SelectValue placeholder="Default" />
         </SelectTrigger>
         <SelectContent>
-          <SelectGroup>
+          <SelectGroup className="text-2xl">
             <SelectItem value="apple">Apple</SelectItem>
             <SelectItem value="banana">Banana</SelectItem>
             <SelectItem value="blueberry">Blueberry</SelectItem>
@@ -56,6 +28,9 @@ const Test = () => {
           </SelectGroup>
         </SelectContent>
       </Select>
+      <span className="text-xs absolute -top-[7px] right-4 bg-white block px-1 text-gray-500">
+        Sort By
+      </span>
     </div>
   );
 };

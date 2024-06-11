@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import PaginatedReviews from "./PaginatedReviews";
 import ProductRating from "./ProductRating";
 import { getRatingAndReviewCount } from "@/lib/utils";
+import Test from "./Test";
 
 const ProductReviews = ({
   productReviews,
@@ -22,8 +23,8 @@ const ProductReviews = ({
               <p>{numberOfReviews} Reviews</p>
             </div>
           </div>
-          <div className="relative ">
-            <select
+          <div className="mr-1">
+            {/* <select
               defaultValue={"newest"}
               name="review-sort"
               id="review-sort"
@@ -41,7 +42,8 @@ const ProductReviews = ({
               <option value="positive">Positive</option>
               <option value="critical">Critical</option>
             </select>
-            <ChevronDown className="h-5 w-5 absolute right-2 top-[50%] transform -translate-y-[50%] " />
+            <ChevronDown className="h-5 w-5 absolute right-2 top-[50%] transform -translate-y-[50%] " /> */}
+            <Test />
           </div>
         </div>
 
