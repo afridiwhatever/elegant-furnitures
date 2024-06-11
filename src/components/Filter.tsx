@@ -12,16 +12,20 @@ interface FilterCriteria {
 }
 
 interface FilterProps {
-  categories: ProductCategory[];
-  priceRange: {
+  categoryOptions: ProductCategory[];
+  priceRangeOptions: {
     minPrice: number;
     maxPrice: number;
   };
-  colors: string[];
+  colorOptions: string[];
 }
 
 // receive the filtercriteria prop based on I'll render the checkboxes on so to let the user filter
-const Filter = ({ categories, priceRange, colors }: FilterProps) => {
+const Filter = ({
+  categoryOptions,
+  priceRangeOptions,
+  colorOptions,
+}: FilterProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -33,6 +37,7 @@ const Filter = ({ categories, priceRange, colors }: FilterProps) => {
     price: searchParams.get("price") || "",
   });
 
+  // check if the selected category is already in the category array. If so, remove it. Otherwise, add.
   const handleCategoryChange = (label: string) => {
     setFilterCriteria((prevCriteria) => {
       const newCategories = prevCriteria.category?.includes(label)
@@ -43,6 +48,7 @@ const Filter = ({ categories, priceRange, colors }: FilterProps) => {
     });
   };
 
+  // check if the selected color is already in the colors array. If so, remove it. Otherwise, add.
   const handleColorChange = (color: string) => {
     setFilterCriteria((prevCriteria) => {
       const newColors = prevCriteria.colors?.includes(color)
@@ -53,13 +59,7 @@ const Filter = ({ categories, priceRange, colors }: FilterProps) => {
     });
   };
 
-  useEffect(() => {
-    setFilterCriteria({
-      category: searchParams.get("category")?.split(",") || [],
-      colors: searchParams.get("colors")?.split(",") || [],
-    });
-  }, [searchParams]);
-
+  // this effect will update the url(searchParams) based on filtercriteria state
   useEffect(() => {
     const queryParams = new URLSearchParams();
 
@@ -80,13 +80,23 @@ const Filter = ({ categories, priceRange, colors }: FilterProps) => {
     router.push(url, { scroll: false });
   }, [filterCriteria, router]);
 
+  /*this effect will update the filtercriteria state based on URL searchParams state, when the user clicks back button
+   Had nextjs caused a full page refresh in case of back navigation, this wouldn't be required. But since next doesnt do that,
+   we have to keep track of the searchparams. Also, this makes searchParams the single source of truth. Everything depends on the state of searchParams. */
+  useEffect(() => {
+    setFilterCriteria({
+      category: searchParams.get("category")?.split(",") || [],
+      colors: searchParams.get("colors")?.split(",") || [],
+    });
+  }, [searchParams]);
+
   return (
     <div className="lg:w-[20%] hidden lg:block space-y-8 rounded-lg pt-0 ">
       {/* category selector */}
       <div className="rounded-md border border-zinc-300 p-3">
         <h4 className="uppercase font-[600]">Categories</h4>
         <div className="space-y-2 mt-2">
-          {categories.map((category) => (
+          {categoryOptions.map((category) => (
             <div key={category.label} className="flex items-center gap-1.5">
               <input
                 type="checkbox"
@@ -118,7 +128,7 @@ const Filter = ({ categories, priceRange, colors }: FilterProps) => {
       <div className="rounded-md border border-zinc-300 p-3">
         <h4 className="uppercase font-[600]">Colors</h4>
         <div className="space-y-2 mt-2">
-          {colors.map((color, index) => (
+          {colorOptions.map((color, index) => (
             <div key={color + index} className="flex items-center gap-2">
               <input
                 type="checkbox"

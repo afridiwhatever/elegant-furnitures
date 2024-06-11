@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
   const selectedCategories = categoriesParam ? categoriesParam.split(",") : [];
   const selectedColors = colorsParam ? colorsParam.split(",") : [];
 
-  // Function to get all unique categories
+  // Function to get all unique categories and send to frontend for render purposes
   const getCategories = (): ProductCategory[] => {
     const categoryMap = new Map<string, ProductCategory>();
     products.forEach((product) => {
@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
   };
   const categories = getCategories();
 
-  // Function to get the price range
+  // Function to get the price range and send to frontend for render purposes
   const getPriceRange = () => {
     const minPrice = Math.min(...products.map((product) => product.price));
     const maxPrice = Math.max(...products.map((product) => product.price));
@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
   };
   const priceRange = getPriceRange();
 
-  // Function to get all unique colors
+  // Function to get all unique colors  and send to frontend for render purposes
   const getColors = () => {
     const colorVariantArray: ProductColorVariant[] = products.flatMap(
       (product) => {

@@ -41,6 +41,7 @@ const fetchProducts = async (queryParams?: any) => {
 
 const Products = async ({ searchParams }: any) => {
   // get the products and filteringcritera *based on those products*
+  // the fetchProducts functions will pass
   const { products, filteringCriteria } = await fetchProducts(searchParams);
 
   return (
@@ -73,9 +74,9 @@ const Products = async ({ searchParams }: any) => {
             {/* without the suspense was getting an useSearchParams() error used in filter component */}
             <Suspense>
               <Filter
-                categories={filteringCriteria.categories}
-                priceRange={filteringCriteria.priceRange}
-                colors={filteringCriteria.colors}
+                categoryOptions={filteringCriteria.categories}
+                priceRangeOptions={filteringCriteria.priceRange}
+                colorOptions={filteringCriteria.colors}
               />
             </Suspense>
 
