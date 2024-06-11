@@ -1,9 +1,13 @@
 import products from "@/products";
-import { ProductCategory, ProductColorVariant } from "@/types";
 import { NextRequest, NextResponse } from "next/server";
+import { getFilteringCriteria } from "./routeUtils";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
+
+  if (Object.keys(searchParams).length === 0) {
+    console.log("initial req, no search param");
+  }
 
   // Parse categories and colors from searchParams
   const categoriesParam = searchParams.get("category");
@@ -11,47 +15,6 @@ export async function GET(req: NextRequest) {
 
   const selectedCategories = categoriesParam ? categoriesParam.split(",") : [];
   const selectedColors = colorsParam ? colorsParam.split(",") : [];
-
-  // Function to get all unique categories and send to frontend for render purposes
-  const getCategories = (): ProductCategory[] => {
-    const categoryMap = new Map<string, ProductCategory>();
-    products.forEach((product) => {
-      if (product.category && !categoryMap.has(product.category.label)) {
-        categoryMap.set(product.category.label, product.category);
-      }
-    });
-    return Array.from(categoryMap.values());
-  };
-  const categories = getCategories();
-
-  // Function to get the price range and send to frontend for render purposes
-  const getPriceRange = () => {
-    const minPrice = Math.min(...products.map((product) => product.price));
-    const maxPrice = Math.max(...products.map((product) => product.price));
-    return {
-      minPrice,
-      maxPrice,
-    };
-  };
-  const priceRange = getPriceRange();
-
-  // Function to get all unique colors  and send to frontend for render purposes
-  const getColors = () => {
-    const colorVariantArray: ProductColorVariant[] = products.flatMap(
-      (product) => {
-        return product.color_variants;
-      }
-    );
-
-    const colorMap = new Map<string, string>();
-    colorVariantArray.forEach((variant) => {
-      if (!colorMap.has(variant.color)) {
-        colorMap.set(variant.color, variant.color);
-      }
-    });
-    return Array.from(colorMap.values()).sort();
-  };
-  const colors = getColors();
 
   // Filter products based on the selected categories and colors
   const filteredProducts = products.filter((product) => {
@@ -66,11 +29,7 @@ export async function GET(req: NextRequest) {
     return categoryMatch && colorMatch;
   });
 
-  const filteringCriteria = {
-    categories,
-    priceRange,
-    colors,
-  };
+  const filteringCriteria = getFilteringCriteria(products);
 
   return NextResponse.json({ products: filteredProducts, filteringCriteria });
 }
