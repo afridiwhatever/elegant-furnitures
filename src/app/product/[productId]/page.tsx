@@ -42,8 +42,8 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
         aria-hidden
       ></div>
       <MaxWidthWrapper>
-        <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        {/* <Breadcrumb BreadcrumbElements={BreadcrumbElements} /> */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mt-4">
           <ProductShowcase productImages={product.images} />
           <ProductDetails product={product} />
         </div>

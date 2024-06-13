@@ -6,18 +6,30 @@ import ProductRating from "./ProductRating";
 import SaleCountdown from "./SaleCountdown";
 import { Button } from "./ui/button";
 import { getRatingAndReviewCount } from "@/lib/utils";
+import Breadcrumb from "./Breadcrumb";
+import { convertToSlug } from "@/lib/utils";
 
 const ProductDetails = ({ product }: { product: Product }) => {
   const { averageRating, numberOfReviews } = getRatingAndReviewCount(
     product.reviews
   );
+
+  const BreadcrumbElements = [
+    { name: "Home", href: "/" },
+    { name: "Shop", href: "/shop" },
+    {
+      name: product.category.value,
+      href: `/shop/${convertToSlug(product.category.label)}`,
+    },
+    // {
+    //   name: "Product",
+    //   href: `/product/${convertToSlug(product.id + " " + product.name)}`,
+    // },
+  ];
   return (
-    <div className="w-full lg:w-[55%] space-y-4 relative ">
+    <div className="w-full lg:w-[55%] space-y-4 relative">
       {/* reviews */}
-      <div className="flex gap-3 items-center">
-        <ProductRating rating={averageRating} />
-        <p>{numberOfReviews} Reviews</p>
-      </div>
+      <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
 
       {/* details */}
       <h1 className="font-medium text-4xl lg:text-5xl">{product.name}</h1>
@@ -30,6 +42,11 @@ const ProductDetails = ({ product }: { product: Product }) => {
           ${product.price}
         </span>
       </p>
+
+      <div className="flex gap-3 items-center">
+        <ProductRating rating={averageRating} />
+        <p>{numberOfReviews} Reviews</p>
+      </div>
 
       {/* countdown */}
       {product.sale_end_date && (
