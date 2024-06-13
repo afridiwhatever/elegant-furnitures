@@ -54,7 +54,7 @@ const Products = async ({ searchParams }: any) => {
             style={{
               backgroundImage: "url(/shop_page_bg.jpeg)",
             }}
-            className="w-full h-[30vh] bg-cover bg-center grid place-content-center"
+            className="w-full h-[20vh] bg-cover bg-center grid place-content-center rounded-lg "
           >
             <div className="space-y-2 text-center">
               <h1 className="text-4xl lg:text-5xl font-[500]">
@@ -112,9 +112,7 @@ const Products = async ({ searchParams }: any) => {
 
                 {/* room title and sort */}
                 <div className="flex justify-between items-center lg:order-1 lg:flex-grow">
-                  <span className="block font-semibold text-2xl ml-3">
-                    All Furnitures
-                  </span>
+                  <span className="block text-2xl ml-3">All Furnitures</span>
                   <div className="flex items-center gap-2 py-4">
                     {/* Sort By
                     <ChevronDown /> */}

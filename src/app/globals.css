@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-space_grotesk: "Space Grotesk", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
 
 @layer base {
   :root {
@@ -58,7 +60,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground !min-w-full;
+    @apply bg-background text-foreground !min-w-full font-spaceGrotesk;
   }
 }
 
@@ -76,7 +78,6 @@
     background: #f3f5f7;
     background-image: url("/bg/left-bg.png"), url("/bg/right-bg.png");
     background-repeat: no-repeat;
-    /* background-position: calc(-10vw), calc(90vw); */
     background-position: left, right;
     background-size: 30%;
   }

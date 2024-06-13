@@ -1691,8 +1691,6 @@ export default products;
 export const fetchProducts = async () => {
   console.log("fetching products");
   return new Promise<Product[]>((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 1000);
+    resolve(products);
   });
 };

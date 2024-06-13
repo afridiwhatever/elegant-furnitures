@@ -1,9 +1,17 @@
 "use client";
 
+import { ProductCategory } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-
-import { ProductCategory } from "@/types";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface FilterCriteria {
   category?: string[];
@@ -92,12 +100,36 @@ const Filter = ({
 
   return (
     <div className="lg:w-[20%] hidden lg:block space-y-8 rounded-lg pt-0 ">
+      {/* sorting options */}
+      <div className="relative text-2xl">
+        <Select>
+          <SelectTrigger className="w-full py-6 border-zinc-300">
+            <SelectValue placeholder="Default" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup className="text-2xl">
+              <SelectItem value="apple">Apple</SelectItem>
+              <SelectItem value="banana">Banana</SelectItem>
+              <SelectItem value="blueberry">Blueberry</SelectItem>
+              <SelectItem value="grapes">Grapes</SelectItem>
+              <SelectItem value="pineapple">Pineapple</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <span className="text-xs absolute -top-[7px] right-4 bg-white block px-1 text-gray-600 t">
+          Sort By
+        </span>
+      </div>
+
       {/* category selector */}
-      <div className="rounded-md border border-zinc-300 p-3">
-        <h4 className="uppercase font-[600]">Categories</h4>
+      <div className="rounded-md font-[600] border border-zinc-300 p-3">
+        <h4 className="text-xl font-italic">Categories</h4>
         <div className="space-y-2 mt-2">
           {categoryOptions.map((category) => (
-            <div key={category.label} className="flex items-center gap-1.5">
+            <div
+              key={category.label}
+              className="flex items-center gap-1.5  ml-1"
+            >
               <input
                 type="checkbox"
                 id={category.label}
@@ -106,9 +138,9 @@ const Filter = ({
               />
               <label
                 htmlFor={category.label}
-                className={`text-sm text-muted-foreground ${
+                className={`text-base text-black hover:underline font-[300] ${
                   filterCriteria.category?.includes(category.label)
-                    ? "font-semibold"
+                    ? "font-bold"
                     : ""
                 }`}
               >
@@ -121,12 +153,13 @@ const Filter = ({
 
       {/* price selector */}
       <div className="rounded-md border border-zinc-300 p-3">
-        <h4 className="uppercase font-[600]">Price</h4>
+        <h4 className="text-xl font-[500]">Price</h4>
         {/* render a range selector for price here based on min and max price received as prop */}
       </div>
 
+      {/* color selector */}
       <div className="rounded-md border border-zinc-300 p-3">
-        <h4 className="uppercase font-[600]">Colors</h4>
+        <h4 className="text-xl  font-[500]">Colors</h4>
         <div className="space-y-2 mt-2">
           {colorOptions.map((color, index) => (
             <div key={color + index} className="flex items-center gap-2">

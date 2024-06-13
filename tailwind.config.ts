@@ -77,8 +77,8 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        spaceGrotesk: ["Space Grotesk", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        spaceGrotesk: ["var(--font-space_grotesk)", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
       },
     },
   },

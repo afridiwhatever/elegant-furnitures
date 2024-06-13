@@ -20,8 +20,8 @@ const ProductDetails = ({ product }: { product: Product }) => {
       </div>
 
       {/* details */}
-      <h1 className="font-poppins text-4xl lg:text-5xl">{product.name}</h1>
-      <p className="text-base lg:text-lg text-blackishGray font-[400] ">
+      <h1 className="font-medium text-4xl lg:text-5xl">{product.name}</h1>
+      <p className="text-base lg:text-lg text-blackishGray">
         {product.description}
       </p>
       <p className="font-poppins text-2xl lg:text-3xl">
@@ -41,9 +41,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
 
       {/* measurements */}
       <div className="space-y-2 py-4">
-        <h4 className="font-semibold text-lg text-blackishGray">
-          Measurements
-        </h4>
+        <h4 className="font-bold text-lg text-blackishGray">Measurements</h4>
         <p className="text-xl font-[400] flex">
           {product.dimensions.height} * {product.dimensions.width} *{" "}
           {product.dimensions.depth}

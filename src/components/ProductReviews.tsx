@@ -17,7 +17,9 @@ const ProductReviews = ({
       <div className="w-full pt-4 lg:pt-0 space-y-3">
         <div className="flex justify-between items-center">
           <div className="space-y-2">
-            <h2 className="text-2xl font-poppins">Customer Reviews</h2>
+            <h2 className="text-lg font-light text-[rgb(0,0,0)]">
+              Customer Reviews
+            </h2>
             <div className="flex gap-2 items-center pb-4">
               <ProductRating rating={averageRating} />
               <p>{numberOfReviews} Reviews</p>
