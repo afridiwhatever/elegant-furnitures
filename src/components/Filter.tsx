@@ -44,6 +44,8 @@ const Filter = ({
     price: searchParams.get("price") || "",
   });
 
+  const [value, setValue] = useState("apple");
+
   // check if the selected category is already in the category array. If so, remove it. Otherwise, add.
   const handleCategoryChange = (label: string) => {
     setFilterCriteria((prevCriteria) => {
@@ -101,18 +103,24 @@ const Filter = ({
     <div className="lg:w-[20%] hidden lg:block space-y-8 rounded-lg pt-0 ">
       {/* sorting options */}
       <div className="relative text-2xl">
-        <Select>
+        <Select
+          value={value}
+          onValueChange={(value) => {
+            setValue(value);
+            console.log(value);
+          }}
+        >
           <SelectTrigger className="w-full py-6 border-zinc-300">
-            <SelectValue placeholder="Default" />
+            <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectGroup className="text-2xl">
-              <SelectItem value="apple">Apple</SelectItem>
-              <SelectItem value="banana">Banana</SelectItem>
-              <SelectItem value="blueberry">Blueberry</SelectItem>
-              <SelectItem value="grapes">Grapes</SelectItem>
-              <SelectItem value="pineapple">Pineapple</SelectItem>
-            </SelectGroup>
+            {/* <SelectGroup className="text-2xl"> */}
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="blueberry">Blueberry</SelectItem>
+            <SelectItem value="grapes">Grapes</SelectItem>
+            <SelectItem value="pineapple">Pineapple</SelectItem>
+            {/* </SelectGroup> */}
           </SelectContent>
         </Select>
         <span className="text-xs absolute -top-[7px] right-4 bg-white block px-1 text-gray-600 t">
@@ -161,7 +169,7 @@ const Filter = ({
         <h4 className="text-2xl">Colors</h4>
         <div className="space-y-2 mt-2">
           {colorOptions.map((color, index) => (
-            <div key={color + index} className="flex items-center gap-2">
+            <div key={color + index} className="flex items-center gap-2 ml-1">
               <input
                 type="checkbox"
                 id={color}
