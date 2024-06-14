@@ -77,6 +77,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
+        futura: ["var(--font-futura)", "sans-serif"],
         spaceGrotesk: ["var(--font-space_grotesk)", "sans-serif"],
         poppins: ["var(--font-poppins)", "sans-serif"],
       },

@@ -143,16 +143,16 @@ const ProductShowcaseCarousel = ({
           })}
           <button
             onClick={handleNext}
-            className={`absolute top-[50%] -translate-y-[50%] z-10 right-2  text-zinc-700 bg-neutralGray rounded-full bg-opacity-30 ${
-              isEnd ? "opacity-50" : ""
+            className={`absolute top-[50%] -translate-y-[50%] z-10 right-2  text-slate-300  rounded-full bg-opacity-30 ${
+              isEnd ? "opacity-30" : ""
             }`}
           >
             <ChevronRight strokeWidth={3} className="h-10 w-10" />
           </button>
           <button
             onClick={handlePrev}
-            className={`absolute top-[50%] -translate-y-[50%] z-10 left-2 grid place-content-center  text-zinc-700 rounded-full  bg-neutralGray bg-opacity-30 ${
-              isBeginning ? "opacity-50" : ""
+            className={`absolute top-[50%] -translate-y-[50%] z-10 left-2 grid place-content-center  text-slate-300 rounded-full  bg-opacity-30 ${
+              isBeginning ? "opacity-30" : ""
             }`}
           >
             <ChevronLeft strokeWidth={3} className="h-10 w-10" />

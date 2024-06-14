@@ -66,7 +66,7 @@ const Navbar = () => {
         <DiscountPanel setIsDiscountPanelShowing={setIsDiscountPanelShowing} />
       )}
 
-      <MaxWidthWrapper className="font-spaceGrotesk ">
+      <MaxWidthWrapper className="font-futura tracking-wide text-lg">
         <nav className="flex justify-between py-4 items-center " id="navbar">
           <div className="flex items-center gap-3">
             <BurgerIcon

@@ -54,11 +54,11 @@ const Products = async ({ searchParams }: any) => {
             style={{
               backgroundImage: "url(/shop_page_bg.jpeg)",
             }}
-            className="w-full h-[20vh] bg-cover bg-center grid place-content-center rounded-lg "
+            className="w-full h-[25vh] bg-cover bg-center grid place-content-center rounded-lg "
           >
             <div className="space-y-2 text-center">
-              <h1 className="text-4xl lg:text-5xl font-[500]">
-                Shop All Products
+              <h1 className="text-4xl lg:text-5xl font-[500] tracking-wide">
+                Shop Everything of Elegant!
               </h1>
               <p className="lg:font-[200] lg:text-xl">
                 Let&apos;s design the place you always imagined.
@@ -82,7 +82,7 @@ const Products = async ({ searchParams }: any) => {
             </Suspense>
 
             {/* filter and products */}
-            <div className="w-full lg:w-[85%] lg:ml-auto space-y-2 border border-zinc-300 rounded-lg p-2">
+            <div className="w-full lg:w-[85%] lg:ml-auto space-y-0 rounded-lg p-0">
               {/* filter options */}
               <div className="space-y-2 lg:space-y-0 flex flex-col lg:flex-row lg:gap-8 lg:text-lg w-full">
                 {/* filter button and icons */}
@@ -91,32 +91,6 @@ const Products = async ({ searchParams }: any) => {
                   <div className="flex items-center gap-2 lg:hidden">
                     <SlidersHorizontal className="w-4 h-4" strokeWidth={3} />
                     <span className="block">Filter</span>
-                  </div>
-
-                  {/* icons */}
-                  <div className="flex">
-                    <div className="py-2 px-3 border">
-                      <Grip className="h-5 w-5" fill="black" strokeWidth={4} />
-                    </div>
-                    <div className="py-2 px-3 border">
-                      <LayoutGrid className="h-5 w-5" fill="black" />
-                    </div>
-                    <div className="py-2 px-3 border bg-neutralGray">
-                      <StretchVertical className="h-5 w-5" fill="black" />
-                    </div>
-                    <div className="py-2 px-3 border">
-                      <StretchHorizontal className="h-5 w-5" fill="black" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* room title and sort */}
-                <div className="flex justify-between items-center lg:order-1 lg:flex-grow">
-                  <span className="block text-2xl ml-3">All Furnitures</span>
-                  <div className="flex items-center gap-2 py-4">
-                    {/* Sort By
-                    <ChevronDown /> */}
-                    <Test />
                   </div>
                 </div>
               </div>

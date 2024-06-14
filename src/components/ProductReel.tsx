@@ -35,9 +35,7 @@ const ProductReel = async ({ tag }: { tag: ProductTag }) => {
   return (
     <div className="mt-12">
       <div className="flex justify-between items-end">
-        <h2 className="font-poppins text-3xl lg:text-5xl">
-          {renderHeaderText(tag)}
-        </h2>
+        <h2 className="text-3xl lg:text-5xl ml-1">{renderHeaderText(tag)}</h2>
         <div className="hidden md:block">
           <ShopNowButton
             to={"/products"}
@@ -46,7 +44,7 @@ const ProductReel = async ({ tag }: { tag: ProductTag }) => {
           />
         </div>
       </div>
-      <div className="overflow-x-auto mt-10 flex gap-2 pb-6">
+      <div className="overflow-x-auto mt-4 flex gap-2 pb-6">
         {products.map((prod) => {
           return <ProductCard key={prod.name} product={prod} context="list" />;
         })}

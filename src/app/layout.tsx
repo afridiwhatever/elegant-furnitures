@@ -1,18 +1,55 @@
 import type { Metadata } from "next";
-import { Poppins, Space_Grotesk, Noto_Serif } from "next/font/google";
+import {
+  Poppins,
+  Space_Grotesk,
+  Mulish,
+  Didact_Gothic,
+  Questrial,
+  Lato,
+} from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// headers
+const futura = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Futura/FuturaPTLight.otf",
+      weight: "300",
+      style: "light",
+    },
+    {
+      path: "../../public/fonts/Futura/FuturaPTMedium.otf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "../../public/fonts/Futura/FuturaPTDemi.otf",
+      weight: "600",
+      style: "semibold",
+    },
+    {
+      path: "../../public/fonts/Futura/FuturaPTBold.otf",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  variable: "--font-futura",
+});
+
+// body
 const space_grotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-space_grotesk",
 });
 
+// special
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-poppins",
   style: ["normal", "italic"],
 });
@@ -30,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${space_grotesk.variable} ${poppins.variable} w-screen overflow-x-hidden`}
+        className={`${space_grotesk.variable} ${poppins.variable} ${futura.variable} w-screen overflow-x-hidden`}
       >
         <Navbar />
         {children}

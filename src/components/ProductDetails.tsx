@@ -32,7 +32,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
       <Breadcrumb BreadcrumbElements={BreadcrumbElements} />
 
       {/* details */}
-      <h1 className="font-medium  text-4xl lg:text-5xl">{product.name}</h1>
+      <h1 className="text-4xl lg:text-5xl">{product.name} </h1>
       <p className="text-base lg:text-lg text-blackishGray">
         {product.description}
       </p>

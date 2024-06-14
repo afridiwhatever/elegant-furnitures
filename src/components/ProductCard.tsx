@@ -29,7 +29,7 @@ const ProductCard = ({ product, context }: ProductCardProps) => {
         <div
           className={`relative ${
             context === "grid"
-              ? "pb-[115%]"
+              ? "pb-[110%]"
               : "w-[230px] h-[310px] lg:w-[320px] lg:h-[400px]"
           }  bg-neutralGray rounded-lg overflow-hidden`}
         >
@@ -91,11 +91,11 @@ const ProductCard = ({ product, context }: ProductCardProps) => {
         href={`/product/${product.id}`}
         className="flex flex-col gap-1 mt-1 "
       >
-        <h4 className="text-base lg:text-lg tracking-tight">{product.name}</h4>
+        <h4 className="text-base lg:text-lg tracking-wide">{product.name}</h4>
         {product.discounted_price ? (
           <div className="flex gap-2 items-center ">
             <p>${product.discounted_price}</p>
-            <p className="text-muted-foreground text-sm  line-through font-medium">
+            <p className="text-muted-foreground text-sm line-through font-medium">
               ${product.price}
             </p>
           </div>
