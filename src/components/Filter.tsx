@@ -16,6 +16,7 @@ interface FilterCriteria {
   category?: string[];
   price?: string;
   colors?: string[];
+  sort?: string;
 }
 
 interface FilterProps {
@@ -24,13 +25,19 @@ interface FilterProps {
     minPrice: number;
     maxPrice: number;
   };
+  sortOptions: { label: string; value: string }[];
   colorOptions: string[];
 }
+
+// price - asc, desc
+// reviews -
+// default
 
 // receive the filtercriteria prop based on I'll render the checkboxes on so to let the user filter
 const Filter = ({
   categoryOptions,
   priceRangeOptions,
+  sortOptions,
   colorOptions,
 }: FilterProps) => {
   const router = useRouter();
@@ -42,9 +49,8 @@ const Filter = ({
     category: searchParams.get("category")?.split(",") || [],
     colors: searchParams.get("colors")?.split(",") || [],
     price: searchParams.get("price") || "",
+    sort: searchParams.get("sort") || "",
   });
-
-  const [value, setValue] = useState("apple");
 
   // check if the selected category is already in the category array. If so, remove it. Otherwise, add.
   const handleCategoryChange = (label: string) => {
@@ -68,6 +74,12 @@ const Filter = ({
     });
   };
 
+  const handleSortChange = (sortBy: string) => {
+    setFilterCriteria((prevCriteria) => {
+      return { ...prevCriteria, sort: sortBy };
+    });
+  };
+
   // this effect will update the url(searchParams) based on filtercriteria state
   useEffect(() => {
     const queryParams = new URLSearchParams();
@@ -84,6 +96,10 @@ const Filter = ({
       queryParams.append("price", filterCriteria.price);
     }
 
+    if (filterCriteria.sort) {
+      queryParams.append("sort", filterCriteria.sort);
+    }
+
     const queryString = queryParams.toString();
     const url = `/products?${queryString}`;
     router.push(url, { scroll: false });
@@ -96,6 +112,7 @@ const Filter = ({
     setFilterCriteria({
       category: searchParams.get("category")?.split(",") || [],
       colors: searchParams.get("colors")?.split(",") || [],
+      sort: searchParams.get("sort") || "",
     });
   }, [searchParams]);
 
@@ -104,22 +121,30 @@ const Filter = ({
       {/* sorting options */}
       <div className="relative text-2xl">
         <Select
-          value={value}
-          onValueChange={(value) => {
-            setValue(value);
-            console.log(value);
-          }}
+          value={filterCriteria.sort || sortOptions[0].value}
+          onValueChange={handleSortChange}
+          onOpenChange={(v) => console.log(v)}
         >
           <SelectTrigger className="w-full py-6 border-zinc-300">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
             {/* <SelectGroup className="text-2xl"> */}
+
+            {sortOptions.map((option) => {
+              return (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              );
+            })}
+            {/* 
+            <SelectItem value="recommended">Recommended</SelectItem>
             <SelectItem value="apple">Apple</SelectItem>
             <SelectItem value="banana">Banana</SelectItem>
             <SelectItem value="blueberry">Blueberry</SelectItem>
             <SelectItem value="grapes">Grapes</SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
+            <SelectItem value="pineapple">Pineapple</SelectItem> */}
             {/* </SelectGroup> */}
           </SelectContent>
         </Select>

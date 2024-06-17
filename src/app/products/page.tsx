@@ -21,6 +21,7 @@ type ProductFetchResponse = {
       minPrice: number;
       maxPrice: number;
     };
+    sortOptions: { label: string; value: string }[];
     colors: string[];
   };
 };
@@ -77,6 +78,7 @@ const Products = async ({ searchParams }: any) => {
               <Filter
                 categoryOptions={filteringCriteria.categories}
                 priceRangeOptions={filteringCriteria.priceRange}
+                sortOptions={filteringCriteria.sortOptions}
                 colorOptions={filteringCriteria.colors}
               />
             </Suspense>

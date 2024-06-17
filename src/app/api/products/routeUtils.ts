@@ -1,5 +1,20 @@
 import { Product, ProductCategory, ProductColorVariant } from "@/types";
 
+export interface sortOption {
+  label: string;
+  value: string;
+}
+
+// sort
+export const SORT_OPTIONS = [
+  { label: "Recommended", value: "recommended" },
+  { label: "Price (Low - High)", value: "price_desc" },
+  { label: "Price (High - Low)", value: "price_asc" },
+  { label: "Reviews (High - Low)", value: "reviews_asc" },
+  { label: "Alphabetically (A-Z)", value: "title_asc" },
+  { label: "Alphabetically (Z-A)", value: "title_desc" },
+] as const;
+
 export const getFilteringCriteria = (products: Product[]) => {
   // categories
   const categoryMap = new Map<string, ProductCategory>();
@@ -35,6 +50,7 @@ export const getFilteringCriteria = (products: Product[]) => {
   return {
     categories,
     priceRange,
+    sortOptions: SORT_OPTIONS,
     colors,
   };
 };
